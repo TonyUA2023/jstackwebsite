@@ -1,33 +1,29 @@
-# Stage 1: Build
-FROM node:22.14.0-slim AS builder
+# Stage 1: Fast Build with Node Alpine
+FROM node:22.14.0-alpine AS builder
 
 WORKDIR /app
 
-# Copy package files first for better caching
+# Copy dependency configs
 COPY package.json package-lock.json .npmrc ./
 
-# Install all dependencies (including devDependencies for build)
+# Install dependencies cleanly
 RUN npm ci
 
-# Copy source code
+# Copy source files
 COPY . .
 
-# Build the production bundle
+# Build static production bundle
 RUN npm run build
 
-# Stage 2: Serve with lightweight static server
-FROM node:22.14.0-slim AS runner
+# Stage 2: Ultra-Fast Nginx Production Runner (<25MB image size, instant start)
+FROM nginx:alpine AS runner
 
-WORKDIR /app
+# Copy compiled static files
+COPY --from=builder /app/dist /usr/share/nginx/html
 
-# Install a lightweight static file server
-RUN npm install -g serve@14
+# Copy Nginx SPA config
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Copy only the built output
-COPY --from=builder /app/dist ./dist
+EXPOSE 80
 
-# Expose the port Coolify will use
-EXPOSE 3000
-
-# Serve the static build on port 3000
-CMD ["serve", "-s", "dist", "-l", "3000"]
+CMD ["nginx", "-g", "daemon off;"]
