@@ -36,11 +36,7 @@ export const WorkSection: React.FC = () => {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-bold text-slate-700 uppercase tracking-wider">
-            <Zap className="w-3.5 h-3.5 text-jstack-cyan" />
-            <span>Case Studies & Portfolio</span>
-          </div>
-          <h2 className="mt-2.5 text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
             High-Performance Websites & Rapid Launches
           </h2>
           <p className="mt-2 text-sm sm:text-base text-slate-600">

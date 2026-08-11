@@ -1,208 +1,233 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle2, Mail, MessageSquare, ArrowRight, Globe, ShieldCheck } from 'lucide-react';
+import { CheckCircle2, Mail, MessageSquare, ArrowRight, Phone, ShieldCheck, MapPin } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
+import { sendLeadToBrevo } from '../services/brevoService';
 
 export const ContactSection: React.FC = () => {
+  const { t } = useLanguage();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    projectType: 'High-Converting Custom Website',
+    projectType: 'Diseño Web Profesional y Eficiente',
     budget: '',
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const phoneDisplay = "+1 (774) 747-7215";
+  const whatsappUrl = "https://wa.me/17747477215?text=Hola,%20busco%20información%20para%20un%20diseño%20web%20profesional";
+  const smsUrl = "sms:+17747477215?body=Hola,%20deseo%20cotizar%20un%20sitio%20web";
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
+
+    await sendLeadToBrevo({
+      name: formData.name,
+      email: formData.email,
+      serviceType: formData.projectType,
+      budget: formData.budget,
+      message: formData.message
+    });
+
+    setIsSubmitting(false);
     setSubmitted(true);
   };
 
   return (
-    <section id="contact" className="py-24 bg-[#FCFDFF] text-slate-900 relative overflow-hidden border-t border-slate-100">
-      
-      {/* ULTRA-MINIMALIST LIGHT BLUEPRINT GRID BACKGROUND */}
-      <div className="absolute inset-0 pointer-events-none -z-10 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:2.5rem_2.5rem] opacity-35" />
-      <div className="absolute bottom-0 right-0 w-[550px] h-[350px] bg-gradient-to-tr from-cyan-100/50 via-blue-100/30 to-transparent blur-[140px] rounded-full pointer-events-none -z-10" />
-
+    <section id="contact" className="py-20 bg-[#05070A] text-white border-t border-[#1E293B]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6 }}
+          className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start"
+        >
           
-          {/* Left Column: Value Proposition & Prominent Contact Info */}
+          {/* Left Column: Formal Value Proposition & Contact Info */}
           <div className="lg:col-span-5 space-y-6">
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-              Ready to Close More Sales Worldwide?
+
+            <h2 className="text-2xl sm:text-4xl font-black text-white tracking-tight leading-tight">
+              {t.contact.title}
             </h2>
             
-            <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
-              Tell us about your business goals. We'll analyze your requirements and send a customized proposal and exact 7-day quote within 2 hours.
+            <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+              {t.contact.subtitle}
             </p>
 
-            {/* Visual Card Image Banner */}
-            <div className="rounded-3xl overflow-hidden border border-slate-200 shadow-md relative">
-              <img 
-                src="/service-website.jpg" 
-                alt="Global Web Development Studio" 
-                className="w-full h-44 object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent p-5 flex items-end">
-                <span className="text-xs font-bold text-white flex items-center gap-2">
-                  <Globe className="w-4 h-4 text-jstack-cyan" />
-                  Accepting Clients Worldwide • Express Turnaround
-                </span>
-              </div>
-            </div>
-
-            {/* Prominent Direct Contact Cards */}
-            <div className="space-y-4 pt-2">
-              <div className="p-5 rounded-2xl bg-white/90 border border-slate-200 shadow-sm flex items-center gap-4 hover:border-jstack-cyan transition-colors">
-                <div className="p-3 rounded-xl bg-blue-50 text-jstack-cyan border border-blue-100 shrink-0">
-                  <Mail className="w-5 h-5" />
-                </div>
-                <div>
-                  <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block">Direct Email</span>
-                  <p className="text-base font-bold text-slate-900">contact@jstack.dev</p>
-                </div>
+            {/* Direct Phone, WhatsApp & SMS Card */}
+            <div className="bg-[#0B0F17] border border-[#1E293B] p-5 space-y-4">
+              <div className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider">
+                {t.contact.phoneLabel}
               </div>
 
-              <div className="p-5 rounded-2xl bg-white/90 border border-slate-200 shadow-sm flex items-center gap-4 hover:border-emerald-500 transition-colors">
-                <div className="p-3 rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-100 shrink-0">
-                  <MessageSquare className="w-5 h-5" />
-                </div>
-                <div>
-                  <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block">Instant WhatsApp / Telegram</span>
-                  <p className="text-base font-bold text-slate-900">Fast 2-Hour Response Worldwide</p>
-                </div>
+              <div className="flex flex-col sm:flex-row items-stretch gap-3">
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 px-4 py-3 bg-[#05070A] border border-[#1E293B] hover:border-[#0284C7] text-xs font-mono font-bold text-white transition-all flex items-center justify-center gap-2"
+                >
+                  <Phone className="w-4 h-4 text-[#38BDF8]" />
+                  <span>WhatsApp: {phoneDisplay}</span>
+                </a>
+
+                <a
+                  href={smsUrl}
+                  className="px-4 py-3 bg-[#05070A] border border-[#1E293B] hover:border-emerald-500 text-xs font-mono font-bold text-emerald-400 transition-all flex items-center justify-center gap-2"
+                >
+                  <MessageSquare className="w-4 h-4" />
+                  <span>Enviar SMS</span>
+                </a>
               </div>
+
+              <a 
+                href="mailto:jstackinfo@gmail.com" 
+                className="p-3 bg-[#05070A] border border-[#1E293B] hover:border-[#0284C7] text-xs font-mono text-slate-300 hover:text-white transition-all flex items-center gap-3 block"
+              >
+                <Mail className="w-4 h-4 text-[#38BDF8]" />
+                <span className="font-bold">Email Directo: jstackinfo@gmail.com</span>
+              </a>
             </div>
+
+            {/* Geo Locations & SEO Targets Notice */}
+            <div className="p-4 bg-[#0B0F17] border border-[#1E293B] space-y-2">
+              <div className="flex items-center gap-2 text-xs font-mono font-bold text-slate-300">
+                <MapPin className="w-4 h-4 text-[#38BDF8]" />
+                <span>Puntos de Atención y Cobertura SEO Global:</span>
+              </div>
+              <p className="text-xs text-slate-400 font-mono leading-relaxed">
+                🇺🇸 Estados Unidos (Massachusetts, Florida, NY) <br />
+                🇵🇪 Perú (Lima) <br />
+                🇪🇸 España (Madrid, Barcelona)
+              </p>
+            </div>
+
           </div>
 
-          {/* Right Column: Highly Prominent & Organized Contact Form */}
+          {/* Right Column: Formal Contact Form */}
           <div className="lg:col-span-7">
-            <div className="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200/90 shadow-2xl relative overflow-hidden">
+            <div className="bg-[#0B0F17] p-8 border border-[#1E293B]">
               
               {submitted ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="text-center py-12"
-                >
-                  <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <CheckCircle2 className="w-10 h-10" />
+                <div className="text-center py-12 space-y-4">
+                  <div className="w-12 h-12 bg-emerald-950 text-emerald-400 border border-emerald-800 flex items-center justify-center mx-auto">
+                    <CheckCircle2 className="w-8 h-8" />
                   </div>
-                  <h3 className="text-2xl font-bold text-slate-900">Quote Request Received!</h3>
-                  <p className="mt-2 text-sm sm:text-base text-slate-600 max-w-md mx-auto">
-                    Thank you, {formData.name || 'friend'}. Our technical lead is reviewing your project details and will send your estimate within 2 hours.
+                  <h3 className="text-xl font-bold text-white">{t.contact.successTitle}</h3>
+                  <p className="text-xs text-slate-300 max-w-md mx-auto">
+                    {t.contact.successDesc}
                   </p>
                   <button
                     onClick={() => setSubmitted(false)}
-                    className="mt-6 px-6 py-2.5 rounded-full bg-slate-100 text-slate-700 font-semibold hover:bg-slate-200 text-sm transition-all"
+                    className="mt-4 px-5 py-2.5 bg-[#1E293B] text-white font-mono text-xs font-bold uppercase"
                   >
-                    Send Another Request
+                    Enviar Otra Consulta
                   </button>
-                </motion.div>
+                </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <div className="pb-2 border-b border-slate-100">
-                    <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900">Request a Free Project Proposal</h3>
-                    <p className="text-xs sm:text-sm text-slate-500 mt-1">Fill out the quick form below to receive a custom quote within 2 hours.</p>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="pb-3 border-b border-[#1E293B]">
+                    <h3 className="text-lg font-extrabold text-white">{t.contact.title}</h3>
+                    <p className="text-xs text-slate-400 mt-1">{t.contact.subtitle}</p>
                   </div>
 
-                  {/* Name & Email Row */}
+                  {/* Name & Email */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-bold text-slate-800 uppercase tracking-wider mb-1.5">
-                        Your Full Name *
+                      <label className="block text-xs font-mono font-bold text-slate-300 uppercase mb-1">
+                        {t.contact.nameLabel} *
                       </label>
                       <input
                         type="text"
                         required
-                        placeholder="John Doe"
+                        placeholder={t.contact.namePlaceholder}
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full px-4 py-3.5 rounded-2xl bg-slate-50 border border-slate-200 focus:outline-none focus:border-jstack-cyan focus:bg-white focus:ring-2 focus:ring-jstack-cyan/20 text-slate-900 text-sm font-medium transition-all"
+                        className="w-full px-3.5 py-2.5 bg-[#05070A] border border-[#1E293B] focus:border-[#0284C7] text-white text-xs font-medium focus:outline-none"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold text-slate-800 uppercase tracking-wider mb-1.5">
-                        Email Address *
+                      <label className="block text-xs font-mono font-bold text-slate-300 uppercase mb-1">
+                        {t.contact.emailLabel} *
                       </label>
                       <input
                         type="email"
                         required
-                        placeholder="john@company.com"
+                        placeholder={t.contact.emailPlaceholder}
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-4 py-3.5 rounded-2xl bg-slate-50 border border-slate-200 focus:outline-none focus:border-jstack-cyan focus:bg-white focus:ring-2 focus:ring-jstack-cyan/20 text-slate-900 text-sm font-medium transition-all"
+                        className="w-full px-3.5 py-2.5 bg-[#05070A] border border-[#1E293B] focus:border-[#0284C7] text-white text-xs font-medium focus:outline-none"
                       />
                     </div>
                   </div>
 
-                  {/* Project Type & OPEN TEXT BUDGET Row */}
+                  {/* Service & Budget */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-bold text-slate-800 uppercase tracking-wider mb-1.5">
-                        Project / Website Type *
+                      <label className="block text-xs font-mono font-bold text-slate-300 uppercase mb-1">
+                        {t.contact.serviceLabel} *
                       </label>
                       <select
                         value={formData.projectType}
                         onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                        className="w-full px-4 py-3.5 rounded-2xl bg-slate-50 border border-slate-200 focus:outline-none focus:border-jstack-cyan focus:bg-white focus:ring-2 focus:ring-jstack-cyan/20 text-slate-900 text-sm font-medium transition-all"
+                        className="w-full px-3.5 py-2.5 bg-[#05070A] border border-[#1E293B] focus:border-[#0284C7] text-white text-xs font-medium focus:outline-none"
                       >
-                        <option value="High-Converting Custom Website">Custom Website Solution</option>
-                        <option value="Car Detailing Website">Car Detailing Website</option>
-                        <option value="Fashion E-Commerce Store">Fashion / Apparel E-Commerce</option>
-                        <option value="Hotel Booking Engine">Hotel / Resort Booking Engine</option>
-                        <option value="Restaurant Website">Restaurant & QR Menu Site</option>
-                        <option value="SaaS & Custom Web App">Custom Web App / SaaS</option>
-                        <option value="Speed & SEO Audit">Speed & SEO Audit</option>
+                        <option value="Diseño Web Profesional y Eficiente">Diseño Web Profesional y Eficiente</option>
+                        <option value="Creación de Páginas Web Vendedoras">Creación de Páginas Web Vendedoras</option>
+                        <option value="Diseño de Tiendas Online (E-commerce)">Diseño de Tiendas Online (E-commerce)</option>
+                        <option value="Creación de Landing Pages de Alta Conversión">Creación de Landing Pages de Alta Conversión</option>
+                        <option value="Desarrollo Web a Medida y Optimización SEO">Desarrollo Web a Medida y Optimización SEO</option>
                       </select>
                     </div>
 
-                    {/* OPEN TEXT QUESTION FOR ESTIMATED BUDGET */}
                     <div>
-                      <label className="block text-xs font-bold text-slate-800 uppercase tracking-wider mb-1.5">
-                        Estimated Budget (Open Question) *
+                      <label className="block text-xs font-mono font-bold text-slate-300 uppercase mb-1">
+                        Presupuesto Estimado (USD) *
                       </label>
                       <input
                         type="text"
                         required
-                        placeholder="e.g. $1,000, Flexible, Open to proposal"
+                        placeholder="Ej. $1,000 / Flexible"
                         value={formData.budget}
                         onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                        className="w-full px-4 py-3.5 rounded-2xl bg-slate-50 border border-slate-200 focus:outline-none focus:border-jstack-cyan focus:bg-white focus:ring-2 focus:ring-jstack-cyan/20 text-slate-900 text-sm font-medium transition-all"
+                        className="w-full px-3.5 py-2.5 bg-[#05070A] border border-[#1E293B] focus:border-[#0284C7] text-white text-xs font-medium focus:outline-none"
                       />
                     </div>
                   </div>
 
-                  {/* Project Requirements Message */}
+                  {/* Message */}
                   <div>
-                    <label className="block text-xs font-bold text-slate-800 uppercase tracking-wider mb-1.5">
-                      Tell Us About Your Project & Goals *
+                    <label className="block text-xs font-mono font-bold text-slate-300 uppercase mb-1">
+                      {t.contact.messageLabel} *
                     </label>
                     <textarea
                       rows={4}
                       required
-                      placeholder="Describe your business, reference websites you like, or any specific feature requirements..."
+                      placeholder={t.contact.messagePlaceholder}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full px-4 py-3.5 rounded-2xl bg-slate-50 border border-slate-200 focus:outline-none focus:border-jstack-cyan focus:bg-white focus:ring-2 focus:ring-jstack-cyan/20 text-slate-900 text-sm font-medium transition-all"
+                      className="w-full px-3.5 py-2.5 bg-[#05070A] border border-[#1E293B] focus:border-[#0284C7] text-white text-xs font-medium focus:outline-none"
                     ></textarea>
                   </div>
 
                   {/* Submit Button */}
                   <button
                     type="submit"
-                    className="w-full py-4 px-8 rounded-2xl btn-primary text-white font-extrabold text-base shadow-glow hover:shadow-glow-lg transition-all flex items-center justify-center gap-2 group mt-2"
+                    className="w-full py-3.5 px-6 bg-[#0284C7] hover:bg-[#0369A1] text-white font-mono font-bold text-xs uppercase tracking-wider border border-[#38BDF8]/30 transition-colors flex items-center justify-center gap-2"
                   >
-                    <span>Request Free Project Proposal</span>
-                    <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                    <span>{t.contact.submitBtn}</span>
+                    <ArrowRight className="w-4 h-4" />
                   </button>
 
-                  <p className="text-center text-xs text-slate-500 mt-2 flex items-center justify-center gap-1.5">
-                    <ShieldCheck className="w-4 h-4 text-emerald-500" />
-                    <span>100% Confidential. Free proposal within 2 hours. No spam ever.</span>
+                  <p className="text-center text-[11px] font-mono text-slate-400 mt-2 flex items-center justify-center gap-1.5">
+                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+                    <span>100% Confidencial. Respuesta en &lt;2 horas.</span>
                   </p>
                 </form>
               )}
@@ -210,7 +235,7 @@ export const ContactSection: React.FC = () => {
             </div>
           </div>
 
-        </div>
+        </motion.div>
       </div>
     </section>
   );

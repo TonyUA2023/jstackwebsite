@@ -1,6 +1,8 @@
 import React from 'react';
+import { LanguageProvider } from './context/LanguageContext';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
+import { FounderSection } from './components/FounderSection';
 import { WebsitesSection } from './components/WebsitesSection';
 import { IndustrySolutionsSection } from './components/IndustrySolutionsSection';
 import { PhotoGallerySection } from './components/PhotoGallerySection';
@@ -10,46 +12,59 @@ import { WhyUsSection } from './components/WhyUsSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { StickyBottomBar } from './components/StickyBottomBar';
+import { AnalyticsReport } from './components/AnalyticsReport';
+import { FloatingContactWidget } from './components/FloatingContactWidget';
 
 export function App() {
   return (
-    <div className="min-h-screen bg-[#0A0D14] text-white flex flex-col font-sans selection:bg-jstack-cyan selection:text-white relative">
-      {/* Traditional Full-Width Header */}
-      <Header />
+    <LanguageProvider>
+      <div className="min-h-screen bg-[#05070A] text-white flex flex-col font-sans selection:bg-[#0284C7] selection:text-white relative">
+        {/* Full-Width Header */}
+        <Header />
 
-      {/* Main Content Sections */}
-      <main className="flex-grow">
-        {/* Dark Hero Section matching Screenshot 1 */}
-        <Hero />
+        {/* Main Content Sections */}
+        <main className="flex-grow">
+          {/* Hero Section */}
+          <Hero />
 
-        {/* Dedicated Websites Section (LIGHT) */}
-        <WebsitesSection />
+          {/* Founder & Systems Engineer / Web & Mobile Developer Section */}
+          <FounderSection />
 
-        {/* Dedicated Industry Solutions Hub - Car Detailing, Fashion, Hotels, Restaurants, Medical, Tech (DARK) */}
-        <IndustrySolutionsSection />
+          {/* Commercial Website Solutions */}
+          <WebsitesSection />
 
-        {/* Ultra-Minimalist Photo Gallery (LIGHT) */}
-        <PhotoGallerySection />
+          {/* Dedicated Industry Solutions Hub */}
+          <IndustrySolutionsSection />
 
-        {/* Advantages Section (DARK) */}
-        <AdvantagesSection />
+          {/* Real Client Experience & Photo Showcase */}
+          <PhotoGallerySection />
 
-        {/* Core Services Section (LIGHT) */}
-        <ServicesSection />
+          {/* Advantages Section */}
+          <AdvantagesSection />
 
-        {/* Agile 4-Step Process Section (DARK) */}
-        <WhyUsSection />
+          {/* Core Services Section */}
+          <ServicesSection />
 
-        {/* Contact & Quote Request Form (LIGHT) */}
-        <ContactSection />
-      </main>
+          {/* Agile Process Section */}
+          <WhyUsSection />
 
-      {/* Solid Black Footer (DARK) */}
-      <Footer />
+          {/* Contact Form */}
+          <ContactSection />
+        </main>
 
-      {/* Sticky Bottom Floating Quick Quote Form */}
-      <StickyBottomBar />
-    </div>
+        {/* Footer */}
+        <Footer />
+
+        {/* Floating Quick Contact Bar */}
+        <StickyBottomBar />
+
+        {/* Floating Bottom-Right WhatsApp & SMS Buttons */}
+        <FloatingContactWidget />
+
+        {/* Internal Link Analytics & Excel Report Handler */}
+        <AnalyticsReport />
+      </div>
+    </LanguageProvider>
   );
 }
 

@@ -72,12 +72,7 @@ export const WorkGallerySection: React.FC = () => {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200/60 text-xs font-bold text-jstack-blue uppercase tracking-wider">
-            <Sparkles className="w-4 h-4" />
-            <span>Our Work & Website Templates</span>
-          </div>
-          
-          <h2 className="mt-4 text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
             High-Impact Website Gallery
           </h2>
           

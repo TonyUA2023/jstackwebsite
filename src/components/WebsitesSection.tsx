@@ -1,132 +1,109 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
+
+import homecleanImg from '../assets/experiencia/homeclean.png';
+import parionaImg from '../assets/experiencia/pariona.png';
+import wayraImg from '../assets/experiencia/wayra.png';
 
 export const WebsitesSection: React.FC = () => {
+  const { t } = useLanguage();
+
   const websiteTypes = [
     {
       id: "landing",
-      title: "High-Converting Landing Page",
-      subtitle: "Ideal for quick lead capture & product launches",
-      description: "A single, razor-sharp landing page engineered to turn cold traffic into qualified sales and inquiries.",
-      image: "/service-website.jpg",
-      features: [
-        "Single-Page Conversion Funnel",
-        "100/100 Google Speed Guaranteed",
-        "Mobile & SEO Optimized",
-        "Direct Contact & WhatsApp Integration",
-        "Fast Express Turnaround"
-      ],
+      title: t.websites.landing.title,
+      subtitle: t.websites.landing.subtitle,
+      description: t.websites.landing.desc,
+      image: homecleanImg,
+      features: t.websites.landing.features,
       badge: "Landing Page"
     },
     {
       id: "corporate",
-      title: "Corporate & Business Website",
-      subtitle: "Complete multi-page site for modern brands",
-      description: "A high-end multi-page website that establishes instant trust, showcases your services, and positions your brand ahead of competitors.",
-      image: "/hero-showcase.jpg",
-      features: [
-        "Multi-Page Architecture (Home, About, Services, Contact)",
-        "Custom UI/UX & Motion Micro-Interactions",
-        "100% Custom Code (Zero Bloatware)",
-        "Google Core Web Vitals Certified",
-        "Full Source Code Ownership"
-      ],
+      title: t.websites.corporate.title,
+      subtitle: t.websites.corporate.subtitle,
+      description: t.websites.corporate.desc,
+      image: parionaImg,
+      features: t.websites.corporate.features,
       badge: "Corporate Website"
     },
     {
       id: "ecommerce",
-      title: "E-Commerce Online Store",
-      subtitle: "High-speed storefront designed to sell products",
-      description: "A custom online store built for instant product loading, seamless mobile browsing, and frictionless checkout flows.",
-      image: "/service-ecommerce.jpg",
-      features: [
-        "Instant Product Filtering & Search",
-        "Stripe, PayPal & Local Payment Gateways",
-        "Mobile-Optimized Shopping Cart",
-        "Inventory & Order Management",
-        "Zero Layout Shifts (CLS = 0)"
-      ],
-      badge: "E-Commerce Store"
+      title: t.websites.ecommerce.title,
+      subtitle: t.websites.ecommerce.subtitle,
+      description: t.websites.ecommerce.desc,
+      image: wayraImg,
+      features: t.websites.ecommerce.features,
+      badge: "E-Commerce"
     }
   ];
 
   return (
-    <section id="websites" className="py-20 md:py-28 bg-[#FCFDFF] relative overflow-hidden">
-      
-      {/* VISIBLE ARTISTIC SVG BACKGROUND DRAWING (LIGHT SECTION) */}
-      <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
-        {/* Soft Ambient Light Orbs */}
-        <div className="absolute -top-20 -left-20 w-[500px] h-[500px] bg-cyan-200/40 rounded-full blur-[100px]" />
-        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-blue-200/40 rounded-full blur-[120px]" />
-        
-        {/* Crisp Subtle SVG Grid & Waves */}
-        <svg className="absolute w-full h-full opacity-25" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M-100 200 C300 400 700 100 1100 300 C1300 400 1500 200 1600 250" stroke="#0096C7" strokeWidth="2" strokeDasharray="6 6" />
-          <path d="M-100 500 C400 300 800 650 1200 450 C1400 350 1550 550 1600 500" stroke="#2B7A9E" strokeWidth="1.5" />
-          <circle cx="200" cy="300" r="150" stroke="#0096C7" strokeWidth="1" strokeOpacity="0.3" />
-          <circle cx="1200" cy="600" r="220" stroke="#2B7A9E" strokeWidth="1" strokeOpacity="0.2" />
-        </svg>
-      </div>
-
+    <section id="websites" className="py-20 bg-[#05070A] text-white border-t border-[#1E293B]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
-            Custom Websites Engineered to Close Sales
+        {/* Section Header with Vertical Fade-In */}
+        <motion.div 
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-3xl mx-auto space-y-3"
+        >
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+            {t.websites.title}
           </h2>
           
-          <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
-            Select the custom website solution engineered for your business goals. Hand-coded for maximum speed, modern elegance, and instant trust.
+          <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+            {t.websites.subtitle}
           </p>
-        </div>
+        </motion.div>
 
-        {/* Website Options Grid */}
-        <div className="mt-16 grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {/* Website Options Grid with Staggered Vertical Fade-In */}
+        <div className="mt-14 grid grid-cols-1 lg:grid-cols-3 gap-8">
           {websiteTypes.map((site, index) => (
             <motion.div
               key={site.id}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.15 }}
-              className="bg-white/90 backdrop-blur-sm rounded-3xl overflow-hidden border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
+              className="bg-[#0B0F17] border border-[#1E293B] hover:border-[#0284C7] transition-all flex flex-col justify-between"
             >
               <div>
-                {/* Image Preview Header */}
-                <div className="relative h-56 overflow-hidden bg-slate-900">
+                {/* Image Header */}
+                <div className="relative h-52 overflow-hidden bg-[#05070A] border-b border-[#1E293B]">
                   <img 
                     src={site.image} 
                     alt={site.title} 
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-cover object-top"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/25 to-transparent" />
-                  
-                  <div className="absolute top-4 left-4">
-                    <span className="text-xs font-extrabold px-3.5 py-1.5 rounded-full bg-slate-900/90 backdrop-blur-md text-white border border-slate-700/80 shadow-md">
+                  <div className="absolute top-3 left-3">
+                    <span className="text-[10px] font-mono font-bold px-2.5 py-1 bg-[#05070A] text-white border border-[#1E293B]">
                       {site.badge}
                     </span>
                   </div>
-
-                  <div className="absolute bottom-4 left-4 right-4 text-white">
-                    <h3 className="text-xl font-extrabold drop-shadow-sm">{site.title}</h3>
-                    <p className="text-xs text-slate-200 font-medium mt-0.5">{site.subtitle}</p>
-                  </div>
                 </div>
 
-                {/* Body Content */}
-                <div className="p-6 sm:p-8">
-                  <p className="text-slate-600 text-sm leading-relaxed">
+                {/* Content */}
+                <div className="p-6">
+                  <h3 className="text-base font-extrabold text-white leading-snug">{site.title}</h3>
+                  <p className="text-xs text-[#38BDF8] font-mono mt-1">{site.subtitle}</p>
+
+                  <p className="mt-4 text-xs text-slate-300 leading-relaxed border-t border-[#1E293B] pt-4">
                     {site.description}
                   </p>
 
-                  <div className="mt-6 pt-6 border-t border-slate-100">
-                    <span className="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-3">Key Features:</span>
-                    <ul className="space-y-2.5">
+                  <div className="mt-4 pt-4 border-t border-[#1E293B]">
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 block mb-3">
+                      Especificaciones Técnicas:
+                    </span>
+                    <ul className="space-y-2">
                       {site.features.map((feat) => (
-                        <li key={feat} className="flex items-start gap-2.5 text-xs sm:text-sm font-semibold text-slate-700">
-                          <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+                        <li key={feat} className="flex items-start gap-2 text-xs font-medium text-slate-200">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
                           <span>{feat}</span>
                         </li>
                       ))}
@@ -135,16 +112,16 @@ export const WebsitesSection: React.FC = () => {
                 </div>
               </div>
 
-              <div className="p-6 sm:p-8 pt-0">
+              {/* Action Button */}
+              <div className="p-6 pt-0">
                 <a
                   href="#contact"
-                  className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-2xl btn-primary text-white text-sm font-bold shadow-glow hover:shadow-glow-lg transition-all duration-300 group"
+                  className="w-full py-3 bg-[#05070A] border border-[#1E293B] hover:bg-[#0284C7] hover:border-[#0284C7] text-white text-xs font-mono font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-2 group"
                 >
-                  <span>Request This Website</span>
-                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  <span>{t.websites.requestBtn}</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </a>
               </div>
-
             </motion.div>
           ))}
         </div>

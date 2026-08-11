@@ -2,83 +2,86 @@
 
 @layer base {
   body {
-    background-color: #FCFDFF;
-    color: #0F172A;
-    font-family: 'Plus Jakarta Sans', Inter, sans-serif;
+    background-color: #05070A;
+    color: #F8FAFC;
+    font-family: 'Plus Jakarta Sans', Inter, system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
   }
 }
 
-/* Custom Colors & Utilities */
+/* Custom Corporate Colors & Solid Utilities */
 :root {
-  --jstack-blue: #2B7A9E;
-  --jstack-teal: #388DAE;
-  --jstack-cyan: #0096C7;
-  --jstack-dark: #0F172A;
+  --jstack-navy: #0F172A;
+  --jstack-dark: #05070A;
+  --jstack-blue: #0284C7;
+  --jstack-slate: #334155;
+  --jstack-border: #1E293B;
 }
 
-/* Glassmorphism & Custom Effects */
-.glass-header {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+/* High-Contrast Sharp Cards & Buttons */
+.card-formal {
+  background-color: #0B0F17;
+  border: 1px solid #1E293B;
+  border-radius: 0px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.glass-card {
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(226, 232, 240, 0.8);
+.card-formal:hover {
+  border-color: #0284C7;
 }
 
-.glass-card-hover {
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.glass-card-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.08);
-  border-color: rgba(0, 150, 199, 0.3);
+.card-light-formal {
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 0px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-/* Eye-Catching Button Accent Gradient */
+.card-light-formal:hover {
+  border-color: #0284C7;
+}
+
+/* Solid Formal Corporate Primary Button */
 .btn-primary {
-  background: linear-gradient(135deg, #0077B6 0%, #0096C7 50%, #03045E 100%);
-  background-size: 200% 200%;
-  transition: all 0.3s ease;
+  background-color: #0284C7;
+  color: #FFFFFF;
+  border-radius: 0px;
+  font-weight: 700;
+  transition: background-color 0.2s ease;
 }
 
 .btn-primary:hover {
-  background-position: right center;
-  box-shadow: 0 10px 25px -5px rgba(0, 150, 199, 0.4);
+  background-color: #0369A1;
 }
 
-/* Animated Gradient Text */
-.text-gradient {
-  background: linear-gradient(135deg, #0F172A 0%, #2B7A9E 50%, #0096C7 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.btn-secondary {
+  background-color: #1E293B;
+  color: #F8FAFC;
+  border: 1px solid #334155;
+  border-radius: 0px;
+  font-weight: 700;
+  transition: background-color 0.2s ease;
 }
 
+.btn-secondary:hover {
+  background-color: #334155;
+}
+
+/* Text Gradient Accents - Clean Corporate */
 .text-gradient-accent {
-  background: linear-gradient(135deg, #2B7A9E 0%, #0096C7 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #38BDF8;
 }
 
-.shadow-glow {
-  box-shadow: 0 0 25px -5px rgba(0, 150, 199, 0.3);
+/* Scrollbar Minimalist */
+::-webkit-scrollbar {
+  width: 8px;
 }
-
-.shadow-glow-lg {
-  box-shadow: 0 0 40px -5px rgba(0, 150, 199, 0.4);
+::-webkit-scrollbar-track {
+  background: #05070A;
 }
-
-/* Custom Pulsing Badge */
-@keyframes pulse-ring {
-  0% { transform: scale(0.95); opacity: 0.8; }
-  50% { transform: scale(1.2); opacity: 0; }
-  100% { transform: scale(0.95); opacity: 0.8; }
+::-webkit-scrollbar-thumb {
+  background: #1E293B;
 }
-
-.pulse-dot {
-  animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+::-webkit-scrollbar-thumb:hover {
+  background: #0284C7;
 }
