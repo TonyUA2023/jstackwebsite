@@ -2,86 +2,65 @@
 
 @layer base {
   body {
-    background-color: #05070A;
-    color: #F8FAFC;
+    background-color: #FFFFFF;
+    color: #0F172A;
     font-family: 'Plus Jakarta Sans', Inter, system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
 }
 
-/* Custom Corporate Colors & Solid Utilities */
+/* Custom Corporate Colors - Red & Navy Corporate Identity */
 :root {
-  --jstack-navy: #0F172A;
-  --jstack-dark: #05070A;
-  --jstack-blue: #0284C7;
-  --jstack-slate: #334155;
-  --jstack-border: #1E293B;
+  --jstack-red: #D8202A;
+  --jstack-red-hover: #B91C1C;
+  --jstack-red-dark: #991B1B;
+  --jstack-navy: #0A192F;
+  --jstack-dark: #0F172A;
+  --jstack-slate: #475569;
+  --jstack-border: #E2E8F0;
+  --jstack-bg-light: #F8FAFC;
 }
 
-/* High-Contrast Sharp Cards & Buttons */
-.card-formal {
-  background-color: #0B0F17;
-  border: 1px solid #1E293B;
-  border-radius: 0px;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+/* Dot Grid Background Pattern */
+.bg-dot-matrix {
+  background-image: radial-gradient(#CBD5E1 2px, transparent 2px);
+  background-size: 32px 32px;
 }
 
-.card-formal:hover {
-  border-color: #0284C7;
+.bg-dot-matrix-subtle {
+  background-image: radial-gradient(#E2E8F0 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
 }
 
-.card-light-formal {
-  background-color: #FFFFFF;
-  border: 1px solid #E2E8F0;
-  border-radius: 0px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+/* High-Impact Realistic Device Mockup Shadows */
+.device-shadow-lg {
+  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.25), 0 0 0 1px rgba(15, 23, 42, 0.05);
 }
 
-.card-light-formal:hover {
-  border-color: #0284C7;
+.device-shadow-red {
+  box-shadow: 0 25px 45px -10px rgba(216, 32, 42, 0.35), 0 0 0 1px rgba(216, 32, 42, 0.2);
 }
 
-/* Solid Formal Corporate Primary Button */
-.btn-primary {
-  background-color: #0284C7;
-  color: #FFFFFF;
-  border-radius: 0px;
-  font-weight: 700;
-  transition: background-color 0.2s ease;
+.device-shadow-purple {
+  box-shadow: 0 25px 45px -10px rgba(126, 34, 206, 0.3), 0 0 0 1px rgba(126, 34, 206, 0.2);
 }
 
-.btn-primary:hover {
-  background-color: #0369A1;
+.device-shadow-blue {
+  box-shadow: 0 25px 45px -10px rgba(2, 132, 199, 0.3), 0 0 0 1px rgba(2, 132, 199, 0.2);
 }
 
-.btn-secondary {
-  background-color: #1E293B;
-  color: #F8FAFC;
-  border: 1px solid #334155;
-  border-radius: 0px;
-  font-weight: 700;
-  transition: background-color 0.2s ease;
-}
-
-.btn-secondary:hover {
-  background-color: #334155;
-}
-
-/* Text Gradient Accents - Clean Corporate */
-.text-gradient-accent {
-  color: #38BDF8;
-}
-
-/* Scrollbar Minimalist */
+/* Minimalist Clean Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #05070A;
+  background: #F8FAFC;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1E293B;
+  background: #CBD5E1;
+  border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #0284C7;
+  background: #D8202A;
 }

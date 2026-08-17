@@ -1,242 +1,261 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle2, Mail, MessageSquare, ArrowRight, Phone, ShieldCheck, MapPin } from 'lucide-react';
+import { Phone, Mail, MapPin, CheckCircle2, Loader2 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { sendLeadToBrevo } from '../services/brevoService';
 
-export const ContactSection: React.FC = () => {
-  const { t } = useLanguage();
+interface ContactSectionProps {
+  serviceType?: string;
+  sectionId?: string;
+}
+
+export const ContactSection: React.FC<ContactSectionProps> = ({ 
+  serviceType = 'General Consultation / Project Inquiry',
+  sectionId = 'contact'
+}) => {
+  const { language } = useLanguage();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  
   const [formData, setFormData] = useState({
-    name: '',
+    fullName: '',
+    companyName: '',
     email: '',
-    projectType: 'Diseño Web Profesional y Eficiente',
-    budget: '',
-    message: ''
+    phone: '',
+    description: ''
   });
 
-  const phoneDisplay = "+1 (774) 747-7215";
-  const whatsappUrl = "https://wa.me/17747477215?text=Hola,%20busco%20información%20para%20un%20diseño%20web%20profesional";
-  const smsUrl = "sms:+17747477215?body=Hola,%20deseo%20cotizar%20un%20sitio%20web";
+  const charLimit = 750;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setErrorMessage('');
 
-    await sendLeadToBrevo({
-      name: formData.name,
-      email: formData.email,
-      serviceType: formData.projectType,
-      budget: formData.budget,
-      message: formData.message
-    });
+    try {
+      const response = await sendLeadToBrevo({
+        name: formData.fullName,
+        companyName: formData.companyName,
+        email: formData.email,
+        phone: formData.phone,
+        message: formData.description,
+        serviceType: serviceType
+      });
 
-    setIsSubmitting(false);
-    setSubmitted(true);
+      if (response.success) {
+        setSubmitted(true);
+      } else {
+        setErrorMessage(response.message || (language === 'es' ? 'Error al enviar el formulario.' : 'Error submitting form.'));
+      }
+    } catch (err) {
+      setErrorMessage(language === 'es' ? 'Error de conexión. Intente nuevamente.' : 'Connection error. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
-    <section id="contact" className="py-20 bg-[#05070A] text-white border-t border-[#1E293B]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id={sectionId} className="py-20 sm:py-28 bg-white text-[#0A192F] relative overflow-hidden border-t border-slate-100">
+      
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
         
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.6 }}
-          className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start"
-        >
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 xl:gap-14 items-start">
           
-          {/* Left Column: Formal Value Proposition & Contact Info */}
-          <div className="lg:col-span-5 space-y-6">
-
-            <h2 className="text-2xl sm:text-4xl font-black text-white tracking-tight leading-tight">
-              {t.contact.title}
-            </h2>
-            
-            <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
-              {t.contact.subtitle}
-            </p>
-
-            {/* Direct Phone, WhatsApp & SMS Card */}
-            <div className="bg-[#0B0F17] border border-[#1E293B] p-5 space-y-4">
-              <div className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider">
-                {t.contact.phoneLabel}
-              </div>
-
-              <div className="flex flex-col sm:flex-row items-stretch gap-3">
-                <a
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 px-4 py-3 bg-[#05070A] border border-[#1E293B] hover:border-[#0284C7] text-xs font-mono font-bold text-white transition-all flex items-center justify-center gap-2"
-                >
-                  <Phone className="w-4 h-4 text-[#38BDF8]" />
-                  <span>WhatsApp: {phoneDisplay}</span>
-                </a>
-
-                <a
-                  href={smsUrl}
-                  className="px-4 py-3 bg-[#05070A] border border-[#1E293B] hover:border-emerald-500 text-xs font-mono font-bold text-emerald-400 transition-all flex items-center justify-center gap-2"
-                >
-                  <MessageSquare className="w-4 h-4" />
-                  <span>Enviar SMS</span>
-                </a>
-              </div>
-
-              <a 
-                href="mailto:jstackinfo@gmail.com" 
-                className="p-3 bg-[#05070A] border border-[#1E293B] hover:border-[#0284C7] text-xs font-mono text-slate-300 hover:text-white transition-all flex items-center gap-3 block"
-              >
-                <Mail className="w-4 h-4 text-[#38BDF8]" />
-                <span className="font-bold">Email Directo: jstackinfo@gmail.com</span>
-              </a>
-            </div>
-
-            {/* Geo Locations & SEO Targets Notice */}
-            <div className="p-4 bg-[#0B0F17] border border-[#1E293B] space-y-2">
-              <div className="flex items-center gap-2 text-xs font-mono font-bold text-slate-300">
-                <MapPin className="w-4 h-4 text-[#38BDF8]" />
-                <span>Puntos de Atención y Cobertura SEO Global:</span>
-              </div>
-              <p className="text-xs text-slate-400 font-mono leading-relaxed">
-                🇺🇸 Estados Unidos (Massachusetts, Florida, NY) <br />
-                🇵🇪 Perú (Lima) <br />
-                🇪🇸 España (Madrid, Barcelona)
-              </p>
-            </div>
-
+          {/* Left Column: Subtle Dot Matrix Graphic */}
+          <div className="hidden lg:block lg:col-span-3 pt-8">
+            <div className="w-56 h-80 bg-dot-matrix opacity-60 pointer-events-none" />
           </div>
 
-          {/* Right Column: Formal Contact Form */}
-          <div className="lg:col-span-7">
-            <div className="bg-[#0B0F17] p-8 border border-[#1E293B]">
+          {/* Center/Right Form Container */}
+          <div className="lg:col-span-9 bg-[#F1F5F9] rounded-3xl p-8 sm:p-12 lg:p-14 shadow-xs">
+            
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
               
-              {submitted ? (
-                <div className="text-center py-12 space-y-4">
-                  <div className="w-12 h-12 bg-emerald-950 text-emerald-400 border border-emerald-800 flex items-center justify-center mx-auto">
-                    <CheckCircle2 className="w-8 h-8" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white">{t.contact.successTitle}</h3>
-                  <p className="text-xs text-slate-300 max-w-md mx-auto">
-                    {t.contact.successDesc}
-                  </p>
-                  <button
-                    onClick={() => setSubmitted(false)}
-                    className="mt-4 px-5 py-2.5 bg-[#1E293B] text-white font-mono text-xs font-bold uppercase"
-                  >
-                    Enviar Otra Consulta
-                  </button>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="pb-3 border-b border-[#1E293B]">
-                    <h3 className="text-lg font-extrabold text-white">{t.contact.title}</h3>
-                    <p className="text-xs text-slate-400 mt-1">{t.contact.subtitle}</p>
-                  </div>
+              {/* Form Input Fields */}
+              <div className="lg:col-span-8">
+                
+                {/* Headline: Let's Get Started */}
+                <h2 className="text-3xl sm:text-5xl lg:text-[48px] font-black text-[#0A192F] tracking-tight font-sans mb-8">
+                  Let's Get Started
+                </h2>
 
-                  {/* Name & Email */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {submitted ? (
+                  <motion.div 
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="bg-white p-8 rounded-2xl border border-slate-200 text-center space-y-4 shadow-sm"
+                  >
+                    <div className="w-14 h-14 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto border border-emerald-200 shadow-xs">
+                      <CheckCircle2 className="w-8 h-8" />
+                    </div>
+                    <h3 className="text-2xl font-black text-[#0A192F]">
+                      {language === 'es' ? '¡Mensaje Enviado con Éxito!' : 'Message Sent Successfully!'}
+                    </h3>
+                    <p className="text-sm sm:text-base text-[#475569] max-w-md mx-auto">
+                      {language === 'es'
+                        ? 'Hemos recibido tu solicitud técnica. Nuestro equipo de ingeniería se pondrá en contacto contigo en breve.'
+                        : 'We have received your technical inquiry. Our engineering team will get back to you shortly.'}
+                    </p>
+                    <button
+                      onClick={() => {
+                        setSubmitted(false);
+                        setFormData({ fullName: '', companyName: '', email: '', phone: '', description: '' });
+                      }}
+                      className="mt-4 px-7 py-3 bg-[#D8202A] hover:bg-[#B91C1C] text-white font-bold text-xs uppercase tracking-wider rounded-md transition-colors cursor-pointer"
+                    >
+                      {language === 'es' ? 'Enviar Otro Mensaje' : 'Send Another Message'}
+                    </button>
+                  </motion.div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-4 text-left">
+                    
+                    {/* 1. Full Name */}
                     <div>
-                      <label className="block text-xs font-mono font-bold text-slate-300 uppercase mb-1">
-                        {t.contact.nameLabel} *
-                      </label>
                       <input
                         type="text"
                         required
-                        placeholder={t.contact.namePlaceholder}
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full px-3.5 py-2.5 bg-[#05070A] border border-[#1E293B] focus:border-[#0284C7] text-white text-xs font-medium focus:outline-none"
+                        placeholder="* Full Name"
+                        value={formData.fullName}
+                        onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                        className="w-full px-4 py-3.5 bg-white border border-slate-200 focus:border-[#D8202A] focus:ring-1 focus:ring-[#D8202A] rounded-md text-[#0A192F] text-[15px] placeholder-slate-400 focus:outline-none transition-all shadow-xs"
                       />
                     </div>
 
+                    {/* 2. Company Name */}
                     <div>
-                      <label className="block text-xs font-mono font-bold text-slate-300 uppercase mb-1">
-                        {t.contact.emailLabel} *
-                      </label>
+                      <input
+                        type="text"
+                        required
+                        placeholder="* Company Name"
+                        value={formData.companyName}
+                        onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
+                        className="w-full px-4 py-3.5 bg-white border border-slate-200 focus:border-[#D8202A] focus:ring-1 focus:ring-[#D8202A] rounded-md text-[#0A192F] text-[15px] placeholder-slate-400 focus:outline-none transition-all shadow-xs"
+                      />
+                    </div>
+
+                    {/* 3. Email Address */}
+                    <div>
                       <input
                         type="email"
                         required
-                        placeholder={t.contact.emailPlaceholder}
+                        placeholder="* Email Address"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-3.5 py-2.5 bg-[#05070A] border border-[#1E293B] focus:border-[#0284C7] text-white text-xs font-medium focus:outline-none"
+                        className="w-full px-4 py-3.5 bg-white border border-slate-200 focus:border-[#D8202A] focus:ring-1 focus:ring-[#D8202A] rounded-md text-[#0A192F] text-[15px] placeholder-slate-400 focus:outline-none transition-all shadow-xs"
                       />
                     </div>
-                  </div>
 
-                  {/* Service & Budget */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {/* 4. Phone Number */}
                     <div>
-                      <label className="block text-xs font-mono font-bold text-slate-300 uppercase mb-1">
-                        {t.contact.serviceLabel} *
-                      </label>
-                      <select
-                        value={formData.projectType}
-                        onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                        className="w-full px-3.5 py-2.5 bg-[#05070A] border border-[#1E293B] focus:border-[#0284C7] text-white text-xs font-medium focus:outline-none"
-                      >
-                        <option value="Diseño Web Profesional y Eficiente">Diseño Web Profesional y Eficiente</option>
-                        <option value="Creación de Páginas Web Vendedoras">Creación de Páginas Web Vendedoras</option>
-                        <option value="Diseño de Tiendas Online (E-commerce)">Diseño de Tiendas Online (E-commerce)</option>
-                        <option value="Creación de Landing Pages de Alta Conversión">Creación de Landing Pages de Alta Conversión</option>
-                        <option value="Desarrollo Web a Medida y Optimización SEO">Desarrollo Web a Medida y Optimización SEO</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-mono font-bold text-slate-300 uppercase mb-1">
-                        Presupuesto Estimado (USD) *
-                      </label>
                       <input
-                        type="text"
+                        type="tel"
                         required
-                        placeholder="Ej. $1,000 / Flexible"
-                        value={formData.budget}
-                        onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                        className="w-full px-3.5 py-2.5 bg-[#05070A] border border-[#1E293B] focus:border-[#0284C7] text-white text-xs font-medium focus:outline-none"
+                        placeholder="* Phone Number"
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        className="w-full px-4 py-3.5 bg-white border border-slate-200 focus:border-[#D8202A] focus:ring-1 focus:ring-[#D8202A] rounded-md text-[#0A192F] text-[15px] placeholder-slate-400 focus:outline-none transition-all shadow-xs"
                       />
                     </div>
-                  </div>
 
-                  {/* Message */}
-                  <div>
-                    <label className="block text-xs font-mono font-bold text-slate-300 uppercase mb-1">
-                      {t.contact.messageLabel} *
-                    </label>
-                    <textarea
-                      rows={4}
-                      required
-                      placeholder={t.contact.messagePlaceholder}
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full px-3.5 py-2.5 bg-[#05070A] border border-[#1E293B] focus:border-[#0284C7] text-white text-xs font-medium focus:outline-none"
-                    ></textarea>
-                  </div>
+                    {/* 5. Description */}
+                    <div>
+                      <textarea
+                        rows={4}
+                        maxLength={charLimit}
+                        placeholder="If possible, please provide a description of your need or project"
+                        value={formData.description}
+                        onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                        className="w-full px-4 py-3.5 bg-white border border-slate-200 focus:border-[#D8202A] focus:ring-1 focus:ring-[#D8202A] rounded-md text-[#0A192F] text-[15px] placeholder-slate-400 focus:outline-none transition-all shadow-xs resize-none"
+                      />
+                      <div className="text-right text-[12px] text-slate-400 mt-1 font-mono">
+                        {formData.description.length} out of {charLimit} max characters
+                      </div>
+                    </div>
 
-                  {/* Submit Button */}
-                  <button
-                    type="submit"
-                    className="w-full py-3.5 px-6 bg-[#0284C7] hover:bg-[#0369A1] text-white font-mono font-bold text-xs uppercase tracking-wider border border-[#38BDF8]/30 transition-colors flex items-center justify-center gap-2"
+                    {errorMessage && (
+                      <p className="text-xs text-red-600 font-bold">{errorMessage}</p>
+                    )}
+
+                    {/* 6. Submit Button */}
+                    <div className="pt-2">
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="px-10 py-3.5 bg-[#D8202A] hover:bg-[#B91C1C] text-white text-[15px] font-bold rounded-md shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer disabled:opacity-50 flex items-center justify-center gap-2"
+                      >
+                        {isSubmitting ? (
+                          <>
+                            <Loader2 className="w-4 h-4 animate-spin" />
+                            <span>{language === 'es' ? 'Enviando...' : 'Submitting...'}</span>
+                          </>
+                        ) : (
+                          <span>Submit</span>
+                        )}
+                      </button>
+                    </div>
+
+                  </form>
+                )}
+
+              </div>
+
+              {/* Right Sidebar: Direct Contact Details */}
+              <div className="lg:col-span-4 space-y-6 pt-4 lg:pt-14 border-t lg:border-t-0 lg:border-l border-slate-200 lg:pl-8 text-left">
+                
+                {/* Phone Numbers: USA & Peru */}
+                <div className="space-y-2">
+                  <a
+                    href="tel:+17747477215"
+                    className="flex items-center gap-2.5 text-[#0A192F] hover:text-[#D8202A] font-bold text-sm sm:text-[15px] transition-colors"
                   >
-                    <span>{t.contact.submitBtn}</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
+                    <Phone className="w-4 h-4 text-[#D8202A] shrink-0" />
+                    <span>+1 (774) 747-7215 (USA)</span>
+                  </a>
 
-                  <p className="text-center text-[11px] font-mono text-slate-400 mt-2 flex items-center justify-center gap-1.5">
-                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-                    <span>100% Confidencial. Respuesta en &lt;2 horas.</span>
-                  </p>
-                </form>
-              )}
+                  <a
+                    href="tel:+51902699916"
+                    className="flex items-center gap-2.5 text-[#0A192F] hover:text-[#D8202A] font-bold text-sm sm:text-[15px] transition-colors"
+                  >
+                    <Phone className="w-4 h-4 text-[#D8202A] shrink-0" />
+                    <span>+51 902 699 916 (Perú)</span>
+                  </a>
+                </div>
+
+                {/* Email */}
+                <div>
+                  <a
+                    href="mailto:jstackinfo@gmail.com"
+                    className="flex items-center gap-2.5 text-[#0A192F] hover:text-[#D8202A] font-bold text-sm sm:text-[15px] transition-colors"
+                  >
+                    <Mail className="w-4 h-4 text-[#D8202A] shrink-0" />
+                    <span>info@jstack.digital</span>
+                  </a>
+                </div>
+
+                {/* Locations */}
+                <div className="flex items-start gap-2.5 text-[#0A192F] font-bold text-sm sm:text-[15px]">
+                  <MapPin className="w-4 h-4 text-[#D8202A] shrink-0 mt-0.5" />
+                  <div>
+                    <span>Our Locations:</span>
+                    <p className="text-xs text-slate-500 font-normal mt-1 leading-relaxed">
+                      Boston, MA (USA) <br />
+                      Seattle, WA (USA) <br />
+                      Lima, Perú
+                    </p>
+                  </div>
+                </div>
+
+              </div>
 
             </div>
+
           </div>
 
-        </motion.div>
+        </div>
+
       </div>
+
     </section>
   );
 };

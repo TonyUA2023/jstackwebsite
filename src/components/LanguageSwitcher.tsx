@@ -1,31 +1,34 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
+import { Globe } from 'lucide-react';
 
 export const LanguageSwitcher: React.FC<{ className?: string }> = ({ className = '' }) => {
   const { language, setLanguage } = useLanguage();
 
   return (
-    <div className={`inline-flex items-center bg-[#0F172A] border border-[#1E293B] font-mono text-xs font-bold ${className}`}>
+    <div className={`inline-flex items-center gap-1 p-0.5 bg-white rounded-full border border-slate-300 shadow-xs ${className}`}>
+      <div className="pl-1.5 pr-0.5 text-[#D8202A]">
+        <Globe className="w-3.5 h-3.5" />
+      </div>
+
       <button
         onClick={() => setLanguage('en')}
-        className={`px-3 py-1 transition-colors ${
+        className={`px-2.5 py-0.5 rounded-full text-[11px] font-black tracking-wider transition-all duration-200 cursor-pointer ${
           language === 'en'
-            ? 'bg-[#0284C7] text-white font-black'
-            : 'text-slate-400 hover:text-white'
+            ? 'bg-[#D8202A] text-white shadow-xs'
+            : 'text-slate-600 hover:text-slate-900'
         }`}
         aria-label="Switch to English"
       >
         EN
       </button>
 
-      <span className="text-slate-600 px-0.5">|</span>
-
       <button
         onClick={() => setLanguage('es')}
-        className={`px-3 py-1 transition-colors ${
+        className={`px-2.5 py-0.5 rounded-full text-[11px] font-black tracking-wider transition-all duration-200 cursor-pointer ${
           language === 'es'
-            ? 'bg-[#0284C7] text-white font-black'
-            : 'text-slate-400 hover:text-white'
+            ? 'bg-[#D8202A] text-white shadow-xs'
+            : 'text-slate-600 hover:text-slate-900'
         }`}
         aria-label="Cambiar a Español"
       >

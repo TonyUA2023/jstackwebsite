@@ -1,22 +1,23 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Sparkles, X, CheckCircle2, Eye, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Eye, Gauge, TrendingUp, X, CheckCircle2 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
+import wayraImg from '../assets/experiencia/wayra.png';
 import esmeraldImg from '../assets/experiencia/esmerald.png';
+import parionaImg from '../assets/experiencia/pariona.png';
+import manuelasImg from '../assets/experiencia/manuelas.png';
 import firmaImg from '../assets/experiencia/firma.png';
 import homecleanImg from '../assets/experiencia/homeclean.png';
-import manuelasImg from '../assets/experiencia/manuelas.png';
-import parionaImg from '../assets/experiencia/pariona.png';
 import tractoleoImg from '../assets/experiencia/tractoleo.png';
-import wayraImg from '../assets/experiencia/wayra.png';
 
 interface ProjectItem {
   id: string;
   title: string;
-  category: 'corporate' | 'services' | 'tech' | 'gourmet';
+  category: string;
   categoryLabelEn: string;
   categoryLabelEs: string;
+  location: string;
   clientDomain: string;
   image: string;
   descriptionEs: string;
@@ -31,307 +32,302 @@ interface ProjectItem {
 
 export const PhotoGallerySection: React.FC = () => {
   const { t, language } = useLanguage();
-  const [activeFilter, setActiveFilter] = useState<string>('all');
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
+
+  const handleContactClick = () => {
+    const el = document.getElementById('contact');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      window.location.hash = '#/contact';
+    }
+  };
 
   const projects: ProjectItem[] = [
     {
       id: 'wayra',
-      title: 'Wayra - Tech Hub & Innovation',
-      category: 'tech',
-      categoryLabelEs: 'Tech & Innovación',
-      categoryLabelEn: 'Tech & Innovation',
-      clientDomain: 'wayra.pe',
+      title: 'Wayra - Mobile Auto Detailing',
+      category: 'detailing',
+      categoryLabelEs: 'Mobile Auto Detailing · Seattle',
+      categoryLabelEn: 'Mobile Auto Detailing · Seattle',
+      location: 'Seattle, WA',
+      clientDomain: 'wayradetailing.com',
       image: wayraImg,
-      descriptionEs: 'Plataforma web de alta tecnología diseñada para startup hub de innovación con carga instantánea y arquitectura modular moderna.',
-      descriptionEn: 'High-tech web platform engineered for an innovation startup hub with instant load times and modern modular architecture.',
-      highlightsEs: ['Diseño Ultra Fluido', 'Carga Instantánea <0.3s', 'Estructura Modular React'],
-      highlightsEn: ['Ultra-Fluid UI', 'Instant Load <0.3s', 'React Modular Architecture'],
+      descriptionEs: 'Plataforma web de alta conversión para servicio de mobile auto detailing a domicilio en Seattle, con cotizador instantáneo y sistema de reservas online.',
+      descriptionEn: 'High-converting web platform engineered for a premier mobile auto detailing business in Seattle, featuring instant quote pricing and online scheduling.',
+      highlightsEs: ['Reservas en Línea en 3 Pasos', 'Carga Instantánea <0.3s', 'Cotizador por Tipo de Vehículo'],
+      highlightsEn: ['3-Step Online Booking', 'Sub-0.3s Instant Load', 'Vehicle-Based Price Estimator'],
       metrics: { speed: '100/100', growth: '+280%' }
     },
     {
       id: 'esmerald',
-      title: 'Esmerald - Luxury & Corporate Brand',
-      category: 'corporate',
-      categoryLabelEs: 'Marca de Lujo & Corporativo',
-      categoryLabelEn: 'Luxury Brand & Corporate',
-      clientDomain: 'esmerald.pe',
+      title: 'Esmerald - Mobile Auto Detailing',
+      category: 'detailing',
+      categoryLabelEs: 'Mobile Auto Detailing · Seattle',
+      categoryLabelEn: 'Mobile Auto Detailing · Seattle',
+      location: 'Seattle, WA',
+      clientDomain: 'esmeraldseattledetail.com',
       image: esmeraldImg,
-      descriptionEs: 'Sitio web corporativo de lujo con estética visual premium, tipografía exclusiva e interacciones fluidas para capturar clientes de alto valor.',
-      descriptionEn: 'High-end corporate website featuring premium aesthetics, bespoke typography, and smooth micro-interactions to capture high-ticket clients.',
-      highlightsEs: ['Estética Premium', 'Optimización SEO Avanzada', 'Experiencia Responsiva'],
-      highlightsEn: ['Premium Aesthetics', 'Advanced SEO Suite', 'Fluid Responsive UX'],
+      descriptionEs: 'Sitio web premium para servicio de mobile auto detailing, ceramic coating y corrección de pintura a domicilio en Seattle, optimizado para captación de clientes.',
+      descriptionEn: 'Premier digital platform for a luxury mobile auto detailing and ceramic coating service in Seattle, crafted for high-ticket client acquisition.',
+      highlightsEs: ['Estética Editorial de Lujo', 'Embudo de Ventas Directo', 'Integración WhatsApp Business'],
+      highlightsEn: ['Luxury Editorial UI', 'Direct Conversion Funnel', 'WhatsApp Booking Sync'],
       metrics: { speed: '100/100', growth: '+310%' }
     },
     {
       id: 'pariona',
-      title: 'Estudio Pariona - Corporate Legal Firm',
-      category: 'corporate',
-      categoryLabelEs: 'Firma Legal & Corporativo',
-      categoryLabelEn: 'Corporate Legal Firm',
-      clientDomain: 'estudiopariona.pe',
+      title: 'Pariona Company - Mobile Detailing',
+      category: 'detailing',
+      categoryLabelEs: 'Mobile Detailing · Seattle',
+      categoryLabelEn: 'Mobile Detailing · Seattle',
+      location: 'Seattle, WA',
+      clientDomain: 'parionacompany.com',
       image: parionaImg,
-      descriptionEs: 'Plataforma digital corporativa para firma de abogados especializada en derecho empresarial y consultoría legal de alto nivel.',
-      descriptionEn: 'Corporate digital portal for a premier law firm specializing in corporate law, business advisory, and legal consulting.',
-      highlightsEs: ['Estructura de Alta Confianza', 'Formularios de Consulta Seguros', 'Certificación Google Speed'],
-      highlightsEn: ['High-Trust Architecture', 'Secure Consultation Forms', 'Google Speed Certified'],
-      metrics: { speed: '99/100', growth: '+220%' }
-    },
-    {
-      id: 'homeclean',
-      title: 'Homeclean - Professional Cleaning Services',
-      category: 'services',
-      categoryLabelEs: 'Servicios & Operaciones',
-      categoryLabelEn: 'Services & Maintenance',
-      clientDomain: 'homeclean.pe',
-      image: homecleanImg,
-      descriptionEs: 'Sitio web de generación de prospectos e integración directa con WhatsApp para servicios de mantenimiento y limpieza empresarial.',
-      descriptionEn: 'High-converting lead generation website with instant WhatsApp and CRM integration for professional maintenance services.',
-      highlightsEs: ['Integración WhatsApp Directo', 'Cotizador en Línea', 'Embudo de Ventas Rápido'],
-      highlightsEn: ['Instant WhatsApp Integration', 'Online Quote Engine', 'Fast Sales Funnel'],
-      metrics: { speed: '100/100', growth: '+350%' }
-    },
-    {
-      id: 'tractoleo',
-      title: 'Tractoleo - Industrial Solutions & Machinery',
-      category: 'services',
-      categoryLabelEs: 'Sector Industrial & Maquinaria',
-      categoryLabelEn: 'Industrial & Heavy Machinery',
-      clientDomain: 'tractoleo.com',
-      image: tractoleoImg,
-      descriptionEs: 'Portal web industrial con catálogo interactivo de repuestos, maquinaria pesada y servicios para el sector minero e industrial.',
-      descriptionEn: 'Industrial portal featuring an interactive catalog of machinery parts, heavy equipment, and mining services.',
-      highlightsEs: ['Catálogo Interactivo', 'Carga de Imágenes Optimizada', 'Formulario de Cotización'],
-      highlightsEn: ['Interactive Parts Catalog', 'Optimized Heavy Media Load', 'RFQ Quote Form'],
-      metrics: { speed: '98/100', growth: '+190%' }
+      descriptionEs: 'Plataforma web profesional para empresa de mobile detailing en Seattle, enfocada en agendamiento ágil y paquetes de detallado automotriz.',
+      descriptionEn: 'Professional web platform for a Seattle-based mobile detailing company, focused on frictionless service scheduling and custom detailing packages.',
+      highlightsEs: ['Agendamiento Móvil Rápido', 'Catálogo de Paquetes', '100% Optimizado para Celulares'],
+      highlightsEn: ['Fast Mobile Scheduling', 'Detailing Package Showcase', '100% Mobile Responsive'],
+      metrics: { speed: '100/100', growth: '+220%' }
     },
     {
       id: 'manuelas',
-      title: 'Manuelas - Gourmet Dining Experience',
-      category: 'gourmet',
-      categoryLabelEs: 'Gastronomía & Experiencias',
-      categoryLabelEn: 'Gourmet & Hospitality',
-      clientDomain: 'manuelas.pe',
+      title: 'Manuelas - Bakery & Catering',
+      category: 'bakery',
+      categoryLabelEs: 'Bakery & Catering · Seattle',
+      categoryLabelEn: 'Bakery & Catering · Seattle',
+      location: 'Seattle, WA',
+      clientDomain: 'manuelasbakery.com',
       image: manuelasImg,
-      descriptionEs: 'Sitio web interactivo de marca gastronómica con menú digital, sistema de reservas y fotografía atractiva optimizada para conversión.',
-      descriptionEn: 'Interactive gourmet brand website featuring digital menu browsing, reservation funnel, and conversion-optimized imagery.',
-      highlightsEs: ['Menú Digital Interactivo', 'Reservas en Tiempo Real', 'Diseño de Marca Exclusivo'],
-      highlightsEn: ['Interactive Digital Menu', 'Real-Time Reservation Engine', 'Bespoke Branding'],
+      descriptionEs: 'Sitio web interactivo para pastelería artesanal y servicio de catering en Seattle, con catálogo visual de productos y cotizador de eventos.',
+      descriptionEn: 'Interactive web experience for an artisanal bakery and event catering service in Seattle, featuring visual product catalogs and event catering quote requests.',
+      highlightsEs: ['Catálogo de Pastelería & Menú', 'Solicitudes de Catering para Eventos', 'Diseño Visual Gastronómico'],
+      highlightsEn: ['Artisanal Bakery & Menu Showcase', 'Event Catering Inquiry Funnel', 'High-Impact Gourmet UI'],
       metrics: { speed: '100/100', growth: '+260%' }
     },
     {
       id: 'firma',
-      title: 'Firma Contable - Accounting & Business Advisory',
-      category: 'corporate',
-      categoryLabelEs: 'Firma Contable & Financiera',
-      categoryLabelEn: 'Accounting & Financial Firm',
-      clientDomain: 'firmacontable.pe',
+      title: 'Firma - Digital Marketing Agency',
+      category: 'marketing',
+      categoryLabelEs: 'Agencia de Marketing · Seattle',
+      categoryLabelEn: 'Digital Marketing Agency · Seattle',
+      location: 'Seattle, WA',
+      clientDomain: 'firmaagency.com',
       image: firmaImg,
-      descriptionEs: 'Sitio web institucional para estudio de contabilidad y auditoría empresarial enfocado en proyectar solvencia, orden y profesionalismo.',
-      descriptionEn: 'Institutional website for an accounting and corporate audit firm focused on projecting authority, trust, and financial stability.',
-      highlightsEs: ['Proyección de Solvencia', 'Sección de Consultas', '100% Código Propio'],
-      highlightsEn: ['Authority Architecture', 'Inquiry Engine', '100% Custom Code'],
+      descriptionEs: 'Plataforma web institucional para agencia de marketing digital en Seattle, especializada en adquisición de clientes, estrategias de pauta y diseño de marca.',
+      descriptionEn: 'Institutional web platform for a Seattle digital marketing agency, specializing in customer acquisition, paid media strategy, and brand identity.',
+      highlightsEs: ['Presentación de Servicios de Marketing', 'Formulario de Auditoría Gratuita', 'Arquitectura Limpia & Moderna'],
+      highlightsEn: ['Marketing Service Portfolio', 'Free Growth Audit Funnel', 'Clean Modern Architecture'],
       metrics: { speed: '100/100', growth: '+240%' }
+    },
+    {
+      id: 'homeclean',
+      title: 'Homeclean - Cleaning Services & Booking',
+      category: 'services',
+      categoryLabelEs: 'Servicios de Limpieza · Seattle',
+      categoryLabelEn: 'Cleaning Services · Seattle',
+      location: 'Seattle, WA',
+      clientDomain: 'homecleanseattle.com',
+      image: homecleanImg,
+      descriptionEs: 'Plataforma de servicios de limpieza residencial y comercial en Seattle con cotizador de presupuestos en tiempo real y reserva online.',
+      descriptionEn: 'Residential and commercial cleaning platform in Seattle featuring instant real-time price estimation and seamless online booking.',
+      highlightsEs: ['Calculadora de Presupuestos', 'Agendamiento en 3 Pasos', 'Notificaciones Automáticas'],
+      highlightsEn: ['Instant Price Calculator', '3-Step Booking Engine', 'Automated Notifications'],
+      metrics: { speed: '100/100', growth: '+350%' }
+    },
+    {
+      id: 'tractoleo',
+      title: 'Tractoleo - Heavy Machinery & Parts',
+      category: 'industrial',
+      categoryLabelEs: 'Maquinaria & Repuestos Industriales',
+      categoryLabelEn: 'Heavy Machinery & Industrial Parts',
+      location: 'Industrial Hub',
+      clientDomain: 'tractoleo.com',
+      image: tractoleoImg,
+      descriptionEs: 'Portal digital para venta y distribución de maquinaria pesada y repuestos industriales con catálogo dinámico y cotizador automático de partes.',
+      descriptionEn: 'Digital portal for heavy machinery sales and industrial parts distribution with dynamic cataloging and automated quote generator.',
+      highlightsEs: ['Catálogo de Repuestos', 'Filtro Dinámico de Partes', 'Cotizador en 1 Clic'],
+      highlightsEn: ['Industrial Parts Catalog', 'Dynamic Part Filtering', '1-Click Quote Engine'],
+      metrics: { speed: '99/100', growth: '+190%' }
     }
   ];
 
-  const filteredProjects = activeFilter === 'all'
-    ? projects
-    : projects.filter(p => p.category === activeFilter);
-
   return (
-    <section id="gallery" className="py-20 bg-[#070A10] text-white border-t border-[#1E293B]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="py-20 sm:py-28 bg-white text-[#0A192F] border-t border-b border-slate-200/80 relative overflow-hidden">
+      
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
         
         {/* Section Header */}
-        <motion.div 
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.5 }}
-          className="text-center max-w-3xl mx-auto space-y-3"
-        >
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+        <div className="text-center max-w-3xl mx-auto space-y-4 mb-14">
+          <h2 className="text-3xl sm:text-5xl lg:text-[50px] xl:text-[56px] font-black text-[#0A192F] tracking-tight font-sans leading-[1.08]">
             {t.gallery.title}
           </h2>
-          
-          <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+
+          <p className="text-lg sm:text-xl lg:text-[21px] text-[#475569] leading-relaxed font-normal">
             {t.gallery.subtitle}
           </p>
-        </motion.div>
-
-        {/* Category Filter Pills */}
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-2">
-          {[
-            { id: 'all', label: t.gallery.allFilter },
-            { id: 'corporate', label: t.gallery.corporateFilter },
-            { id: 'services', label: t.gallery.servicesFilter },
-            { id: 'tech', label: t.gallery.techFilter },
-            { id: 'gourmet', label: t.gallery.gourmetFilter },
-          ].map(tab => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveFilter(tab.id)}
-              className={`px-4 py-2 text-xs font-mono font-bold transition-all border ${
-                activeFilter === tab.id
-                  ? 'bg-[#0284C7] text-white border-[#38BDF8]'
-                  : 'bg-[#0B0F17] text-slate-400 border-[#1E293B] hover:text-white'
-              }`}
-            >
-              {tab.label}
-            </button>
-          ))}
         </div>
 
-        {/* 7-Project Responsive Showcase Grid */}
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, idx) => (
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
+          {projects.map((project, index) => (
             <motion.div
               key={project.id}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="bg-[#0B0F17] border border-[#1E293B] hover:border-[#0284C7] transition-all flex flex-col justify-between"
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.08 }}
+              className="group bg-white border border-slate-200 hover:border-[#D8202A] rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-xl flex flex-col justify-between"
             >
               <div>
-                {/* Screenshot Container */}
-                <div className="relative aspect-[16/10] overflow-hidden bg-[#05070A] cursor-pointer" onClick={() => setSelectedProject(project)}>
-                  <img 
-                    src={project.image} 
-                    alt={project.title} 
-                    className="w-full h-full object-cover object-top"
+                {/* Image Container with Hover Zoom */}
+                <div 
+                  className="relative aspect-[16/10] overflow-hidden bg-slate-100 cursor-pointer"
+                  onClick={() => setSelectedProject(project)}
+                >
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute top-3 left-3">
-                    <span className="text-[10px] font-mono font-bold px-2.5 py-1 bg-[#05070A] text-white border border-[#1E293B]">
-                      {language === 'en' ? project.categoryLabelEn : project.categoryLabelEs}
-                    </span>
+
+                  {/* Hover Overlay with View Action */}
+                  <div className="absolute inset-0 bg-[#0A192F]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3 p-4">
+                    <button
+                      onClick={(e) => { e.stopPropagation(); setSelectedProject(project); }}
+                      className="px-5 py-2.5 bg-[#D8202A] hover:bg-[#B91C1C] text-white text-xs font-bold uppercase tracking-wider rounded-md flex items-center gap-1.5 shadow-lg cursor-pointer"
+                    >
+                      <Eye className="w-4 h-4" />
+                      <span>{t.gallery.viewProjectBtn}</span>
+                    </button>
                   </div>
                 </div>
 
-                {/* Card Info */}
-                <div className="p-6">
-                  <h3 className="text-base font-extrabold text-white">
+                {/* Card Content */}
+                <div className="p-6 sm:p-7 text-left space-y-2.5">
+                  <div className="text-[11px] font-bold text-[#D8202A] uppercase tracking-wider">
+                    {language === 'es' ? project.categoryLabelEs : project.categoryLabelEn}
+                  </div>
+
+                  <h3 className="text-xl font-bold text-[#0A192F] group-hover:text-[#D8202A] transition-colors leading-snug">
                     {project.title}
                   </h3>
-                  
-                  <p className="mt-2 text-xs text-slate-300 leading-relaxed border-t border-[#1E293B] pt-3">
-                    {language === 'en' ? project.descriptionEn : project.descriptionEs}
+
+                  <p className="text-[14px] sm:text-[15px] text-[#475569] leading-relaxed line-clamp-2 font-normal">
+                    {language === 'es' ? project.descriptionEs : project.descriptionEn}
                   </p>
 
-                  <div className="mt-4 pt-3 border-t border-[#1E293B] flex flex-wrap gap-1.5">
-                    {(language === 'en' ? project.highlightsEn : project.highlightsEs).map(h => (
-                      <span key={h} className="text-[10px] font-mono font-bold px-2 py-0.5 bg-[#05070A] text-slate-300 border border-[#1E293B]">
-                        {h}
-                      </span>
-                    ))}
+                  {/* Metrics Bar */}
+                  <div className="mt-4 pt-4 border-t border-slate-100 grid grid-cols-2 gap-3">
+                    <div className="flex items-center gap-2">
+                      <Gauge className="w-4 h-4 text-[#D8202A]" />
+                      <div>
+                        <span className="text-[10px] font-bold uppercase text-slate-400 block leading-none">{t.gallery.speedMetricLabel}</span>
+                        <span className="text-sm font-bold text-[#0A192F] mt-0.5 block">{project.metrics.speed}</span>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                      <TrendingUp className="w-4 h-4 text-emerald-600" />
+                      <div>
+                        <span className="text-[10px] font-bold uppercase text-slate-400 block leading-none">{t.gallery.growthMetricLabel}</span>
+                        <span className="text-sm font-bold text-emerald-600 mt-0.5 block">{project.metrics.growth}</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
 
               {/* Card Footer Action */}
-              <div className="p-6 pt-0">
-                <a
-                  href="#contact"
-                  className="w-full py-2.5 px-4 bg-[#1E293B] hover:bg-[#0284C7] text-white font-mono text-xs font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-2 border border-[#334155]"
+              <div className="px-6 pb-6 pt-2">
+                <button
+                  onClick={handleContactClick}
+                  className="w-full py-3 px-4 bg-slate-50 hover:bg-[#D8202A] text-slate-800 hover:text-white text-xs font-bold uppercase tracking-wider rounded-lg border border-slate-200 hover:border-[#D8202A] transition-all flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <span>{t.gallery.requestSimilarBtn}</span>
                   <ArrowRight className="w-3.5 h-3.5" />
-                </a>
+                </button>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Global CTA Below Showcase */}
-        <div className="mt-14 text-center">
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2.5 px-8 py-4 bg-[#0284C7] hover:bg-[#0369A1] text-white text-xs font-mono font-bold uppercase tracking-wider transition-colors border border-[#38BDF8]/30 shadow-md"
-          >
-            <span>{t.gallery.globalCta}</span>
-            <ArrowRight className="w-4 h-4" />
-          </a>
-        </div>
-
       </div>
 
-      {/* Lightbox / Modal for Full Project View */}
+      {/* Project Detail Modal */}
       <AnimatePresence>
         {selectedProject && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#05070A]/90 backdrop-blur-md overflow-y-auto"
-            onClick={() => setSelectedProject(null)}
-          >
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md overflow-y-auto">
             <motion.div
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="relative w-full max-w-4xl bg-[#0B0F17] text-white border border-[#1E293B] my-auto"
-              onClick={e => e.stopPropagation()}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              className="bg-white border border-slate-200 rounded-2xl max-w-3xl w-full overflow-hidden shadow-2xl relative my-8 text-[#0A192F]"
             >
-              {/* Modal Header Bar */}
-              <div className="bg-[#05070A] text-white px-5 py-3 flex items-center justify-between border-b border-[#1E293B]">
-                <span className="font-mono text-xs font-bold text-slate-300">{selectedProject.clientDomain}</span>
-                <button
-                  onClick={() => setSelectedProject(null)}
-                  className="p-1 text-slate-400 hover:text-white"
-                >
-                  <X className="w-5 h-5" />
-                </button>
+              {/* Close Button */}
+              <button
+                onClick={() => setSelectedProject(null)}
+                className="absolute top-4 right-4 z-10 p-2 bg-white/90 hover:bg-slate-100 text-slate-700 rounded-full border border-slate-200 transition-colors cursor-pointer"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              {/* Modal Image */}
+              <div className="relative aspect-[16/9] bg-slate-100 border-b border-slate-200">
+                <img
+                  src={selectedProject.image}
+                  alt={selectedProject.title}
+                  className="w-full h-full object-cover object-top"
+                />
               </div>
 
-              {/* Modal Content */}
-              <div className="p-6 max-h-[80vh] overflow-y-auto">
-                <div className="border border-[#1E293B] bg-[#05070A]">
-                  <img
-                    src={selectedProject.image}
-                    alt={selectedProject.title}
-                    className="w-full h-auto object-cover max-h-[500px] object-top"
-                  />
+              {/* Modal Body */}
+              <div className="p-6 sm:p-8 space-y-6 text-left">
+                <div>
+                  <span className="text-xs font-bold text-[#D8202A] uppercase tracking-wider block mb-1">
+                    {language === 'es' ? selectedProject.categoryLabelEs : selectedProject.categoryLabelEn}
+                  </span>
+                  <h3 className="text-2xl sm:text-3xl font-black text-[#0A192F] font-sans">
+                    {selectedProject.title}
+                  </h3>
                 </div>
 
-                <div className="mt-6 flex flex-col md:flex-row md:items-center justify-between gap-6">
-                  <div>
-                    <span className="text-[10px] font-mono font-bold px-2.5 py-1 bg-[#0284C7] text-white border border-[#38BDF8]/30">
-                      {language === 'en' ? selectedProject.categoryLabelEn : selectedProject.categoryLabelEs}
-                    </span>
-                    <h3 className="text-xl font-extrabold text-white mt-2">
-                      {selectedProject.title}
-                    </h3>
-                    <p className="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
-                      {language === 'en' ? selectedProject.descriptionEn : selectedProject.descriptionEs}
-                    </p>
-                  </div>
+                <p className="text-sm sm:text-base text-[#475569] leading-relaxed">
+                  {language === 'es' ? selectedProject.descriptionEs : selectedProject.descriptionEn}
+                </p>
 
-                  <div className="shrink-0">
-                    <a
-                      href="#contact"
-                      onClick={() => setSelectedProject(null)}
-                      className="px-6 py-3 bg-[#0284C7] hover:bg-[#0369A1] text-white text-xs font-mono font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-2 border border-[#38BDF8]/30"
-                    >
-                      <span>{t.gallery.modalQuoteBtn}</span>
-                      <ArrowRight className="w-4 h-4" />
-                    </a>
+                {/* Highlights */}
+                <div>
+                  <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">
+                    {language === 'es' ? 'Resultados & Especificaciones Técnicas:' : 'Key Engineering Features & Deliverables:'}
+                  </h4>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    {(language === 'es' ? selectedProject.highlightsEs : selectedProject.highlightsEn).map((item, idx) => (
+                      <div key={idx} className="flex items-center gap-2 text-xs sm:text-sm text-[#0A192F] font-medium">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                        <span>{item}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
 
-                {/* Highlights Grid */}
-                <div className="mt-6 pt-6 border-t border-[#1E293B] grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  {(language === 'en' ? selectedProject.highlightsEn : selectedProject.highlightsEs).map((h, i) => (
-                    <div key={i} className="flex items-center gap-2 p-3 bg-[#05070A] border border-[#1E293B]">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                      <span className="text-xs font-mono font-bold text-slate-200">{h}</span>
-                    </div>
-                  ))}
+                {/* Modal Footer CTA */}
+                <div className="pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+                  <div className="text-xs text-slate-500 font-mono">
+                    {language === 'es' ? 'Ubicación:' : 'Location:'} <span className="font-bold text-[#0A192F]">{selectedProject.location}</span>
+                  </div>
+
+                  <button
+                    onClick={() => { setSelectedProject(null); handleContactClick(); }}
+                    className="w-full sm:w-auto px-7 py-3 bg-[#D8202A] hover:bg-[#B91C1C] text-white font-bold text-xs uppercase tracking-wider rounded-md transition-all shadow-md cursor-pointer"
+                  >
+                    {language === 'es' ? 'Cotizar Proyecto Similar' : 'Request Similar Project'}
+                  </button>
                 </div>
+
               </div>
+
             </motion.div>
-          </motion.div>
+          </div>
         )}
       </AnimatePresence>
 
