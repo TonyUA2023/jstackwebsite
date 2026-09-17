@@ -37,7 +37,7 @@ export const AnalyticsReport: React.FC = () => {
       [],
       ["--- DISTRIBUCION DE TRAFICO POR PAIS ---"],
       ["Pais", "Porcentaje de Trafico", "Metodo de Contacto Principal"],
-      ["Estados Unidos (US)", "48%", "Formulario Web / WhatsApp +1 (774) 747-7215"],
+      ["Estados Unidos (US)", "48%", "Formulario Web / WhatsApp +1 (646) 980-4939"],
       ["Peru (PE)", "26%", "WhatsApp Directo / Email"],
       ["Espana (ES)", "18%", "Formulario / Cotizacion"],
       ["Otros (MX, CO, CL)", "8%", "WhatsApp Directo"],

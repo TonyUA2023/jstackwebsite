@@ -111,7 +111,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
       "name": "JSTACK Digital Solutions",
-      "telephone": "+1-774-747-7215",
+      "telephone": "+1-646-980-4939",
       "url": "https://jstack.dev",
       "logo": "https://jstack.dev/logo.png",
       "description": currentMeta.description,

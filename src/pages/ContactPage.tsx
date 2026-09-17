@@ -65,7 +65,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigateHome }) => {
     }
   };
 
-  const whatsappDirectUrl = "https://wa.me/17747477215?text=Hola,%20deseo%20cotizar%20un%20proyecto%20con%20Jstack.Digital";
+  const whatsappDirectUrl = "https://wa.me/16469804939?text=Hola,%20deseo%20cotizar%20un%20proyecto%20con%20Jstack.Digital";
 
   return (
     <div className="bg-white text-[#0A192F] min-h-screen">
@@ -246,7 +246,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigateHome }) => {
                       <input
                         type="tel"
                         required
-                        placeholder="+1 (774) 747-7215"
+                        placeholder="+1 (646) 980-4939"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         className="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D8202A] focus:bg-white text-[#0A192F] text-sm rounded-lg focus:outline-none transition-all shadow-xs"
@@ -372,13 +372,13 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigateHome }) => {
 
                 <div className="space-y-4 text-sm text-slate-300">
                   <a
-                    href="tel:+17747477215"
+                    href="tel:+16469804939"
                     className="flex items-center gap-3 text-white hover:text-[#D8202A] font-bold transition-colors"
                   >
                     <div className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center shrink-0 text-[#D8202A]">
                       <Phone className="w-4 h-4" />
                     </div>
-                    <span>🇺🇸 +1 (774) 747-7215 (USA)</span>
+                    <span>🇺🇸 +1 (646) 980-4939 (USA)</span>
                   </a>
 
                   <a

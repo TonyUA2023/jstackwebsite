@@ -206,11 +206,11 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                 {/* Phone Numbers: USA & Peru */}
                 <div className="space-y-2">
                   <a
-                    href="tel:+17747477215"
+                    href="tel:+16469804939"
                     className="flex items-center gap-2.5 text-[#0A192F] hover:text-[#D8202A] font-bold text-sm sm:text-[15px] transition-colors"
                   >
                     <Phone className="w-4 h-4 text-[#D8202A] shrink-0" />
-                    <span>+1 (774) 747-7215 (USA)</span>
+                    <span>+1 (646) 980-4939 (USA)</span>
                   </a>
 
                   <a

@@ -76,7 +76,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigateHome }) => {
           <section className="space-y-3">
             <h2 className="text-2xl font-bold text-[#0A192F]">6. Contact Information</h2>
             <p>
-              For legal inquiries or contractual clarifications, contact our legal desk at <a href="mailto:jstackinfo@gmail.com" className="text-[#D8202A] font-bold hover:underline">info@jstack.com</a> or call <span className="font-bold text-[#0A192F]">+1 (774) 747-7215</span>.
+              For legal inquiries or contractual clarifications, contact our legal desk at <a href="mailto:jstackinfo@gmail.com" className="text-[#D8202A] font-bold hover:underline">info@jstack.com</a> or call <span className="font-bold text-[#0A192F]">+1 (646) 980-4939</span>.
             </p>
           </section>
 

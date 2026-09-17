@@ -95,8 +95,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigatePage }) => {
             <div className="text-sm text-slate-300 space-y-1.5 pt-2">
               <div className="flex items-center gap-2">
                 <span className="text-slate-400 text-xs font-semibold">{language === 'es' ? 'Teléfono:' : 'Phone:'}</span>
-                <a href="tel:+17747477215" className="hover:text-[#D8202A] font-bold text-xs sm:text-sm transition-colors">
-                  🇺🇸 +1 (774) 747-7215
+                <a href="tel:+16469804939" className="hover:text-[#D8202A] font-bold text-xs sm:text-sm transition-colors">
+                  🇺🇸 +1 (646) 980-4939
                 </a>
               </div>
 

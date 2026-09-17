@@ -15,7 +15,7 @@ export const StickyBottomBar: React.FC = () => {
     phone: ''
   });
 
-  const phoneDisplay = "+1 (774) 747-7215";
+  const phoneDisplay = "+1 (646) 980-4939";
 
   useEffect(() => {
     const handleScroll = () => {

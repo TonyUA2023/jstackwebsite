@@ -184,7 +184,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                     <input
                       type="tel"
                       required
-                      placeholder="+1 (774) 747-7215"
+                      placeholder="+1 (646) 980-4939"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 focus:border-[#D8202A] focus:bg-white text-[#0A192F] text-xs font-medium rounded-md focus:outline-none transition-all shadow-xs"

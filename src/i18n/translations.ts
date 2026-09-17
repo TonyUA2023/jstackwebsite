@@ -212,8 +212,8 @@ export const translations: Record<Language, TranslationStructure> = {
       keywords: "Diseño Web Profesional y Eficiente, Tu Página Web Comercial, Creación de Páginas Web Vendedoras, Páginas Web Optimizadas y Rápidas, Agencias de Desarrollo Web, Diseño Web Optimizado para SEO, Páginas Web Económicas para Pymes, Diseño de Tiendas Online E-commerce, Creación de Landing Pages de Alta Conversión, Desarrollo Web a Medida"
     },
     topBar: {
-      phone: "+17747477215",
-      phoneDisplay: "+1 (774) 747-7215",
+      phone: "+16469804939",
+      phoneDisplay: "+1 (646) 980-4939",
       flagText: "USA / Internacional",
       locationText: "Soporte Global",
       smsText: "SMS Directo",
@@ -227,7 +227,7 @@ export const translations: Record<Language, TranslationStructure> = {
       about: "Nosotros",
       contact: "Contacto",
       getQuote: "Cotizar Proyecto",
-      phone: "+1 (774) 747-7215",
+      phone: "+1 (646) 980-4939",
       searchPlaceholder: "Buscar servicios o tecnologías..."
     },
     hero: {
@@ -429,7 +429,7 @@ export const translations: Record<Language, TranslationStructure> = {
       tag: "HABLEMOS DE TU PROYECTO",
       title: "Let's Build Something Great Together",
       subtitle: "Recibe una propuesta técnica y cotización formal personalizada en menos de 2 horas. Atención directa en EE. UU., Perú y España.",
-      phoneLabel: "Llamada / WhatsApp / SMS Directo: +1 (774) 747-7215",
+      phoneLabel: "Llamada / WhatsApp / SMS Directo: +1 (646) 980-4939",
       nameLabel: "Tu Nombre o Nombre de Empresa",
       namePlaceholder: "Ej. Juan Pérez / Empresa LLC",
       emailLabel: "Correo Electrónico de Contacto",
@@ -441,7 +441,7 @@ export const translations: Record<Language, TranslationStructure> = {
       submitting: "Enviando Solicitud...",
       successTitle: "¡Solicitud Recibida con Éxito!",
       successDesc: "Gracias. Tony Ulloa y el equipo de JSTACK revisarán tus requerimientos y te contactarán a la brevedad.",
-      usTrustBadge: "🇺🇸 🇵🇪 🇪🇸 Cobertura Directa en Estados Unidos, Perú y España | Tel: +1 (774) 747-7215",
+      usTrustBadge: "🇺🇸 🇵🇪 🇪🇸 Cobertura Directa en Estados Unidos, Perú y España | Tel: +1 (646) 980-4939",
       locationsNotice: "Centros de servicio: Massachusetts (EE. UU.), Lima (Perú), Madrid (España).",
       directChannelsTitle: "Canales de Contacto Rápido"
     },
@@ -457,14 +457,14 @@ export const translations: Record<Language, TranslationStructure> = {
       privacy: "Política de Privacidad",
       terms: "Términos del Servicio",
       countriesServed: "Sedes de Atención: Estados Unidos 🇺🇸 | Perú 🇵🇪 | España 🇪🇸 | México 🇲🇽",
-      phoneDirect: "Llamada / WhatsApp / SMS: +1 (774) 747-7215",
+      phoneDirect: "Llamada / WhatsApp / SMS: +1 (646) 980-4939",
       colExpertise: "Expertise",
       colPlatforms: "Plataformas",
       colCompany: "Empresa",
       colContact: "Contacto Directo"
     },
     stickyBar: {
-      text: "Creando Experiencias Digitales de Alto Rendimiento | Tel: +1 (774) 747-7215",
+      text: "Creando Experiencias Digitales de Alto Rendimiento | Tel: +1 (646) 980-4939",
       button: "Cotizar Proyecto"
     }
   },
@@ -475,8 +475,8 @@ export const translations: Record<Language, TranslationStructure> = {
       keywords: "Professional & High-Speed Web Design, Commercial Business Websites, High-Converting Custom Web Development, Fast & SEO-Optimized Custom Websites, Top Web Development Agency, SEO-Optimized Custom Web Design, E-Commerce Stores & Corporate Web Solutions, Custom Full-Stack Web Development"
     },
     topBar: {
-      phone: "+17747477215",
-      phoneDisplay: "+1 (774) 747-7215",
+      phone: "+16469804939",
+      phoneDisplay: "+1 (646) 980-4939",
       flagText: "USA / Global",
       locationText: "Global Direct Support",
       smsText: "Direct SMS",
@@ -490,7 +490,7 @@ export const translations: Record<Language, TranslationStructure> = {
       about: "About",
       contact: "Contact",
       getQuote: "Contact Us",
-      phone: "+1 (774) 747-7215",
+      phone: "+1 (646) 980-4939",
       searchPlaceholder: "Search expertise or technologies..."
     },
     hero: {
@@ -692,7 +692,7 @@ export const translations: Record<Language, TranslationStructure> = {
       tag: "START YOUR PROJECT",
       title: "Let's Build Something Great Together",
       subtitle: "Receive a tailored technical proposal and formal quote in under 2 hours. Serving clients in the US, Peru, and Spain.",
-      phoneLabel: "Direct Phone / WhatsApp / SMS: +1 (774) 747-7215",
+      phoneLabel: "Direct Phone / WhatsApp / SMS: +1 (646) 980-4939",
       nameLabel: "Your Name or Business Name",
       namePlaceholder: "E.g. John Doe / Company LLC",
       emailLabel: "Work Email Address",
@@ -704,7 +704,7 @@ export const translations: Record<Language, TranslationStructure> = {
       submitting: "Submitting Request...",
       successTitle: "Request Received Successfully!",
       successDesc: "Thank you. Tony Ulloa and the JSTACK team will review your requirements and reach out promptly.",
-      usTrustBadge: "🇺🇸 🇵🇪 🇪🇸 Direct Coverage in United States, Peru, and Spain | Tel: +1 (774) 747-7215",
+      usTrustBadge: "🇺🇸 🇵🇪 🇪🇸 Direct Coverage in United States, Peru, and Spain | Tel: +1 (646) 980-4939",
       locationsNotice: "Service hubs: Massachusetts (US), Lima (Peru), Madrid (Spain).",
       directChannelsTitle: "Fast Direct Channels"
     },
@@ -720,14 +720,14 @@ export const translations: Record<Language, TranslationStructure> = {
       privacy: "Privacy Policy",
       terms: "Terms of Service",
       countriesServed: "Service Hubs: United States 🇺🇸 | Peru 🇵🇪 | Spain 🇪🇸 | Mexico 🇲🇽",
-      phoneDirect: "Call / WhatsApp / SMS: +1 (774) 747-7215",
+      phoneDirect: "Call / WhatsApp / SMS: +1 (646) 980-4939",
       colExpertise: "Expertise",
       colPlatforms: "Platforms",
       colCompany: "Company",
       colContact: "Direct Contact"
     },
     stickyBar: {
-      text: "Creating High-Performance Digital Experiences | Tel: +1 (774) 747-7215",
+      text: "Creating High-Performance Digital Experiences | Tel: +1 (646) 980-4939",
       button: "Contact Us"
     }
   }
