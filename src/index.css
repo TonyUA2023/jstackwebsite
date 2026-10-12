@@ -64,3 +64,114 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #D8202A;
 }
+
+/* ==========================================================================
+   Brochure (#/brochure) — motion graphics helpers
+   ========================================================================== */
+
+.bro-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.14) transparent;
+}
+.bro-scroll::-webkit-scrollbar { width: 6px; }
+.bro-scroll::-webkit-scrollbar-track { background: transparent; }
+.bro-scroll::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.14); border-radius: 3px; }
+
+.bro-root ::selection { background: #D8202A; color: #fff; }
+
+/* Horizontal swipes change slides. touch-action only intersects up to the
+   nearest scroll container (any overflow-hidden box counts), so it is set on
+   every element; otherwise mobile browsers treat the swipe as "go back". */
+.bro-root,
+.bro-root * {
+  touch-action: pan-y pinch-zoom;
+}
+
+.bro-gradient-text {
+  background-image: linear-gradient(90deg, #FF5A5F 0%, #D8202A 25%, #FF8A3D 50%, #FF5A5F 75%, #D8202A 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: bro-shimmer 6s linear infinite;
+}
+@keyframes bro-shimmer { to { background-position: -200% center; } }
+
+.bro-outline-text {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.09);
+}
+
+.bro-grid-floor {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.13) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.13) 1px, transparent 1px);
+  background-size: 72px 72px;
+  animation: bro-grid-move 5s linear infinite;
+}
+@keyframes bro-grid-move { to { background-position: 0 72px; } }
+
+.bro-grid-pattern {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.bro-particle { animation: bro-drift 12s ease-in-out infinite; }
+@keyframes bro-drift {
+  0%, 100% { transform: translate3d(0, 0, 0); opacity: 0.15; }
+  50% { transform: translate3d(14px, -40px, 0); opacity: 0.8; }
+}
+
+.bro-float { animation: bro-float 7s ease-in-out infinite; }
+@keyframes bro-float {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -12px, 0); }
+}
+
+.bro-spin { animation: bro-spin 18s linear infinite; }
+.bro-spin-rev { animation: bro-spin-rev 26s linear infinite; }
+.bro-orbit { animation: bro-spin 40s linear infinite; }
+.bro-orbit-rev { animation: bro-spin-rev 40s linear infinite; }
+@keyframes bro-spin { to { transform: rotate(360deg); } }
+@keyframes bro-spin-rev { to { transform: rotate(-360deg); } }
+
+.bro-cube { animation: bro-cube 14s linear infinite; }
+@keyframes bro-cube {
+  from { transform: rotateX(-18deg) rotateY(0deg); }
+  to { transform: rotateX(-18deg) rotateY(360deg); }
+}
+.bro-cube-tilt { animation: bro-cube-tilt 9s ease-in-out infinite; }
+@keyframes bro-cube-tilt {
+  0%, 100% { transform: rotateX(-12deg) rotateZ(-5deg); }
+  50% { transform: rotateX(16deg) rotateZ(5deg); }
+}
+
+.bro-coin { animation: bro-coin 9s cubic-bezier(0.65, 0, 0.35, 1) infinite; }
+@keyframes bro-coin {
+  0% { transform: rotateY(-28deg) rotateX(6deg); }
+  50% { transform: rotateY(28deg) rotateX(-6deg); }
+  100% { transform: rotateY(-28deg) rotateX(6deg); }
+}
+
+.bro-scan { animation: bro-scan 4.5s cubic-bezier(0.45, 0, 0.55, 1) infinite; }
+@keyframes bro-scan {
+  0% { transform: translate3d(0, -100%, 0); }
+  100% { transform: translate3d(0, 560%, 0); }
+}
+
+.bro-marquee { animation: bro-marquee 48s linear infinite; will-change: transform; }
+.bro-marquee-reverse { animation-direction: reverse; }
+@keyframes bro-marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(0, -50%, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bro-root *,
+  .bro-root *::before,
+  .bro-root *::after {
+    animation-play-state: paused !important;
+  }
+}

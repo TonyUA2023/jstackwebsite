@@ -16,7 +16,8 @@ export type PageRoute =
   | 'services-ecommerce'
   | 'services-b2b'
   | 'services-ai'
-  | 'services-it';
+  | 'services-it'
+  | 'brochure';
 
 interface HeaderProps {
   onNavigatePage?: (page: PageRoute) => void;

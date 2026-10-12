@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { LanguageProvider } from './context/LanguageContext';
 import { Header, PageRoute } from './components/Header';
 import { Hero } from './components/Hero';
@@ -29,6 +29,9 @@ import { B2BSystemsServicePage } from './pages/services/B2BSystemsServicePage';
 import { AIAutomationsServicePage } from './pages/services/AIAutomationsServicePage';
 import { EnterpriseITServicePage } from './pages/services/EnterpriseITServicePage';
 
+// Full-screen bilingual presentation (#/brochure), loaded on demand
+const BrochurePage = lazy(() => import('./pages/BrochurePage').then((m) => ({ default: m.BrochurePage })));
+
 export function App() {
   const [currentPage, setCurrentPage] = useState<PageRoute>('home');
 
@@ -38,7 +41,9 @@ export function App() {
       const params = new URLSearchParams(window.location.search);
       const pageParam = params.get('page')?.toLowerCase();
 
-      if (hash.includes('services-websites') || pageParam === 'services-websites' || hash.includes('websites')) {
+      if (hash.includes('brochure') || pageParam === 'brochure') {
+        setCurrentPage('brochure');
+      } else if (hash.includes('services-websites') || pageParam === 'services-websites' || hash.includes('websites')) {
         setCurrentPage('services-websites');
       } else if (hash.includes('services-ecommerce') || pageParam === 'services-ecommerce' || hash.includes('ecommerce')) {
         setCurrentPage('services-ecommerce');
@@ -85,6 +90,16 @@ export function App() {
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  if (currentPage === 'brochure') {
+    return (
+      <LanguageProvider>
+        <Suspense fallback={<div className="fixed inset-0 bg-[#05080F]" />}>
+          <BrochurePage onExit={() => navigateToPage('home')} />
+        </Suspense>
+      </LanguageProvider>
+    );
+  }
 
   return (
     <LanguageProvider>
