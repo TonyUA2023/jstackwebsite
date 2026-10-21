@@ -9,11 +9,8 @@ export const WHATSAPP_NUMBER: string = env.VITE_WHATSAPP_NUMBER || '16469804939'
 /** Correo de contacto que se muestra en el footer. */
 export const CONTACT_EMAIL: string = env.VITE_CONTACT_EMAIL || 'jstackinfo@gmail.com';
 
-/**
- * ID del Píxel de Meta. Reemplaza el placeholder (o define VITE_META_PIXEL_ID).
- * Mientras siga el placeholder, el píxel no se carga.
- */
-export const META_PIXEL_ID: string = env.VITE_META_PIXEL_ID || 'TU_PIXEL_ID';
+/** ID del Píxel de Meta (puede sobrescribirse con VITE_META_PIXEL_ID). */
+export const META_PIXEL_ID: string = env.VITE_META_PIXEL_ID || '2304651273692826';
 
 /** ID de medición de Google Analytics 4 (el mismo del sitio principal). Vacío = desactivado. */
 export const GA_MEASUREMENT_ID: string = env.VITE_GA_MEASUREMENT_ID ?? 'G-48V3T3GC6C';

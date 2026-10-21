@@ -41,7 +41,7 @@ Todos los valores son públicos (terminan en el JavaScript del navegador). Tiene
 
 | Ajuste | Variable | Por defecto |
 | --- | --- | --- |
-| ID del Píxel de Meta | `VITE_META_PIXEL_ID` | `TU_PIXEL_ID` (placeholder: el píxel no se carga) |
+| ID del Píxel de Meta | `VITE_META_PIXEL_ID` | `2304651273692826` |
 | Webhook de leads (Apps Script) | `VITE_LEAD_WEBHOOK_URL` | vacío |
 | Supabase | `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`, `VITE_SUPABASE_TABLE` | vacío / `leads` |
 | Calendly en /gracias/ | `VITE_CALENDLY_URL` | vacío (no se muestra) |
@@ -194,7 +194,7 @@ para continuar a `/gracias/`.
       `[Nombre del proyecto]` por el nombre. Formato recomendado: WebP de ~960 px de ancho y menos de
       60 KB, con `loading="lazy"`, `width` y `height` (en el HTML hay un ejemplo comentado).
 - [ ] URL de Instagram en el footer (`[PLACEHOLDER]` en `cotiza/index.html`).
-- [ ] ID del Píxel de Meta y destino de los leads (sección 1).
+- [ ] Destino de los leads (sección 1).
 - [ ] Revisar textos propuestos: rangos de presupuesto (en US$, paso 3 del formulario), tiempos
       del proceso, contenido de cada paquete y respuestas del FAQ.
 
