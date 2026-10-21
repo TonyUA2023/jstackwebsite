@@ -6,6 +6,7 @@
 @import "tailwindcss" source(none);
 @source "../../cotiza/index.html";
 @source "../../gracias/index.html";
+@source "../../privacidad/index.html";
 @source "./*.ts";
 
 /* Geist variable autoalojada (solo subconjunto latino, ~29 KB). */
@@ -236,6 +237,43 @@
     @apply border-cyan-300/80 text-white;
     background-image: linear-gradient(140deg, rgba(61, 123, 255, 0.28), rgba(34, 211, 238, 0.14));
     box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.12), 0 10px 30px -14px rgba(34, 211, 238, 0.6);
+  }
+
+  /* Texto legal (/privacidad) */
+  .legal h2 {
+    @apply mt-12 scroll-mt-6 text-xl font-semibold tracking-tight text-white sm:text-2xl;
+  }
+
+  .legal h3 {
+    @apply mt-6 text-base font-semibold text-white;
+  }
+
+  .legal p {
+    @apply mt-4 leading-relaxed text-slate-300;
+  }
+
+  .legal ul {
+    @apply mt-4 list-disc space-y-2 pl-5 text-slate-300 marker:text-cyan-300;
+  }
+
+  .legal li {
+    @apply pl-1 leading-relaxed;
+  }
+
+  .legal strong {
+    @apply font-semibold text-white;
+  }
+
+  .legal code {
+    @apply rounded bg-white/[0.06] px-1.5 py-0.5 text-[0.85em] text-slate-200;
+  }
+
+  .legal :where(a:not(.btn-ghost)) {
+    @apply font-medium text-cyan-300 underline decoration-cyan-300/40 underline-offset-4 hover:decoration-cyan-300;
+  }
+
+  .legal nav a {
+    @apply font-normal text-slate-300 no-underline hover:text-cyan-300;
   }
 
   .faq summary::-webkit-details-marker {

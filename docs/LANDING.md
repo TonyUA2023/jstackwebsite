@@ -7,6 +7,7 @@ Página independiente del sitio principal, pensada para tráfico de anuncios de 
 | --- | --- | --- |
 | `/cotiza/` | `cotiza/index.html` | Landing (URL para los anuncios) |
 | `/gracias/` | `gracias/index.html` | Confirmación tras enviar el formulario (`noindex`) |
+| `/privacidad` | `privacidad/index.html` | Política de privacidad y protección de datos (enlazada desde el formulario y el footer) |
 
 Código:
 

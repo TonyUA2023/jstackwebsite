@@ -6,10 +6,10 @@ import tailwindcss from '@tailwindcss/vite'
 
 const root = dirname(fileURLToPath(import.meta.url))
 
-// Landing pages (/cotiza/, /gracias/) are tuned for Google PageSpeed: their stylesheet is inlined
+// Landing pages (/cotiza/, /gracias/, /privacidad/) are tuned for Google PageSpeed: their stylesheet is inlined
 // and their script starts loading right after the first paint, so the HTML is the only request
 // standing between the visitor and the first render.
-const LANDING_PAGES = ['/cotiza/index.html', '/gracias/index.html']
+const LANDING_PAGES = ['/cotiza/index.html', '/gracias/index.html', '/privacidad/index.html']
 
 // Imports the entry once the first contentful paint is reported (fallback: next frame / 3 s).
 // If the script fails to load, dropping the "js" class keeps the scroll-reveal content visible.
@@ -54,6 +54,7 @@ export default defineConfig({
         main: resolve(root, 'index.html'),
         cotiza: resolve(root, 'cotiza/index.html'),
         gracias: resolve(root, 'gracias/index.html'),
+        privacidad: resolve(root, 'privacidad/index.html'),
       },
     },
   },

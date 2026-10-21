@@ -2,6 +2,7 @@
   "rewrites": [
     { "source": "/cotiza", "destination": "/cotiza/index.html" },
     { "source": "/gracias", "destination": "/gracias/index.html" },
+    { "source": "/privacidad", "destination": "/privacidad/index.html" },
     { "source": "/:path", "destination": "/index.html" }
   ],
   "headers": [
