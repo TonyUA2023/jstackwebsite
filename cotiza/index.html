@@ -70,7 +70,7 @@
         <a href="#cotizar" class="btn-ghost whitespace-nowrap max-[359px]:hidden">Cotizar gratis</a>
       </header>
 
-      <section class="container-x grid items-center gap-16 pt-6 pb-20 sm:pt-10 lg:grid-cols-[1.05fr_1fr] lg:gap-12 lg:pt-16 lg:pb-28" aria-labelledby="hero-title">
+      <section class="container-x grid items-center gap-12 pt-4 pb-14 sm:pt-8 lg:grid-cols-[1.05fr_1fr] lg:gap-12 lg:pt-10 lg:pb-20" aria-labelledby="hero-title">
         <div class="max-w-xl">
           <p class="inline-flex items-center gap-2 rounded-full border border-emerald-400/25 bg-emerald-400/[0.08] py-1.5 pr-3.5 pl-2.5 text-[13px] font-medium whitespace-nowrap text-emerald-300">
             <svg class="ico size-4" aria-hidden="true"><use href="#i-zap" /></svg>
@@ -78,13 +78,13 @@
             <span class="text-emerald-300/60 max-[359px]:hidden" aria-hidden="true">·</span>
             <span class="max-[359px]:hidden">Garantizado</span>
           </p>
-          <h1 id="hero-title" class="mt-6 text-[2.5rem] leading-[1.05] font-semibold tracking-[-0.035em] text-balance text-white sm:text-5xl lg:text-[3.6rem]">
+          <h1 id="hero-title" class="mt-5 text-[2.25rem] leading-[1.06] font-semibold tracking-[-0.035em] text-balance text-white sm:text-[2.75rem] lg:text-[3.25rem]">
             Tu negocio merece una web que <span class="text-gradient">venda</span>, no solo que exista
           </h1>
-          <p class="mt-6 text-lg leading-relaxed text-pretty text-slate-400">
+          <p class="mt-5 text-base leading-relaxed text-pretty text-slate-400 sm:text-lg">
             Diseñamos y programamos tu web a medida en Next.js, sin plantillas. Carga al instante, aparece en Google y convierte visitas en clientes que te escriben por WhatsApp.
           </p>
-          <div class="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
+          <div class="mt-7 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
             <a href="#cotizar" class="btn-primary w-full sm:w-auto">
               Quiero mi cotización
               <svg class="ico size-5" aria-hidden="true"><use href="#i-arrow-right" /></svg>
@@ -94,7 +94,7 @@
               Respuesta en menos de 2 horas
             </p>
           </div>
-          <ul class="mt-9 flex flex-wrap gap-x-6 gap-y-3 text-sm text-slate-300">
+          <ul class="mt-7 flex flex-wrap gap-x-6 gap-y-2.5 text-sm text-slate-300">
             <li class="flex items-center gap-2"><svg class="ico size-4 text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Diseño 100% a medida</li>
             <li class="flex items-center gap-2"><svg class="ico size-4 text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Optimizada para Google</li>
             <li class="flex items-center gap-2"><svg class="ico size-4 text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Cotización sin compromiso</li>
@@ -146,6 +146,8 @@
                   <span class="rounded-[0.6em] border border-white/[0.07] bg-white/[0.03] p-[0.9em]"><span class="block size-[1.2em] rounded-[0.3em] bg-blue-400/70"></span><span class="mt-[0.7em] block h-[0.45em] w-[80%] rounded-full bg-white/30"></span><span class="mt-[0.4em] block h-[0.45em] w-[55%] rounded-full bg-white/15"></span></span>
                   <span class="rounded-[0.6em] border border-white/[0.07] bg-white/[0.03] p-[0.9em]"><span class="block size-[1.2em] rounded-[0.3em] bg-emerald-400/70"></span><span class="mt-[0.7em] block h-[0.45em] w-[80%] rounded-full bg-white/30"></span><span class="mt-[0.4em] block h-[0.45em] w-[55%] rounded-full bg-white/15"></span></span>
                 </div>
+                <!-- Captura real (proyecto Wayra): landing.ts la carga tras el primer pintado y aparece sobre el mockup -->
+                <img data-hero-shot alt="" width="960" height="475" decoding="async" class="absolute inset-0 size-full object-cover opacity-0 transition-opacity duration-700" />
               </div>
             </div>
             <div class="relative -mx-[3.4em] h-[1.5em] rounded-b-[1.4em] bg-linear-to-b from-[#3b4660] to-[#141a2b]">
@@ -211,27 +213,33 @@
             <p class="lead">Tener una web no basta. Si no aparece, no carga o no convence, ese cliente termina comprándole a tu competencia.</p>
           </div>
 
-          <div class="mt-12 grid gap-4 md:grid-cols-3 md:gap-5">
-            <article class="card reveal">
-              <span class="inline-flex size-12 items-center justify-center rounded-xl border border-rose-400/20 bg-rose-400/[0.08] text-rose-300">
+          <div class="mt-10 grid gap-4 md:grid-cols-3">
+            <article class="card reveal flex gap-4 sm:block">
+              <span class="inline-flex size-11 shrink-0 items-center justify-center rounded-xl border border-rose-400/20 bg-rose-400/[0.08] text-rose-300">
                 <svg class="ico size-6" aria-hidden="true"><use href="#i-search-x" /></svg>
               </span>
-              <h3 class="mt-5 text-xl font-semibold text-white">Tus clientes no te encuentran en Google</h3>
-              <p class="mt-2.5 leading-relaxed text-slate-400">Cuando buscan lo que vendes, aparece tu competencia. Si no estás en los primeros resultados, para ellos no existes.</p>
+              <div>
+                <h3 class="text-lg font-semibold text-white sm:mt-4">Tus clientes no te encuentran en Google</h3>
+                <p class="mt-2 text-[0.95rem] leading-relaxed text-slate-400">Cuando buscan lo que vendes, aparece tu competencia. Si no estás en los primeros resultados, para ellos no existes.</p>
+              </div>
             </article>
-            <article class="card reveal" style="--d: 120ms">
-              <span class="inline-flex size-12 items-center justify-center rounded-xl border border-rose-400/20 bg-rose-400/[0.08] text-rose-300">
+            <article class="card reveal flex gap-4 sm:block" style="--d: 120ms">
+              <span class="inline-flex size-11 shrink-0 items-center justify-center rounded-xl border border-rose-400/20 bg-rose-400/[0.08] text-rose-300">
                 <svg class="ico size-6" aria-hidden="true"><use href="#i-snail" /></svg>
               </span>
-              <h3 class="mt-5 text-xl font-semibold text-white">Tu web es lenta y la gente se va</h3>
-              <p class="mt-2.5 leading-relaxed text-slate-400">Según Google, el 53% de las visitas desde el celular abandona una página que tarda más de 3 segundos en cargar. Cada segundo te cuesta ventas.</p>
+              <div>
+                <h3 class="text-lg font-semibold text-white sm:mt-4">Tu web es lenta y la gente se va</h3>
+                <p class="mt-2 text-[0.95rem] leading-relaxed text-slate-400">Según Google, el 53% de las visitas desde el celular abandona una página que tarda más de 3 segundos en cargar. Cada segundo te cuesta ventas.</p>
+              </div>
             </article>
-            <article class="card reveal" style="--d: 240ms">
-              <span class="inline-flex size-12 items-center justify-center rounded-xl border border-rose-400/20 bg-rose-400/[0.08] text-rose-300">
+            <article class="card reveal flex gap-4 sm:block" style="--d: 240ms">
+              <span class="inline-flex size-11 shrink-0 items-center justify-center rounded-xl border border-rose-400/20 bg-rose-400/[0.08] text-rose-300">
                 <svg class="ico size-6" aria-hidden="true"><use href="#i-share-2" /></svg>
               </span>
-              <h3 class="mt-5 text-xl font-semibold text-white">Dependes solo de redes sociales</h3>
-              <p class="mt-2.5 leading-relaxed text-slate-400">El algoritmo decide quién te ve y cuándo. Sin una web propia no controlas tu vitrina, tus datos ni tus ventas.</p>
+              <div>
+                <h3 class="text-lg font-semibold text-white sm:mt-4">Dependes solo de redes sociales</h3>
+                <p class="mt-2 text-[0.95rem] leading-relaxed text-slate-400">El algoritmo decide quién te ve y cuándo. Sin una web propia no controlas tu vitrina, tus datos ni tus ventas.</p>
+              </div>
             </article>
           </div>
         </div>
@@ -250,40 +258,52 @@
             <p class="lead">Unimos diseño, tecnología y estrategia para que tu web trabaje por ti las 24 horas, los 7 días de la semana.</p>
           </div>
 
-          <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
-            <article class="card reveal">
+          <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <article class="card reveal flex gap-4 sm:block">
               <span class="icon-tile"><svg class="ico size-6" aria-hidden="true"><use href="#i-pen-tool" /></svg></span>
-              <h3 class="mt-5 text-lg font-semibold text-white">Diseño a medida</h3>
-              <p class="mt-2 leading-relaxed text-slate-400">Nada de plantillas: diseñamos tu web desde cero, pensada para tu marca y para tu cliente ideal.</p>
+              <div>
+                <h3 class="text-base font-semibold text-white sm:mt-4">Diseño a medida</h3>
+                <p class="mt-1.5 text-[0.95rem] leading-relaxed text-slate-400">Nada de plantillas: diseñamos tu web desde cero, pensada para tu marca y para tu cliente ideal.</p>
+              </div>
             </article>
-            <article class="card reveal" style="--d: 80ms">
+            <article class="card reveal flex gap-4 sm:block" style="--d: 80ms">
               <span class="icon-tile"><svg class="ico size-6" aria-hidden="true"><use href="#i-zap" /></svg></span>
-              <h3 class="mt-5 text-lg font-semibold text-white">Velocidad extrema</h3>
-              <p class="mt-2 leading-relaxed text-slate-400">Programada en Next.js para cargar al instante y lograr 100/100 en Google PageSpeed. Garantizado.</p>
+              <div>
+                <h3 class="text-base font-semibold text-white sm:mt-4">Velocidad extrema</h3>
+                <p class="mt-1.5 text-[0.95rem] leading-relaxed text-slate-400">Programada en Next.js para cargar al instante y lograr 100/100 en Google PageSpeed. Garantizado.</p>
+              </div>
             </article>
-            <article class="card reveal" style="--d: 160ms">
+            <article class="card reveal flex gap-4 sm:block" style="--d: 160ms">
               <span class="icon-tile"><svg class="ico size-6" aria-hidden="true"><use href="#i-trending-up" /></svg></span>
-              <h3 class="mt-5 text-lg font-semibold text-white">SEO para aparecer en Google</h3>
-              <p class="mt-2 leading-relaxed text-slate-400">Estructura, contenido y datos técnicos optimizados para que te encuentren quienes ya buscan lo que vendes.</p>
+              <div>
+                <h3 class="text-base font-semibold text-white sm:mt-4">SEO para aparecer en Google</h3>
+                <p class="mt-1.5 text-[0.95rem] leading-relaxed text-slate-400">Estructura, contenido y datos técnicos optimizados para que te encuentren quienes ya buscan lo que vendes.</p>
+              </div>
             </article>
-            <article class="card reveal">
+            <article class="card reveal flex gap-4 sm:block">
               <span class="icon-tile"><svg class="ico-fill size-6" aria-hidden="true"><use href="#i-whatsapp" /></svg></span>
-              <h3 class="mt-5 text-lg font-semibold text-white">Botón de WhatsApp</h3>
-              <p class="mt-2 leading-relaxed text-slate-400">Cada visitante está a un toque de escribirte. Convertimos visitas en conversaciones y conversaciones en ventas.</p>
+              <div>
+                <h3 class="text-base font-semibold text-white sm:mt-4">Botón de WhatsApp</h3>
+                <p class="mt-1.5 text-[0.95rem] leading-relaxed text-slate-400">Cada visitante está a un toque de escribirte. Convertimos visitas en conversaciones y conversaciones en ventas.</p>
+              </div>
             </article>
-            <article class="card reveal" style="--d: 80ms">
+            <article class="card reveal flex gap-4 sm:block" style="--d: 80ms">
               <span class="icon-tile"><svg class="ico size-6" aria-hidden="true"><use href="#i-layout-dashboard" /></svg></span>
-              <h3 class="mt-5 text-lg font-semibold text-white">Panel autoadministrable</h3>
-              <p class="mt-2 leading-relaxed text-slate-400">Cambia textos, fotos, productos y precios tú mismo, desde el celular y sin saber programar.</p>
+              <div>
+                <h3 class="text-base font-semibold text-white sm:mt-4">Panel autoadministrable</h3>
+                <p class="mt-1.5 text-[0.95rem] leading-relaxed text-slate-400">Cambia textos, fotos, productos y precios tú mismo, desde el celular y sin saber programar.</p>
+              </div>
             </article>
-            <article class="card reveal" style="--d: 160ms">
+            <article class="card reveal flex gap-4 sm:block" style="--d: 160ms">
               <span class="icon-tile"><svg class="ico size-6" aria-hidden="true"><use href="#i-headset" /></svg></span>
-              <h3 class="mt-5 text-lg font-semibold text-white">Soporte cercano</h3>
-              <p class="mt-2 leading-relaxed text-slate-400">No te dejamos solo después del lanzamiento: resolvemos dudas y hacemos ajustes con respuesta rápida.</p>
+              <div>
+                <h3 class="text-base font-semibold text-white sm:mt-4">Soporte cercano</h3>
+                <p class="mt-1.5 text-[0.95rem] leading-relaxed text-slate-400">No te dejamos solo después del lanzamiento: resolvemos dudas y hacemos ajustes con respuesta rápida.</p>
+              </div>
             </article>
           </div>
 
-          <div class="reveal mt-12 text-center">
+          <div class="reveal mt-10 text-center">
             <a href="#cotizar" class="btn-primary w-full sm:w-auto">
               Quiero mi cotización
               <svg class="ico size-5" aria-hidden="true"><use href="#i-arrow-right" /></svg>
@@ -293,13 +313,7 @@
       </section>
 
       <!-- ============================================================ -->
-      <!-- 4. PORTAFOLIO                                                 -->
-      <!-- [PLACEHOLDERS] Reemplaza cada bloque "aspect-[16/10]" por la  -->
-      <!-- captura real del proyecto, por ejemplo:                       -->
-      <!-- <img src="/portafolio/proyecto-1.webp" width="960" height="600" -->
-      <!--      loading="lazy" decoding="async" alt="Web de ..."         -->
-      <!--      class="aspect-[16/10] w-full object-cover" />            -->
-      <!-- Usa WebP de ~960 px de ancho (< 60 KB) para no afectar la velocidad. -->
+      <!-- 4. PORTAFOLIO (capturas reales, cargadas en diferido)         -->
       <!-- ============================================================ -->
       <section class="section bg-white/[0.015]" aria-labelledby="portafolio-title">
         <div class="container-x">
@@ -309,65 +323,59 @@
             <p class="lead">Cada proyecto es único: lo diseñamos según el rubro, el público y el objetivo de cada negocio.</p>
           </div>
 
-          <div class="reveal -mx-5 mt-12 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4 [scrollbar-width:none] sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-3 lg:gap-5">
-            <article class="card w-[82%] shrink-0 snap-center overflow-hidden p-0 sm:w-auto sm:p-0">
-              <div class="relative aspect-[16/10] bg-[linear-gradient(140deg,#1b2f63,#0d3d52)]">
-                <span class="absolute top-3 left-4 flex gap-1.5"><span class="size-2 rounded-full bg-white/20"></span><span class="size-2 rounded-full bg-white/20"></span><span class="size-2 rounded-full bg-white/20"></span></span>
-                <span class="absolute inset-0 flex items-center justify-center"><span class="rounded-full border border-white/15 bg-black/25 px-3 py-1 text-xs font-medium text-white/80">[Imagen del proyecto]</span></span>
+          <div class="reveal -mx-5 mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4 [scrollbar-width:none] sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-3">
+            <article class="group card w-[82%] shrink-0 snap-center overflow-hidden p-0 sm:w-auto sm:p-0">
+              <div class="aspect-[2/1] overflow-hidden bg-ink">
+                <img src="/src/assets/brochure/wall-manuelas.webp" width="960" height="476" loading="lazy" decoding="async" alt="Sitio web de Manuela's, panadería y catering mexicano" class="size-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]" />
               </div>
-              <div class="p-5">
-                <p class="text-xs font-medium tracking-wider text-cyan-300 uppercase">Restaurante</p>
-                <h3 class="mt-1 font-semibold text-white">[Nombre del proyecto]</h3>
-              </div>
-            </article>
-            <article class="card w-[82%] shrink-0 snap-center overflow-hidden p-0 sm:w-auto sm:p-0">
-              <div class="relative aspect-[16/10] bg-[linear-gradient(140deg,#123a5c,#1e2a6b)]">
-                <span class="absolute top-3 left-4 flex gap-1.5"><span class="size-2 rounded-full bg-white/20"></span><span class="size-2 rounded-full bg-white/20"></span><span class="size-2 rounded-full bg-white/20"></span></span>
-                <span class="absolute inset-0 flex items-center justify-center"><span class="rounded-full border border-white/15 bg-black/25 px-3 py-1 text-xs font-medium text-white/80">[Imagen del proyecto]</span></span>
-              </div>
-              <div class="p-5">
-                <p class="text-xs font-medium tracking-wider text-cyan-300 uppercase">Clínica dental</p>
-                <h3 class="mt-1 font-semibold text-white">[Nombre del proyecto]</h3>
+              <div class="px-5 py-4">
+                <p class="text-xs font-medium tracking-wider text-cyan-300 uppercase">Panadería y catering</p>
+                <h3 class="mt-0.5 font-semibold text-white">Manuela's</h3>
               </div>
             </article>
-            <article class="card w-[82%] shrink-0 snap-center overflow-hidden p-0 sm:w-auto sm:p-0">
-              <div class="relative aspect-[16/10] bg-[linear-gradient(140deg,#0f3d4f,#173a7a)]">
-                <span class="absolute top-3 left-4 flex gap-1.5"><span class="size-2 rounded-full bg-white/20"></span><span class="size-2 rounded-full bg-white/20"></span><span class="size-2 rounded-full bg-white/20"></span></span>
-                <span class="absolute inset-0 flex items-center justify-center"><span class="rounded-full border border-white/15 bg-black/25 px-3 py-1 text-xs font-medium text-white/80">[Imagen del proyecto]</span></span>
+            <article class="group card w-[82%] shrink-0 snap-center overflow-hidden p-0 sm:w-auto sm:p-0">
+              <div class="aspect-[2/1] overflow-hidden bg-ink">
+                <img src="/src/assets/brochure/wall-homeclean.webp" width="960" height="476" loading="lazy" decoding="async" alt="Sitio web de Sumacc Clean Home, servicio de limpieza de hogares" class="size-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]" />
               </div>
-              <div class="p-5">
-                <p class="text-xs font-medium tracking-wider text-cyan-300 uppercase">Inmobiliaria</p>
-                <h3 class="mt-1 font-semibold text-white">[Nombre del proyecto]</h3>
-              </div>
-            </article>
-            <article class="card w-[82%] shrink-0 snap-center overflow-hidden p-0 sm:w-auto sm:p-0">
-              <div class="relative aspect-[16/10] bg-[linear-gradient(140deg,#24306e,#0e4a5c)]">
-                <span class="absolute top-3 left-4 flex gap-1.5"><span class="size-2 rounded-full bg-white/20"></span><span class="size-2 rounded-full bg-white/20"></span><span class="size-2 rounded-full bg-white/20"></span></span>
-                <span class="absolute inset-0 flex items-center justify-center"><span class="rounded-full border border-white/15 bg-black/25 px-3 py-1 text-xs font-medium text-white/80">[Imagen del proyecto]</span></span>
-              </div>
-              <div class="p-5">
-                <p class="text-xs font-medium tracking-wider text-cyan-300 uppercase">Tienda de ropa</p>
-                <h3 class="mt-1 font-semibold text-white">[Nombre del proyecto]</h3>
+              <div class="px-5 py-4">
+                <p class="text-xs font-medium tracking-wider text-cyan-300 uppercase">Limpieza de hogares</p>
+                <h3 class="mt-0.5 font-semibold text-white">Sumacc Clean Home</h3>
               </div>
             </article>
-            <article class="card w-[82%] shrink-0 snap-center overflow-hidden p-0 sm:w-auto sm:p-0">
-              <div class="relative aspect-[16/10] bg-[linear-gradient(140deg,#0c3550,#2a2f6e)]">
-                <span class="absolute top-3 left-4 flex gap-1.5"><span class="size-2 rounded-full bg-white/20"></span><span class="size-2 rounded-full bg-white/20"></span><span class="size-2 rounded-full bg-white/20"></span></span>
-                <span class="absolute inset-0 flex items-center justify-center"><span class="rounded-full border border-white/15 bg-black/25 px-3 py-1 text-xs font-medium text-white/80">[Imagen del proyecto]</span></span>
+            <article class="group card w-[82%] shrink-0 snap-center overflow-hidden p-0 sm:w-auto sm:p-0">
+              <div class="aspect-[2/1] overflow-hidden bg-ink">
+                <img src="/src/assets/brochure/wall-tractoleo.webp" width="960" height="477" loading="lazy" decoding="async" alt="Sitio web de Tractoleo, venta de tractores y repuestos" class="size-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]" />
               </div>
-              <div class="p-5">
-                <p class="text-xs font-medium tracking-wider text-cyan-300 uppercase">Estudio contable</p>
-                <h3 class="mt-1 font-semibold text-white">[Nombre del proyecto]</h3>
+              <div class="px-5 py-4">
+                <p class="text-xs font-medium tracking-wider text-cyan-300 uppercase">Maquinaria agrícola</p>
+                <h3 class="mt-0.5 font-semibold text-white">Tractoleo</h3>
               </div>
             </article>
-            <article class="card w-[82%] shrink-0 snap-center overflow-hidden p-0 sm:w-auto sm:p-0">
-              <div class="relative aspect-[16/10] bg-[linear-gradient(140deg,#16295c,#0b4552)]">
-                <span class="absolute top-3 left-4 flex gap-1.5"><span class="size-2 rounded-full bg-white/20"></span><span class="size-2 rounded-full bg-white/20"></span><span class="size-2 rounded-full bg-white/20"></span></span>
-                <span class="absolute inset-0 flex items-center justify-center"><span class="rounded-full border border-white/15 bg-black/25 px-3 py-1 text-xs font-medium text-white/80">[Imagen del proyecto]</span></span>
+            <article class="group card w-[82%] shrink-0 snap-center overflow-hidden p-0 sm:w-auto sm:p-0">
+              <div class="aspect-[2/1] overflow-hidden bg-ink">
+                <img src="/src/assets/brochure/wall-firma.webp" width="960" height="480" loading="lazy" decoding="async" alt="Sitio web de Firma, agencia de marketing y branding" class="size-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]" />
               </div>
-              <div class="p-5">
-                <p class="text-xs font-medium tracking-wider text-cyan-300 uppercase">Gimnasio</p>
-                <h3 class="mt-1 font-semibold text-white">[Nombre del proyecto]</h3>
+              <div class="px-5 py-4">
+                <p class="text-xs font-medium tracking-wider text-cyan-300 uppercase">Agencia de marketing</p>
+                <h3 class="mt-0.5 font-semibold text-white">Firma</h3>
+              </div>
+            </article>
+            <article class="group card w-[82%] shrink-0 snap-center overflow-hidden p-0 sm:w-auto sm:p-0">
+              <div class="aspect-[2/1] overflow-hidden bg-ink">
+                <img src="/src/assets/brochure/tribio.webp" width="1600" height="795" loading="lazy" decoding="async" alt="Plataforma de tiendas online Tribio" class="size-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]" />
+              </div>
+              <div class="px-5 py-4">
+                <p class="text-xs font-medium tracking-wider text-cyan-300 uppercase">Tienda online</p>
+                <h3 class="mt-0.5 font-semibold text-white">Tribio</h3>
+              </div>
+            </article>
+            <article class="group card w-[82%] shrink-0 snap-center overflow-hidden p-0 sm:w-auto sm:p-0">
+              <div class="aspect-[2/1] overflow-hidden bg-ink">
+                <img src="/src/assets/brochure/lis-company.webp" width="1600" height="790" loading="lazy" decoding="async" alt="Sitio web de Lis's Company, detailing de autos a domicilio" class="size-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]" />
+              </div>
+              <div class="px-5 py-4">
+                <p class="text-xs font-medium tracking-wider text-cyan-300 uppercase">Detailing de autos</p>
+                <h3 class="mt-0.5 font-semibold text-white">Lis's Company</h3>
               </div>
             </article>
           </div>
@@ -385,42 +393,42 @@
             <p class="lead">Un proceso claro, con fechas definidas desde el primer día. Tú te enfocas en tu negocio; nosotros, en todo lo demás.</p>
           </div>
 
-          <ol class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
+          <ol class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             <li class="card reveal">
               <div class="flex items-center justify-between">
                 <span class="icon-tile"><svg class="ico size-6" aria-hidden="true"><use href="#i-compass" /></svg></span>
                 <span class="text-sm font-medium text-slate-400">Paso 1</span>
               </div>
-              <h3 class="mt-5 text-xl font-semibold text-white">Diagnóstico</h3>
+              <h3 class="mt-4 text-lg font-semibold text-white">Diagnóstico</h3>
               <p class="mt-2 inline-flex items-center gap-1.5 rounded-full bg-cyan-400/10 px-2.5 py-1 text-xs font-medium text-cyan-300"><svg class="ico size-3.5" aria-hidden="true"><use href="#i-clock" /></svg>1 a 2 días</p>
-              <p class="mt-3 leading-relaxed text-slate-400">Conversamos sobre tu negocio, tu competencia y tus objetivos para definir la estrategia de tu web.</p>
+              <p class="mt-2.5 text-[0.95rem] leading-relaxed text-slate-400">Conversamos sobre tu negocio, tu competencia y tus objetivos para definir la estrategia de tu web.</p>
             </li>
             <li class="card reveal" style="--d: 100ms">
               <div class="flex items-center justify-between">
                 <span class="icon-tile"><svg class="ico size-6" aria-hidden="true"><use href="#i-palette" /></svg></span>
                 <span class="text-sm font-medium text-slate-400">Paso 2</span>
               </div>
-              <h3 class="mt-5 text-xl font-semibold text-white">Diseño</h3>
+              <h3 class="mt-4 text-lg font-semibold text-white">Diseño</h3>
               <p class="mt-2 inline-flex items-center gap-1.5 rounded-full bg-cyan-400/10 px-2.5 py-1 text-xs font-medium text-cyan-300"><svg class="ico size-3.5" aria-hidden="true"><use href="#i-clock" /></svg>3 a 5 días</p>
-              <p class="mt-3 leading-relaxed text-slate-400">Creamos el diseño a medida de tu web. Lo revisas, lo ajustamos y avanzamos solo cuando te encanta.</p>
+              <p class="mt-2.5 text-[0.95rem] leading-relaxed text-slate-400">Creamos el diseño a medida de tu web. Lo revisas, lo ajustamos y avanzamos solo cuando te encanta.</p>
             </li>
             <li class="card reveal" style="--d: 200ms">
               <div class="flex items-center justify-between">
                 <span class="icon-tile"><svg class="ico size-6" aria-hidden="true"><use href="#i-code-xml" /></svg></span>
                 <span class="text-sm font-medium text-slate-400">Paso 3</span>
               </div>
-              <h3 class="mt-5 text-xl font-semibold text-white">Desarrollo</h3>
+              <h3 class="mt-4 text-lg font-semibold text-white">Desarrollo</h3>
               <p class="mt-2 inline-flex items-center gap-1.5 rounded-full bg-cyan-400/10 px-2.5 py-1 text-xs font-medium text-cyan-300"><svg class="ico size-3.5" aria-hidden="true"><use href="#i-clock" /></svg>5 a 10 días</p>
-              <p class="mt-3 leading-relaxed text-slate-400">Programamos tu web en Next.js, optimizada para celulares, velocidad y posicionamiento en Google.</p>
+              <p class="mt-2.5 text-[0.95rem] leading-relaxed text-slate-400">Programamos tu web en Next.js, optimizada para celulares, velocidad y posicionamiento en Google.</p>
             </li>
             <li class="card reveal" style="--d: 300ms">
               <div class="flex items-center justify-between">
                 <span class="icon-tile"><svg class="ico size-6" aria-hidden="true"><use href="#i-rocket" /></svg></span>
                 <span class="text-sm font-medium text-slate-400">Paso 4</span>
               </div>
-              <h3 class="mt-5 text-xl font-semibold text-white">Lanzamiento</h3>
+              <h3 class="mt-4 text-lg font-semibold text-white">Lanzamiento</h3>
               <p class="mt-2 inline-flex items-center gap-1.5 rounded-full bg-cyan-400/10 px-2.5 py-1 text-xs font-medium text-cyan-300"><svg class="ico size-3.5" aria-hidden="true"><use href="#i-clock" /></svg>1 a 2 días</p>
-              <p class="mt-3 leading-relaxed text-slate-400">Publicamos tu web, conectamos tu dominio, Google y WhatsApp, y te enseñamos a administrarla.</p>
+              <p class="mt-2.5 text-[0.95rem] leading-relaxed text-slate-400">Publicamos tu web, conectamos tu dominio, Google y WhatsApp, y te enseñamos a administrarla.</p>
             </li>
           </ol>
         </div>
@@ -437,37 +445,37 @@
             <p class="lead">Precios claros y sin sorpresas. Todos incluyen diseño a medida y la garantía 100/100 Google Speed.</p>
           </div>
 
-          <div class="mt-14 grid gap-8 lg:grid-cols-3 lg:gap-5">
+          <div class="mt-12 grid gap-7 lg:grid-cols-3 lg:gap-5">
             <article class="card reveal flex flex-col">
-              <h3 class="text-xl font-semibold text-white">Web Básica</h3>
+              <h3 class="text-lg font-semibold text-white">Web Básica</h3>
               <p class="mt-1.5 text-sm text-slate-400">Para empezar a vender con una presencia profesional.</p>
-              <p class="mt-6 flex items-baseline gap-2"><span class="text-sm text-slate-400">desde</span><span class="text-4xl font-semibold tracking-tight text-white">[PRECIO]</span></p>
-              <ul class="mt-7 mb-8 flex-1 space-y-3 text-[0.95rem] text-slate-300">
-                <li class="flex gap-3"><svg class="ico mt-0.5 size-5 text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Web de una página con hasta 6 secciones</li>
-                <li class="flex gap-3"><svg class="ico mt-0.5 size-5 text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Diseño a medida, 100% adaptado a celulares</li>
-                <li class="flex gap-3"><svg class="ico mt-0.5 size-5 text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Botón de WhatsApp y formulario de contacto</li>
-                <li class="flex gap-3"><svg class="ico mt-0.5 size-5 text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>SEO básico y alta en Google Maps</li>
-                <li class="flex gap-3"><svg class="ico mt-0.5 size-5 text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Certificado SSL (candado de seguridad)</li>
-                <li class="flex gap-3"><svg class="ico mt-0.5 size-5 text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>100/100 en Google PageSpeed</li>
+              <p class="mt-5 flex items-baseline gap-2"><span class="text-sm text-slate-400">desde</span><span class="text-3xl font-semibold tracking-tight text-white">[PRECIO]</span></p>
+              <ul class="mt-6 mb-7 flex-1 space-y-2.5 text-sm text-slate-300">
+                <li class="flex gap-3"><svg class="ico mt-px size-[1.1rem] text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Web de una página con hasta 6 secciones</li>
+                <li class="flex gap-3"><svg class="ico mt-px size-[1.1rem] text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Diseño a medida, 100% adaptado a celulares</li>
+                <li class="flex gap-3"><svg class="ico mt-px size-[1.1rem] text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Botón de WhatsApp y formulario de contacto</li>
+                <li class="flex gap-3"><svg class="ico mt-px size-[1.1rem] text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>SEO básico y alta en Google Maps</li>
+                <li class="flex gap-3"><svg class="ico mt-px size-[1.1rem] text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Certificado SSL (candado de seguridad)</li>
+                <li class="flex gap-3"><svg class="ico mt-px size-[1.1rem] text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>100/100 en Google PageSpeed</li>
               </ul>
               <a href="#cotizar" data-plan="Web Básica" data-need="Una web nueva para mi negocio" class="btn-ghost min-h-13 w-full text-base">Quiero este paquete</a>
             </article>
 
-            <article class="gradient-border reveal relative flex flex-col rounded-2xl p-6 shadow-[0_30px_80px_-30px_rgba(34,211,238,0.35)] sm:p-7 lg:-my-4 lg:py-11" style="--d: 100ms">
+            <article class="gradient-border reveal relative flex flex-col rounded-2xl p-6 shadow-[0_30px_80px_-30px_rgba(34,211,238,0.35)] sm:p-7 lg:-my-3 lg:py-9" style="--d: 100ms">
               <span class="absolute -top-3.5 left-1/2 inline-flex -translate-x-1/2 items-center gap-1.5 rounded-full bg-linear-to-r from-[#5b8cff] to-cyan-400 px-3.5 py-1 text-xs font-semibold whitespace-nowrap text-[#04101f] shadow-lg">
                 <svg class="ico size-3.5" aria-hidden="true"><use href="#i-sparkles" /></svg>Más elegida
               </span>
-              <h3 class="text-xl font-semibold text-white">Web Profesional</h3>
+              <h3 class="text-lg font-semibold text-white">Web Profesional</h3>
               <p class="mt-1.5 text-sm text-slate-400">Para negocios que quieren crecer y captar clientes en Google.</p>
-              <p class="mt-6 flex items-baseline gap-2"><span class="text-sm text-slate-400">desde</span><span class="text-4xl font-semibold tracking-tight text-white">[PRECIO]</span></p>
-              <ul class="mt-7 mb-8 flex-1 space-y-3 text-[0.95rem] text-slate-300">
-                <li class="flex gap-3"><svg class="ico mt-0.5 size-5 text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg><span><strong class="font-semibold text-white">Todo lo de Web Básica</strong>, y además:</span></li>
-                <li class="flex gap-3"><svg class="ico mt-0.5 size-5 text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Hasta 8 páginas (servicios, nosotros, contacto…)</li>
-                <li class="flex gap-3"><svg class="ico mt-0.5 size-5 text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Panel autoadministrable para editar tu web</li>
-                <li class="flex gap-3"><svg class="ico mt-0.5 size-5 text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>SEO avanzado para posicionar en tu ciudad</li>
-                <li class="flex gap-3"><svg class="ico mt-0.5 size-5 text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Blog para atraer visitas desde Google</li>
-                <li class="flex gap-3"><svg class="ico mt-0.5 size-5 text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Google Analytics y Píxel de Meta instalados</li>
-                <li class="flex gap-3"><svg class="ico mt-0.5 size-5 text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Soporte prioritario después del lanzamiento</li>
+              <p class="mt-5 flex items-baseline gap-2"><span class="text-sm text-slate-400">desde</span><span class="text-3xl font-semibold tracking-tight text-white">[PRECIO]</span></p>
+              <ul class="mt-6 mb-7 flex-1 space-y-2.5 text-sm text-slate-300">
+                <li class="flex gap-3"><svg class="ico mt-px size-[1.1rem] text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg><span><strong class="font-semibold text-white">Todo lo de Web Básica</strong>, y además:</span></li>
+                <li class="flex gap-3"><svg class="ico mt-px size-[1.1rem] text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Hasta 8 páginas (servicios, nosotros, contacto…)</li>
+                <li class="flex gap-3"><svg class="ico mt-px size-[1.1rem] text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Panel autoadministrable para editar tu web</li>
+                <li class="flex gap-3"><svg class="ico mt-px size-[1.1rem] text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>SEO avanzado para posicionar en tu ciudad</li>
+                <li class="flex gap-3"><svg class="ico mt-px size-[1.1rem] text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Blog para atraer visitas desde Google</li>
+                <li class="flex gap-3"><svg class="ico mt-px size-[1.1rem] text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Google Analytics y Píxel de Meta instalados</li>
+                <li class="flex gap-3"><svg class="ico mt-px size-[1.1rem] text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Soporte prioritario después del lanzamiento</li>
               </ul>
               <a href="#cotizar" data-plan="Web Profesional" data-need="Una web nueva para mi negocio" class="btn-primary w-full">
                 Quiero este paquete
@@ -476,22 +484,22 @@
             </article>
 
             <article class="card reveal flex flex-col" style="--d: 200ms">
-              <h3 class="text-xl font-semibold text-white">Tienda Online</h3>
+              <h3 class="text-lg font-semibold text-white">Tienda Online</h3>
               <p class="mt-1.5 text-sm text-slate-400">Para vender por internet las 24 horas con pagos en línea.</p>
-              <p class="mt-6 flex items-baseline gap-2"><span class="text-sm text-slate-400">desde</span><span class="text-4xl font-semibold tracking-tight text-white">[PRECIO]</span></p>
-              <ul class="mt-7 mb-8 flex-1 space-y-3 text-[0.95rem] text-slate-300">
-                <li class="flex gap-3"><svg class="ico mt-0.5 size-5 text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg><span><strong class="font-semibold text-white">Todo lo de Web Profesional</strong>, y además:</span></li>
-                <li class="flex gap-3"><svg class="ico mt-0.5 size-5 text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Catálogo de productos autoadministrable</li>
-                <li class="flex gap-3"><svg class="ico mt-0.5 size-5 text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Carrito y pagos con tarjeta y billeteras digitales</li>
-                <li class="flex gap-3"><svg class="ico mt-0.5 size-5 text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Gestión de pedidos, stock y clientes</li>
-                <li class="flex gap-3"><svg class="ico mt-0.5 size-5 text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Pedidos y consultas por WhatsApp</li>
-                <li class="flex gap-3"><svg class="ico mt-0.5 size-5 text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Capacitación para manejar tu tienda</li>
+              <p class="mt-5 flex items-baseline gap-2"><span class="text-sm text-slate-400">desde</span><span class="text-3xl font-semibold tracking-tight text-white">[PRECIO]</span></p>
+              <ul class="mt-6 mb-7 flex-1 space-y-2.5 text-sm text-slate-300">
+                <li class="flex gap-3"><svg class="ico mt-px size-[1.1rem] text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg><span><strong class="font-semibold text-white">Todo lo de Web Profesional</strong>, y además:</span></li>
+                <li class="flex gap-3"><svg class="ico mt-px size-[1.1rem] text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Catálogo de productos autoadministrable</li>
+                <li class="flex gap-3"><svg class="ico mt-px size-[1.1rem] text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Carrito y pagos con tarjeta y billeteras digitales</li>
+                <li class="flex gap-3"><svg class="ico mt-px size-[1.1rem] text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Gestión de pedidos, stock y clientes</li>
+                <li class="flex gap-3"><svg class="ico mt-px size-[1.1rem] text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Pedidos y consultas por WhatsApp</li>
+                <li class="flex gap-3"><svg class="ico mt-px size-[1.1rem] text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Capacitación para manejar tu tienda</li>
               </ul>
               <a href="#cotizar" data-plan="Tienda Online" data-need="Una tienda online" class="btn-ghost min-h-13 w-full text-base">Quiero este paquete</a>
             </article>
           </div>
 
-          <p class="reveal mt-10 text-center text-slate-400">
+          <p class="reveal mt-8 text-center text-slate-400">
             ¿Necesitas algo diferente? <a href="#cotizar" class="font-medium text-cyan-300 underline underline-offset-4 hover:text-cyan-200">Te armamos una propuesta a medida</a>.
           </p>
         </div>
@@ -502,16 +510,16 @@
       <!-- ============================================================ -->
       <section class="section" aria-labelledby="garantia-title">
         <div class="container-x">
-          <div class="gradient-border reveal relative isolate overflow-hidden rounded-3xl px-6 py-12 sm:px-12 sm:py-16">
+          <div class="gradient-border reveal relative isolate overflow-hidden rounded-3xl px-6 py-10 sm:px-12 sm:py-12">
             <div class="bg-glow-center absolute -top-1/2 -left-1/4 -z-10 size-[150%]" aria-hidden="true"></div>
-            <div class="grid items-center gap-10 lg:grid-cols-[auto_1fr] lg:gap-16">
-              <div class="relative mx-auto flex size-48 items-center justify-center sm:size-56" aria-hidden="true">
+            <div class="grid items-center gap-8 lg:grid-cols-[auto_1fr] lg:gap-14">
+              <div class="relative mx-auto flex size-40 items-center justify-center sm:size-44" aria-hidden="true">
                 <svg viewBox="0 0 120 120" class="absolute inset-0 size-full -rotate-90">
                   <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(52,211,153,0.14)" stroke-width="9" />
                   <circle class="gauge-reveal" cx="60" cy="60" r="52" fill="none" stroke="#34d399" stroke-width="9" stroke-linecap="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="0" />
                 </svg>
                 <span class="text-center">
-                  <span class="block text-6xl font-semibold tracking-tight text-emerald-300 sm:text-7xl">100</span>
+                  <span class="block text-5xl font-semibold tracking-tight text-emerald-300 sm:text-6xl">100</span>
                   <span class="mt-1 block text-xs font-medium tracking-[0.2em] text-slate-400 uppercase">Rendimiento</span>
                 </span>
               </div>
@@ -525,7 +533,7 @@
                   <svg class="ico mt-0.5 size-4 text-cyan-300" aria-hidden="true"><use href="#i-sparkles" /></svg>
                   Esta misma página está hecha con la tecnología que usaremos en tu web.
                 </p>
-                <div class="mt-8">
+                <div class="mt-7">
                   <a href="#cotizar" class="btn-primary w-full sm:w-auto">
                     Quiero una web así de rápida
                     <svg class="ico size-5" aria-hidden="true"><use href="#i-arrow-right" /></svg>
@@ -540,55 +548,55 @@
       <!-- ============================================================ -->
       <!-- 8. FAQ                                                        -->
       <!-- ============================================================ -->
-      <section class="section pt-4 sm:pt-8" aria-labelledby="faq-title">
+      <section class="section pt-2 sm:pt-4" aria-labelledby="faq-title">
         <div class="container-x">
           <div class="reveal mx-auto max-w-2xl text-center">
             <span class="eyebrow">Preguntas frecuentes</span>
             <h2 id="faq-title" class="h2">Resolvemos tus dudas</h2>
           </div>
 
-          <div class="glass reveal mx-auto mt-12 max-w-3xl divide-y divide-white/[0.07] rounded-2xl px-5 sm:px-8">
+          <div class="glass reveal mx-auto mt-10 max-w-3xl divide-y divide-white/[0.07] rounded-2xl px-5 sm:px-7">
             <details class="faq group" name="faq">
-              <summary class="flex min-h-16 cursor-pointer list-none items-center justify-between gap-4 py-4 text-base font-medium text-white sm:text-lg">
+              <summary class="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 py-3.5 text-[0.95rem] font-medium text-white sm:text-base">
                 ¿Cuánto tiempo toma tener mi web lista?
                 <span class="flex size-8 shrink-0 items-center justify-center rounded-full border border-white/10 text-slate-300 transition-transform duration-300 group-open:rotate-180"><svg class="ico size-4" aria-hidden="true"><use href="#i-chevron-down" /></svg></span>
               </summary>
-              <p class="pb-5 leading-relaxed text-slate-400">Una Web Básica suele estar lista en unas 2 semanas, una Web Profesional en 2 a 3 semanas y una Tienda Online en 3 a 5 semanas, según la cantidad de contenido y productos. En tu propuesta te damos una fecha de entrega concreta.</p>
+              <p class="pb-4 text-[0.95rem] leading-relaxed text-slate-400">Una Web Básica suele estar lista en unas 2 semanas, una Web Profesional en 2 a 3 semanas y una Tienda Online en 3 a 5 semanas, según la cantidad de contenido y productos. En tu propuesta te damos una fecha de entrega concreta.</p>
             </details>
             <details class="faq group" name="faq">
-              <summary class="flex min-h-16 cursor-pointer list-none items-center justify-between gap-4 py-4 text-base font-medium text-white sm:text-lg">
+              <summary class="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 py-3.5 text-[0.95rem] font-medium text-white sm:text-base">
                 ¿Cómo son los pagos?
                 <span class="flex size-8 shrink-0 items-center justify-center rounded-full border border-white/10 text-slate-300 transition-transform duration-300 group-open:rotate-180"><svg class="ico size-4" aria-hidden="true"><use href="#i-chevron-down" /></svg></span>
               </summary>
-              <p class="pb-5 leading-relaxed text-slate-400">Trabajamos con un adelanto para iniciar el proyecto y el saldo al entregarte la web aprobada. Puedes pagar por transferencia bancaria, tarjeta u otros medios disponibles en tu país. Todo queda detallado en la propuesta, sin costos ocultos.</p>
+              <p class="pb-4 text-[0.95rem] leading-relaxed text-slate-400">Trabajamos con un adelanto para iniciar el proyecto y el saldo al entregarte la web aprobada. Puedes pagar por transferencia bancaria, tarjeta u otros medios disponibles en tu país. Todo queda detallado en la propuesta, sin costos ocultos.</p>
             </details>
             <details class="faq group" name="faq">
-              <summary class="flex min-h-16 cursor-pointer list-none items-center justify-between gap-4 py-4 text-base font-medium text-white sm:text-lg">
+              <summary class="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 py-3.5 text-[0.95rem] font-medium text-white sm:text-base">
                 ¿El dominio y el hosting están incluidos?
                 <span class="flex size-8 shrink-0 items-center justify-center rounded-full border border-white/10 text-slate-300 transition-transform duration-300 group-open:rotate-180"><svg class="ico size-4" aria-hidden="true"><use href="#i-chevron-down" /></svg></span>
               </summary>
-              <p class="pb-5 leading-relaxed text-slate-400">Nos encargamos de todo: te ayudamos a registrar tu dominio (.com o el de tu país) y publicamos tu web en un hosting rápido y seguro. Si ya tienes dominio, lo conectamos. En tu propuesta verás qué está incluido y por cuánto tiempo.</p>
+              <p class="pb-4 text-[0.95rem] leading-relaxed text-slate-400">Nos encargamos de todo: te ayudamos a registrar tu dominio (.com o el de tu país) y publicamos tu web en un hosting rápido y seguro. Si ya tienes dominio, lo conectamos. En tu propuesta verás qué está incluido y por cuánto tiempo.</p>
             </details>
             <details class="faq group" name="faq">
-              <summary class="flex min-h-16 cursor-pointer list-none items-center justify-between gap-4 py-4 text-base font-medium text-white sm:text-lg">
+              <summary class="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 py-3.5 text-[0.95rem] font-medium text-white sm:text-base">
                 ¿Puedo pedir cambios durante el proyecto?
                 <span class="flex size-8 shrink-0 items-center justify-center rounded-full border border-white/10 text-slate-300 transition-transform duration-300 group-open:rotate-180"><svg class="ico size-4" aria-hidden="true"><use href="#i-chevron-down" /></svg></span>
               </summary>
-              <p class="pb-5 leading-relaxed text-slate-400">Sí. En la etapa de diseño revisas cada pantalla y la ajustamos contigo antes de programar. Así, cuando llega el desarrollo, la web ya es exactamente lo que quieres y no hay sorpresas al final.</p>
+              <p class="pb-4 text-[0.95rem] leading-relaxed text-slate-400">Sí. En la etapa de diseño revisas cada pantalla y la ajustamos contigo antes de programar. Así, cuando llega el desarrollo, la web ya es exactamente lo que quieres y no hay sorpresas al final.</p>
             </details>
             <details class="faq group" name="faq">
-              <summary class="flex min-h-16 cursor-pointer list-none items-center justify-between gap-4 py-4 text-base font-medium text-white sm:text-lg">
+              <summary class="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 py-3.5 text-[0.95rem] font-medium text-white sm:text-base">
                 ¿Ofrecen mantenimiento después del lanzamiento?
                 <span class="flex size-8 shrink-0 items-center justify-center rounded-full border border-white/10 text-slate-300 transition-transform duration-300 group-open:rotate-180"><svg class="ico size-4" aria-hidden="true"><use href="#i-chevron-down" /></svg></span>
               </summary>
-              <p class="pb-5 leading-relaxed text-slate-400">Sí. Todos los paquetes incluyen soporte después del lanzamiento y, si lo prefieres, un plan mensual opcional con actualizaciones, copias de seguridad, monitoreo y cambios de contenido para que no tengas que preocuparte por nada.</p>
+              <p class="pb-4 text-[0.95rem] leading-relaxed text-slate-400">Sí. Todos los paquetes incluyen soporte después del lanzamiento y, si lo prefieres, un plan mensual opcional con actualizaciones, copias de seguridad, monitoreo y cambios de contenido para que no tengas que preocuparte por nada.</p>
             </details>
             <details class="faq group" name="faq">
-              <summary class="flex min-h-16 cursor-pointer list-none items-center justify-between gap-4 py-4 text-base font-medium text-white sm:text-lg">
+              <summary class="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 py-3.5 text-[0.95rem] font-medium text-white sm:text-base">
                 ¿Podré editar la web yo mismo?
                 <span class="flex size-8 shrink-0 items-center justify-center rounded-full border border-white/10 text-slate-300 transition-transform duration-300 group-open:rotate-180"><svg class="ico size-4" aria-hidden="true"><use href="#i-chevron-down" /></svg></span>
               </summary>
-              <p class="pb-5 leading-relaxed text-slate-400">Sí. Con el panel autoadministrable cambias textos, fotos, productos y precios desde tu computadora o celular, sin saber programar. Al entregarte la web te capacitamos para que la manejes con total confianza.</p>
+              <p class="pb-4 text-[0.95rem] leading-relaxed text-slate-400">Sí. Con el panel autoadministrable cambias textos, fotos, productos y precios desde tu computadora o celular, sin saber programar. Al entregarte la web te capacitamos para que la manejes con total confianza.</p>
             </details>
           </div>
         </div>
@@ -597,16 +605,16 @@
       <!-- ============================================================ -->
       <!-- 9. FORMULARIO MULTIPASO                                       -->
       <!-- ============================================================ -->
-      <section id="cotizar" class="section isolate scroll-mt-2 pt-12 sm:pt-16" aria-labelledby="cotizar-title">
+      <section id="cotizar" class="section isolate scroll-mt-2 pt-10 sm:pt-12" aria-labelledby="cotizar-title">
         <div class="bg-glow-center pointer-events-none absolute inset-x-0 top-0 -z-10 h-full" aria-hidden="true"></div>
-        <div class="container-x grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:grid-rows-[auto_1fr] lg:gap-x-16 lg:gap-y-10">
-          <div class="lg:col-start-1 lg:row-start-1">
+        <div class="container-x">
+          <div class="mx-auto max-w-2xl text-center">
             <span class="eyebrow">Cotización gratis</span>
             <h2 id="cotizar-title" class="h2">Recibe tu propuesta en menos de 2 horas</h2>
             <p class="lead">Completa 3 pasos rápidos (toma menos de 1 minuto) y te enviamos una propuesta a medida por WhatsApp.</p>
           </div>
 
-          <div class="gradient-border rounded-3xl p-5 shadow-[0_40px_100px_-40px_rgba(34,211,238,0.35)] sm:p-8 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:self-start">
+          <div class="gradient-border mx-auto mt-8 max-w-xl rounded-3xl p-5 shadow-[0_40px_100px_-40px_rgba(34,211,238,0.35)] sm:p-8">
             <form id="lead-form" class="scroll-mt-6" novalidate onsubmit="return false">
               <div class="mb-7">
                 <div class="flex items-center justify-between gap-4 text-sm">
@@ -749,18 +757,18 @@
             </form>
           </div>
 
-          <ul class="space-y-4 lg:col-start-1 lg:row-start-2">
-            <li class="flex gap-3.5">
-              <span class="mt-0.5 flex size-7 shrink-0 items-center justify-center rounded-full bg-cyan-400/12 text-cyan-300"><svg class="ico size-4" aria-hidden="true"><use href="#i-check" /></svg></span>
-              <span><strong class="font-semibold text-white">Propuesta clara y sin letra pequeña.</strong> <span class="text-slate-400">Precio cerrado y todo lo que incluye, por escrito.</span></span>
+          <ul class="mx-auto mt-8 grid max-w-3xl gap-3 text-sm sm:grid-cols-3 sm:gap-6 sm:text-center">
+            <li class="flex items-center justify-center gap-2.5 sm:flex-col sm:gap-2">
+              <span class="flex size-7 shrink-0 items-center justify-center rounded-full bg-cyan-400/12 text-cyan-300"><svg class="ico size-4" aria-hidden="true"><use href="#i-check" /></svg></span>
+              <span><strong class="font-semibold text-white">Precio cerrado</strong> <span class="text-slate-400">sin letra pequeña</span></span>
             </li>
-            <li class="flex gap-3.5">
-              <span class="mt-0.5 flex size-7 shrink-0 items-center justify-center rounded-full bg-cyan-400/12 text-cyan-300"><svg class="ico size-4" aria-hidden="true"><use href="#i-check" /></svg></span>
-              <span><strong class="font-semibold text-white">Fecha de entrega definida.</strong> <span class="text-slate-400">Sabrás desde el inicio cuándo estará lista tu web.</span></span>
+            <li class="flex items-center justify-center gap-2.5 sm:flex-col sm:gap-2">
+              <span class="flex size-7 shrink-0 items-center justify-center rounded-full bg-cyan-400/12 text-cyan-300"><svg class="ico size-4" aria-hidden="true"><use href="#i-check" /></svg></span>
+              <span><strong class="font-semibold text-white">Fecha de entrega</strong> <span class="text-slate-400">definida desde el inicio</span></span>
             </li>
-            <li class="flex gap-3.5">
-              <span class="mt-0.5 flex size-7 shrink-0 items-center justify-center rounded-full bg-cyan-400/12 text-cyan-300"><svg class="ico size-4" aria-hidden="true"><use href="#i-check" /></svg></span>
-              <span><strong class="font-semibold text-white">Asesoría gratuita.</strong> <span class="text-slate-400">Sin compromiso: te recomendamos lo que tu negocio realmente necesita.</span></span>
+            <li class="flex items-center justify-center gap-2.5 sm:flex-col sm:gap-2">
+              <span class="flex size-7 shrink-0 items-center justify-center rounded-full bg-cyan-400/12 text-cyan-300"><svg class="ico size-4" aria-hidden="true"><use href="#i-check" /></svg></span>
+              <span><strong class="font-semibold text-white">Asesoría gratis</strong> <span class="text-slate-400">y sin compromiso</span></span>
             </li>
           </ul>
         </div>

@@ -190,9 +190,9 @@ para continuar a `/gracias/`.
 ## 5. Placeholders a completar
 
 - [ ] Precios de los 3 paquetes: busca `[PRECIO]` en `cotiza/index.html`.
-- [ ] Portafolio (6 tarjetas): reemplaza cada bloque `[Imagen del proyecto]` por la captura real y
-      `[Nombre del proyecto]` por el nombre. Formato recomendado: WebP de ~960 px de ancho y menos de
-      60 KB, con `loading="lazy"`, `width` y `height` (en el HTML hay un ejemplo comentado).
+- [x] Portafolio: 6 proyectos reales (capturas de `src/assets/brochure/`). Para cambiar uno, edita su
+      `<img>` en la sección 4 de `cotiza/index.html`: WebP de ~960 px de ancho y menos de 60 KB, con
+      `loading="lazy"`, `width` y `height`.
 - [ ] URL de Instagram en el footer (`[PLACEHOLDER]` en `cotiza/index.html`).
 - [ ] Destino de los leads (sección 1).
 - [ ] Revisar textos propuestos: rangos de presupuesto (en US$, paso 3 del formulario), tiempos
@@ -209,7 +209,9 @@ Rendimiento, Accesibilidad, Buenas prácticas y SEO. Decisiones que lo hacen pos
   framework en el cliente (~6 KB de JS comprimido).
 - **El JS se descarga después del primer pintado** (`vite.config.ts → optimizeLandingPages`): el
   formulario y las animaciones son mejora progresiva.
-- **Mockup del hero hecho en CSS**, sin imágenes; favicon en línea.
+- **Mockup del hero hecho en CSS**; la captura real (proyecto Wayra) se carga con la primera
+  interacción, así no compite con la carga inicial ni pasa a ser el LCP. Favicon en línea.
+- **Imágenes del portafolio en diferido** (`loading="lazy"`): solo se descargan al acercarse.
 - **Fuente Geist autoalojada y precargada** (29 KB) con una fuente de respaldo de métricas ajustadas
   para evitar saltos de diseño.
 - **Píxel y Analytics diferidos** hasta la primera interacción.

@@ -33,6 +33,15 @@ function initReveal(): void {
   items.forEach((el) => io.observe(el));
 }
 
+/** Captura real de un proyecto dentro de la laptop del hero. Se carga con la primera interacción: así no
+ * compite con la carga inicial ni pasa a ser el elemento LCP; mientras tanto se ve el mockup en CSS. */
+function loadHeroShot(): void {
+  const img = document.querySelector<HTMLImageElement>('[data-hero-shot]');
+  if (!img) return;
+  img.addEventListener('load', () => img.classList.remove('opacity-0'), { once: true });
+  img.src = new URL('../assets/brochure/wall-wayra.webp', import.meta.url).href;
+}
+
 /* ------------------------------------------------------------------ */
 /* Botón flotante y enlaces de WhatsApp                                */
 /* ------------------------------------------------------------------ */
@@ -277,5 +286,6 @@ initForm();
 $('[data-year]').textContent = String(new Date().getFullYear());
 onFirstIntent(() => {
   document.documentElement.classList.add('anim');
+  loadHeroShot();
   loadTrackers();
 });
