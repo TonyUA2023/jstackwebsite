@@ -6,8 +6,8 @@ WORKDIR /app
 # Copy dependency configs
 COPY package.json package-lock.json .npmrc ./
 
-# Install dependencies cleanly
-RUN npm ci
+# Install dependencies cleanly (the npm download cache is reused between builds)
+RUN --mount=type=cache,target=/root/.npm npm ci --no-audit --no-fund
 
 # Copy source files
 COPY . .
@@ -19,6 +19,9 @@ ARG VITE_LEAD_WEBHOOK_URL
 ARG VITE_SUPABASE_URL
 ARG VITE_SUPABASE_ANON_KEY
 ARG VITE_CALENDLY_URL
+
+# Main site contact forms (src/services/brevoService.ts)
+ARG VITE_BREVO_API_KEY
 
 # Build static production bundle
 RUN npm run build
