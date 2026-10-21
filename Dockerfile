@@ -37,8 +37,9 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
 
-# Docker Healthcheck for Coolify, Traefik, and Caddy proxy
-HEALTHCHECK --interval=5s --timeout=3s --start-period=2s --retries=3 \
-  CMD wget --no-verbose --tries=1 --spider http://localhost:80/ || exit 1
+# Docker Healthcheck for Coolify, Traefik, and Caddy proxy.
+# 127.0.0.1, not localhost: on IPv6 hosts Alpine resolves localhost to ::1 first and nginx listens on IPv4 only
+HEALTHCHECK --interval=5s --timeout=3s --start-period=5s --retries=5 \
+  CMD wget --no-verbose --tries=1 --spider http://127.0.0.1:80/ || exit 1
 
 CMD ["nginx", "-g", "daemon off;"]
