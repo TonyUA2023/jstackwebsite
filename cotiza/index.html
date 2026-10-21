@@ -1,0 +1,815 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Web a medida que vende | Jstack.Digital</title>
+    <meta name="description" content="Webs programadas a medida en Next.js con garantía 100/100 en Google PageSpeed. Diseño a medida, SEO y WhatsApp integrados. Cotiza gratis y recibe respuesta en menos de 2 horas." />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0a0f1c" />
+    <link rel="canonical" href="https://jstack.digital/cotiza/" />
+    <!-- Favicon en línea: una petición menos antes del primer pintado -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x2='1' y2='1'%3E%3Cstop stop-color='%235b8cff'/%3E%3Cstop offset='1' stop-color='%2322d3ee'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3Ctext x='16' y='23' font-family='Arial,sans-serif' font-size='19' font-weight='700' text-anchor='middle' fill='%2304101f'%3EJ%3C/text%3E%3C/svg%3E" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jstack.digital/cotiza/" />
+    <meta property="og:site_name" content="Jstack.Digital" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:title" content="Tu negocio merece una web que venda, no solo que exista" />
+    <meta property="og:description" content="Webs a medida en Next.js con garantía 100/100 en Google PageSpeed. Cotiza gratis en 1 minuto." />
+
+    <link rel="preload" href="/fonts/geist-latin-wght.woff2" as="font" type="font/woff2" crossorigin />
+    <script>document.documentElement.classList.add('js')</script>
+    <link rel="stylesheet" href="/src/landing/landing.css" />
+    <script type="module" src="/src/landing/landing.ts"></script>
+  </head>
+  <body class="min-h-dvh overflow-x-clip">
+    <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true">
+      <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+      <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+      <symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+      <symbol id="i-circle-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+      <symbol id="i-code-xml" viewBox="0 0 24 24"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></symbol>
+      <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"/></symbol>
+      <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></symbol>
+      <symbol id="i-headset" viewBox="0 0 24 24"><path d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z"/><path d="M21 16v2a4 4 0 0 1-4 4h-5"/></symbol>
+      <symbol id="i-instagram" viewBox="0 0 24 24"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></symbol>
+      <symbol id="i-layout-dashboard" viewBox="0 0 24 24"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></symbol>
+      <symbol id="i-loader-circle" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></symbol>
+      <symbol id="i-lock" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></symbol>
+      <symbol id="i-palette" viewBox="0 0 24 24"><path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"/><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/></symbol>
+      <symbol id="i-pen-tool" viewBox="0 0 24 24"><path d="M15.707 21.293a1 1 0 0 1-1.414 0l-1.586-1.586a1 1 0 0 1 0-1.414l5.586-5.586a1 1 0 0 1 1.414 0l1.586 1.586a1 1 0 0 1 0 1.414z"/><path d="m18 13-1.375-6.874a1 1 0 0 0-.746-.776L3.235 2.028a1 1 0 0 0-1.207 1.207L5.35 15.879a1 1 0 0 0 .776.746L13 18"/><path d="m2.3 2.3 7.286 7.286"/><circle cx="11" cy="11" r="2"/></symbol>
+      <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09"/><path d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05"/></symbol>
+      <symbol id="i-search-x" viewBox="0 0 24 24"><path d="m13.5 8.5-5 5"/><path d="m8.5 8.5 5 5"/><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+      <symbol id="i-share-2" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></symbol>
+      <symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+      <symbol id="i-snail" viewBox="0 0 24 24"><path d="M2 13a6 6 0 1 0 12 0 4 4 0 1 0-8 0 2 2 0 0 0 4 0"/><circle cx="10" cy="13" r="8"/><path d="M2 21h12c4.4 0 8-3.6 8-8V7a2 2 0 1 0-4 0v6"/><path d="M18 3 19.1 5.2"/><path d="M22 3 20.9 5.2"/></symbol>
+      <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/></symbol>
+      <symbol id="i-trending-up" viewBox="0 0 24 24"><path d="M16 7h6v6"/><path d="m22 7-8.5 8.5-5-5L2 17"/></symbol>
+      <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></symbol>
+      <symbol id="i-zap" viewBox="0 0 24 24"><path d="M15.914 4a1.5 1.5 0 00-2.474-1.561l-9 9A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l9-9A1.5 1.5 0 0018.5 10h-3.997a.5.5 0 01-.472-.667z"/></symbol>
+    </svg>
+
+    <!-- ============================================================ -->
+    <!-- 1. HERO                                                       -->
+    <!-- ============================================================ -->
+    <div class="relative isolate overflow-x-clip">
+      <div class="bg-hero absolute inset-0 -z-10" aria-hidden="true"></div>
+      <div class="bg-grid absolute inset-x-0 top-0 -z-10 h-[44rem]" aria-hidden="true"></div>
+
+      <header class="container-x flex items-center justify-between py-5">
+        <span class="flex items-center gap-2.5 text-white">
+          <span class="flex size-9 items-center justify-center rounded-xl bg-linear-to-br from-[#5b8cff] to-cyan-400 text-lg font-bold text-[#04101f] shadow-[0_6px_20px_-6px_rgba(34,211,238,0.6)]" aria-hidden="true">J</span>
+          <span class="text-lg font-semibold tracking-tight">Jstack<span class="text-cyan-300">.Digital</span></span>
+        </span>
+        <a href="#cotizar" class="btn-ghost whitespace-nowrap max-[359px]:hidden">Cotizar gratis</a>
+      </header>
+
+      <section class="container-x grid items-center gap-16 pt-6 pb-20 sm:pt-10 lg:grid-cols-[1.05fr_1fr] lg:gap-12 lg:pt-16 lg:pb-28" aria-labelledby="hero-title">
+        <div class="max-w-xl">
+          <p class="inline-flex items-center gap-2 rounded-full border border-emerald-400/25 bg-emerald-400/[0.08] py-1.5 pr-3.5 pl-2.5 text-[13px] font-medium whitespace-nowrap text-emerald-300">
+            <svg class="ico size-4" aria-hidden="true"><use href="#i-zap" /></svg>
+            100/100 Google Speed
+            <span class="text-emerald-300/60 max-[359px]:hidden" aria-hidden="true">·</span>
+            <span class="max-[359px]:hidden">Garantizado</span>
+          </p>
+          <h1 id="hero-title" class="mt-6 text-[2.5rem] leading-[1.05] font-semibold tracking-[-0.035em] text-balance text-white sm:text-5xl lg:text-[3.6rem]">
+            Tu negocio merece una web que <span class="text-gradient">venda</span>, no solo que exista
+          </h1>
+          <p class="mt-6 text-lg leading-relaxed text-pretty text-slate-400">
+            Diseñamos y programamos tu web a medida en Next.js, sin plantillas. Carga al instante, aparece en Google y convierte visitas en clientes que te escriben por WhatsApp.
+          </p>
+          <div class="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
+            <a href="#cotizar" class="btn-primary w-full sm:w-auto">
+              Quiero mi cotización
+              <svg class="ico size-5" aria-hidden="true"><use href="#i-arrow-right" /></svg>
+            </a>
+            <p class="flex items-center justify-center gap-2 text-sm text-slate-400">
+              <svg class="ico size-4 text-cyan-300" aria-hidden="true"><use href="#i-clock" /></svg>
+              Respuesta en menos de 2 horas
+            </p>
+          </div>
+          <ul class="mt-9 flex flex-wrap gap-x-6 gap-y-3 text-sm text-slate-300">
+            <li class="flex items-center gap-2"><svg class="ico size-4 text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Diseño 100% a medida</li>
+            <li class="flex items-center gap-2"><svg class="ico size-4 text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Optimizada para Google</li>
+            <li class="flex items-center gap-2"><svg class="ico size-4 text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Cotización sin compromiso</li>
+          </ul>
+        </div>
+
+        <!-- Mockup laptop + celular (100% CSS: sin imágenes que retrasen la carga) -->
+        <div class="mockup relative mx-auto w-full max-w-[36rem] pb-[2em]" aria-hidden="true">
+          <div class="bg-glow-center absolute -inset-[6em] -z-10"></div>
+
+          <div class="float-slow">
+            <div class="rounded-t-[1.6em] border border-white/10 bg-[#0b1120] p-[1.3em] shadow-[0_40px_80px_-30px_rgba(0,0,0,0.8)]">
+              <div class="relative aspect-[16/10] overflow-hidden rounded-[0.7em] bg-[#0c1428]">
+                <div class="flex items-center justify-between border-b border-white/5 px-[2.6em] py-[1.5em]">
+                  <span class="flex items-center gap-[0.6em]">
+                    <span class="size-[1.1em] rounded-[0.3em] bg-linear-to-br from-blue-400 to-cyan-300"></span>
+                    <span class="h-[0.55em] w-[4.6em] rounded-full bg-white/70"></span>
+                  </span>
+                  <span class="flex gap-[1.3em]">
+                    <span class="h-[0.42em] w-[2.6em] rounded-full bg-white/25"></span>
+                    <span class="h-[0.42em] w-[2.6em] rounded-full bg-white/25"></span>
+                    <span class="h-[0.42em] w-[2.6em] rounded-full bg-white/25"></span>
+                  </span>
+                  <span class="h-[1.6em] w-[5.6em] rounded-full bg-linear-to-r from-blue-500 to-cyan-400"></span>
+                </div>
+                <div class="grid grid-cols-[1.15fr_1fr] items-center gap-[2.4em] px-[2.6em] pt-[2.4em]">
+                  <div>
+                    <span class="block h-[1.15em] w-[92%] rounded-[0.3em] bg-white/85"></span>
+                    <span class="mt-[0.6em] block h-[1.15em] w-[72%] rounded-[0.3em] bg-linear-to-r from-blue-400 to-cyan-300"></span>
+                    <span class="mt-[1.3em] block h-[0.45em] w-full rounded-full bg-white/20"></span>
+                    <span class="mt-[0.55em] block h-[0.45em] w-[86%] rounded-full bg-white/20"></span>
+                    <span class="mt-[0.55em] block h-[0.45em] w-[62%] rounded-full bg-white/20"></span>
+                    <span class="mt-[1.6em] flex gap-[0.7em]">
+                      <span class="h-[1.8em] w-[6.8em] rounded-full bg-linear-to-r from-blue-500 to-cyan-400"></span>
+                      <span class="h-[1.8em] w-[5.2em] rounded-full border border-white/20"></span>
+                    </span>
+                  </div>
+                  <div class="relative aspect-[4/3] overflow-hidden rounded-[0.9em] bg-[linear-gradient(140deg,#1e3a8a,#0e7490_60%,#22d3ee)]">
+                    <span class="absolute -right-[22%] -bottom-[26%] size-[86%] rounded-full bg-white/10"></span>
+                    <span class="absolute top-[14%] left-[12%] size-[30%] rounded-full bg-white/15"></span>
+                    <span class="absolute right-[9%] bottom-[10%] flex items-center gap-[0.5em] rounded-[0.6em] bg-[#0c1428]/80 px-[0.8em] py-[0.6em]">
+                      <span class="size-[1.1em] rounded-full bg-emerald-400"></span>
+                      <span class="h-[0.45em] w-[3.4em] rounded-full bg-white/60"></span>
+                    </span>
+                  </div>
+                </div>
+                <div class="grid grid-cols-3 gap-[1.3em] px-[2.6em] pt-[2.6em]">
+                  <span class="rounded-[0.6em] border border-white/[0.07] bg-white/[0.03] p-[0.9em]"><span class="block size-[1.2em] rounded-[0.3em] bg-cyan-300/70"></span><span class="mt-[0.7em] block h-[0.45em] w-[80%] rounded-full bg-white/30"></span><span class="mt-[0.4em] block h-[0.45em] w-[55%] rounded-full bg-white/15"></span></span>
+                  <span class="rounded-[0.6em] border border-white/[0.07] bg-white/[0.03] p-[0.9em]"><span class="block size-[1.2em] rounded-[0.3em] bg-blue-400/70"></span><span class="mt-[0.7em] block h-[0.45em] w-[80%] rounded-full bg-white/30"></span><span class="mt-[0.4em] block h-[0.45em] w-[55%] rounded-full bg-white/15"></span></span>
+                  <span class="rounded-[0.6em] border border-white/[0.07] bg-white/[0.03] p-[0.9em]"><span class="block size-[1.2em] rounded-[0.3em] bg-emerald-400/70"></span><span class="mt-[0.7em] block h-[0.45em] w-[80%] rounded-full bg-white/30"></span><span class="mt-[0.4em] block h-[0.45em] w-[55%] rounded-full bg-white/15"></span></span>
+                </div>
+              </div>
+            </div>
+            <div class="relative -mx-[3.4em] h-[1.5em] rounded-b-[1.4em] bg-linear-to-b from-[#3b4660] to-[#141a2b]">
+              <span class="absolute top-0 left-1/2 h-[45%] w-[15%] -translate-x-1/2 rounded-b-[0.6em] bg-black/35"></span>
+            </div>
+          </div>
+
+          <div class="float absolute right-[-0.5em] bottom-[-1.5em] w-[27%]">
+            <div class="rounded-[2.4em] border border-white/15 bg-[#0b1120] p-[0.8em] shadow-[0_30px_60px_-20px_rgba(0,0,0,0.9)]">
+              <div class="relative aspect-[9/19.5] overflow-hidden rounded-[1.8em] bg-[#0c1428]">
+                <span class="absolute top-[0.8em] left-1/2 h-[1.1em] w-[38%] -translate-x-1/2 rounded-full bg-black"></span>
+                <div class="px-[1.2em] pt-[3.6em]">
+                  <span class="block h-[0.75em] w-[92%] rounded-[0.25em] bg-white/85"></span>
+                  <span class="mt-[0.45em] block h-[0.75em] w-[66%] rounded-[0.25em] bg-linear-to-r from-blue-400 to-cyan-300"></span>
+                  <span class="mt-[0.9em] block h-[0.35em] w-full rounded-full bg-white/20"></span>
+                  <span class="mt-[0.4em] block h-[0.35em] w-[80%] rounded-full bg-white/20"></span>
+                  <span class="mt-[1.1em] block h-[1.4em] w-[72%] rounded-full bg-linear-to-r from-blue-500 to-cyan-400"></span>
+                  <span class="mt-[1.4em] block aspect-[1/0.85] rounded-[0.7em] bg-[linear-gradient(140deg,#1e3a8a,#0e7490)]"></span>
+                </div>
+                <span class="absolute right-[0.9em] bottom-[0.9em] flex size-[3.4em] items-center justify-center rounded-full bg-[#25d366] text-white">
+                  <svg class="ico-fill size-[55%]"><use href="#i-whatsapp" /></svg>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="float-delay absolute top-[-2.4em] left-[-0.5em] flex items-center gap-3 rounded-2xl border border-white/10 bg-[#0f1629]/95 py-2.5 pr-4 pl-2.5 shadow-[0_20px_40px_-16px_rgba(0,0,0,0.9)] sm:left-[-2.5em]">
+            <span class="relative flex size-12 items-center justify-center">
+              <svg viewBox="0 0 36 36" class="absolute inset-0 size-full -rotate-90">
+                <circle cx="18" cy="18" r="15.5" fill="none" stroke="rgba(52,211,153,0.18)" stroke-width="3" />
+                <circle cx="18" cy="18" r="15.5" fill="none" stroke="#34d399" stroke-width="3" stroke-linecap="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="0" />
+              </svg>
+              <span class="text-sm font-bold text-emerald-300">100</span>
+            </span>
+            <span class="leading-tight">
+              <span class="block text-[11px] font-medium tracking-wider text-slate-400 uppercase">Google Speed</span>
+              <span class="block text-sm font-semibold text-white">100/100</span>
+            </span>
+          </div>
+
+          <div class="float absolute bottom-[3em] left-[-0.5em] flex items-center gap-2.5 rounded-xl border border-white/10 bg-[#0f1629]/95 py-2 pr-3.5 pl-2 shadow-[0_20px_40px_-16px_rgba(0,0,0,0.9)] sm:left-[-2.5em]">
+            <span class="flex size-8 items-center justify-center rounded-lg bg-[#25d366]/15 text-[#25d366]">
+              <svg class="ico-fill size-4.5"><use href="#i-whatsapp" /></svg>
+            </span>
+            <span class="leading-tight">
+              <span class="block text-xs font-semibold text-white">Nuevo cliente</span>
+              <span class="block text-[11px] text-slate-400">"Hola, quiero cotizar…"</span>
+            </span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <main>
+      <!-- ============================================================ -->
+      <!-- 2. PROBLEMA                                                   -->
+      <!-- ============================================================ -->
+      <section class="section" aria-labelledby="problema-title">
+        <div class="container-x">
+          <div class="reveal mx-auto max-w-2xl text-center">
+            <span class="eyebrow">El problema</span>
+            <h2 id="problema-title" class="h2">Cada día tu negocio pierde clientes sin que lo notes</h2>
+            <p class="lead">Tener una web no basta. Si no aparece, no carga o no convence, ese cliente termina comprándole a tu competencia.</p>
+          </div>
+
+          <div class="mt-12 grid gap-4 md:grid-cols-3 md:gap-5">
+            <article class="card reveal">
+              <span class="inline-flex size-12 items-center justify-center rounded-xl border border-rose-400/20 bg-rose-400/[0.08] text-rose-300">
+                <svg class="ico size-6" aria-hidden="true"><use href="#i-search-x" /></svg>
+              </span>
+              <h3 class="mt-5 text-xl font-semibold text-white">Tus clientes no te encuentran en Google</h3>
+              <p class="mt-2.5 leading-relaxed text-slate-400">Cuando buscan lo que vendes, aparece tu competencia. Si no estás en los primeros resultados, para ellos no existes.</p>
+            </article>
+            <article class="card reveal" style="--d: 120ms">
+              <span class="inline-flex size-12 items-center justify-center rounded-xl border border-rose-400/20 bg-rose-400/[0.08] text-rose-300">
+                <svg class="ico size-6" aria-hidden="true"><use href="#i-snail" /></svg>
+              </span>
+              <h3 class="mt-5 text-xl font-semibold text-white">Tu web es lenta y la gente se va</h3>
+              <p class="mt-2.5 leading-relaxed text-slate-400">Según Google, el 53% de las visitas desde el celular abandona una página que tarda más de 3 segundos en cargar. Cada segundo te cuesta ventas.</p>
+            </article>
+            <article class="card reveal" style="--d: 240ms">
+              <span class="inline-flex size-12 items-center justify-center rounded-xl border border-rose-400/20 bg-rose-400/[0.08] text-rose-300">
+                <svg class="ico size-6" aria-hidden="true"><use href="#i-share-2" /></svg>
+              </span>
+              <h3 class="mt-5 text-xl font-semibold text-white">Dependes solo de redes sociales</h3>
+              <p class="mt-2.5 leading-relaxed text-slate-400">El algoritmo decide quién te ve y cuándo. Sin una web propia no controlas tu vitrina, tus datos ni tus ventas.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider-glow mx-auto h-px w-full max-w-4xl" aria-hidden="true"></div>
+
+      <!-- ============================================================ -->
+      <!-- 3. SOLUCIÓN / BENEFICIOS                                      -->
+      <!-- ============================================================ -->
+      <section class="section" aria-labelledby="solucion-title">
+        <div class="container-x">
+          <div class="reveal mx-auto max-w-2xl text-center">
+            <span class="eyebrow">La solución</span>
+            <h2 id="solucion-title" class="h2">Una web programada a medida para <span class="text-gradient">vender más</span></h2>
+            <p class="lead">Unimos diseño, tecnología y estrategia para que tu web trabaje por ti las 24 horas, los 7 días de la semana.</p>
+          </div>
+
+          <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
+            <article class="card reveal">
+              <span class="icon-tile"><svg class="ico size-6" aria-hidden="true"><use href="#i-pen-tool" /></svg></span>
+              <h3 class="mt-5 text-lg font-semibold text-white">Diseño a medida</h3>
+              <p class="mt-2 leading-relaxed text-slate-400">Nada de plantillas: diseñamos tu web desde cero, pensada para tu marca y para tu cliente ideal.</p>
+            </article>
+            <article class="card reveal" style="--d: 80ms">
+              <span class="icon-tile"><svg class="ico size-6" aria-hidden="true"><use href="#i-zap" /></svg></span>
+              <h3 class="mt-5 text-lg font-semibold text-white">Velocidad extrema</h3>
+              <p class="mt-2 leading-relaxed text-slate-400">Programada en Next.js para cargar al instante y lograr 100/100 en Google PageSpeed. Garantizado.</p>
+            </article>
+            <article class="card reveal" style="--d: 160ms">
+              <span class="icon-tile"><svg class="ico size-6" aria-hidden="true"><use href="#i-trending-up" /></svg></span>
+              <h3 class="mt-5 text-lg font-semibold text-white">SEO para aparecer en Google</h3>
+              <p class="mt-2 leading-relaxed text-slate-400">Estructura, contenido y datos técnicos optimizados para que te encuentren quienes ya buscan lo que vendes.</p>
+            </article>
+            <article class="card reveal">
+              <span class="icon-tile"><svg class="ico-fill size-6" aria-hidden="true"><use href="#i-whatsapp" /></svg></span>
+              <h3 class="mt-5 text-lg font-semibold text-white">Botón de WhatsApp</h3>
+              <p class="mt-2 leading-relaxed text-slate-400">Cada visitante está a un toque de escribirte. Convertimos visitas en conversaciones y conversaciones en ventas.</p>
+            </article>
+            <article class="card reveal" style="--d: 80ms">
+              <span class="icon-tile"><svg class="ico size-6" aria-hidden="true"><use href="#i-layout-dashboard" /></svg></span>
+              <h3 class="mt-5 text-lg font-semibold text-white">Panel autoadministrable</h3>
+              <p class="mt-2 leading-relaxed text-slate-400">Cambia textos, fotos, productos y precios tú mismo, desde el celular y sin saber programar.</p>
+            </article>
+            <article class="card reveal" style="--d: 160ms">
+              <span class="icon-tile"><svg class="ico size-6" aria-hidden="true"><use href="#i-headset" /></svg></span>
+              <h3 class="mt-5 text-lg font-semibold text-white">Soporte cercano</h3>
+              <p class="mt-2 leading-relaxed text-slate-400">No te dejamos solo después del lanzamiento: resolvemos dudas y hacemos ajustes con respuesta rápida.</p>
+            </article>
+          </div>
+
+          <div class="reveal mt-12 text-center">
+            <a href="#cotizar" class="btn-primary w-full sm:w-auto">
+              Quiero mi cotización
+              <svg class="ico size-5" aria-hidden="true"><use href="#i-arrow-right" /></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- 4. PORTAFOLIO                                                 -->
+      <!-- [PLACEHOLDERS] Reemplaza cada bloque "aspect-[16/10]" por la  -->
+      <!-- captura real del proyecto, por ejemplo:                       -->
+      <!-- <img src="/portafolio/proyecto-1.webp" width="960" height="600" -->
+      <!--      loading="lazy" decoding="async" alt="Web de ..."         -->
+      <!--      class="aspect-[16/10] w-full object-cover" />            -->
+      <!-- Usa WebP de ~960 px de ancho (< 60 KB) para no afectar la velocidad. -->
+      <!-- ============================================================ -->
+      <section class="section bg-white/[0.015]" aria-labelledby="portafolio-title">
+        <div class="container-x">
+          <div class="reveal mx-auto max-w-2xl text-center">
+            <span class="eyebrow">Portafolio</span>
+            <h2 id="portafolio-title" class="h2">Webs que ya trabajan para nuestros clientes</h2>
+            <p class="lead">Cada proyecto es único: lo diseñamos según el rubro, el público y el objetivo de cada negocio.</p>
+          </div>
+
+          <div class="reveal -mx-5 mt-12 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4 [scrollbar-width:none] sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-3 lg:gap-5">
+            <article class="card w-[82%] shrink-0 snap-center overflow-hidden p-0 sm:w-auto sm:p-0">
+              <div class="relative aspect-[16/10] bg-[linear-gradient(140deg,#1b2f63,#0d3d52)]">
+                <span class="absolute top-3 left-4 flex gap-1.5"><span class="size-2 rounded-full bg-white/20"></span><span class="size-2 rounded-full bg-white/20"></span><span class="size-2 rounded-full bg-white/20"></span></span>
+                <span class="absolute inset-0 flex items-center justify-center"><span class="rounded-full border border-white/15 bg-black/25 px-3 py-1 text-xs font-medium text-white/80">[Imagen del proyecto]</span></span>
+              </div>
+              <div class="p-5">
+                <p class="text-xs font-medium tracking-wider text-cyan-300 uppercase">Restaurante</p>
+                <h3 class="mt-1 font-semibold text-white">[Nombre del proyecto]</h3>
+              </div>
+            </article>
+            <article class="card w-[82%] shrink-0 snap-center overflow-hidden p-0 sm:w-auto sm:p-0">
+              <div class="relative aspect-[16/10] bg-[linear-gradient(140deg,#123a5c,#1e2a6b)]">
+                <span class="absolute top-3 left-4 flex gap-1.5"><span class="size-2 rounded-full bg-white/20"></span><span class="size-2 rounded-full bg-white/20"></span><span class="size-2 rounded-full bg-white/20"></span></span>
+                <span class="absolute inset-0 flex items-center justify-center"><span class="rounded-full border border-white/15 bg-black/25 px-3 py-1 text-xs font-medium text-white/80">[Imagen del proyecto]</span></span>
+              </div>
+              <div class="p-5">
+                <p class="text-xs font-medium tracking-wider text-cyan-300 uppercase">Clínica dental</p>
+                <h3 class="mt-1 font-semibold text-white">[Nombre del proyecto]</h3>
+              </div>
+            </article>
+            <article class="card w-[82%] shrink-0 snap-center overflow-hidden p-0 sm:w-auto sm:p-0">
+              <div class="relative aspect-[16/10] bg-[linear-gradient(140deg,#0f3d4f,#173a7a)]">
+                <span class="absolute top-3 left-4 flex gap-1.5"><span class="size-2 rounded-full bg-white/20"></span><span class="size-2 rounded-full bg-white/20"></span><span class="size-2 rounded-full bg-white/20"></span></span>
+                <span class="absolute inset-0 flex items-center justify-center"><span class="rounded-full border border-white/15 bg-black/25 px-3 py-1 text-xs font-medium text-white/80">[Imagen del proyecto]</span></span>
+              </div>
+              <div class="p-5">
+                <p class="text-xs font-medium tracking-wider text-cyan-300 uppercase">Inmobiliaria</p>
+                <h3 class="mt-1 font-semibold text-white">[Nombre del proyecto]</h3>
+              </div>
+            </article>
+            <article class="card w-[82%] shrink-0 snap-center overflow-hidden p-0 sm:w-auto sm:p-0">
+              <div class="relative aspect-[16/10] bg-[linear-gradient(140deg,#24306e,#0e4a5c)]">
+                <span class="absolute top-3 left-4 flex gap-1.5"><span class="size-2 rounded-full bg-white/20"></span><span class="size-2 rounded-full bg-white/20"></span><span class="size-2 rounded-full bg-white/20"></span></span>
+                <span class="absolute inset-0 flex items-center justify-center"><span class="rounded-full border border-white/15 bg-black/25 px-3 py-1 text-xs font-medium text-white/80">[Imagen del proyecto]</span></span>
+              </div>
+              <div class="p-5">
+                <p class="text-xs font-medium tracking-wider text-cyan-300 uppercase">Tienda de ropa</p>
+                <h3 class="mt-1 font-semibold text-white">[Nombre del proyecto]</h3>
+              </div>
+            </article>
+            <article class="card w-[82%] shrink-0 snap-center overflow-hidden p-0 sm:w-auto sm:p-0">
+              <div class="relative aspect-[16/10] bg-[linear-gradient(140deg,#0c3550,#2a2f6e)]">
+                <span class="absolute top-3 left-4 flex gap-1.5"><span class="size-2 rounded-full bg-white/20"></span><span class="size-2 rounded-full bg-white/20"></span><span class="size-2 rounded-full bg-white/20"></span></span>
+                <span class="absolute inset-0 flex items-center justify-center"><span class="rounded-full border border-white/15 bg-black/25 px-3 py-1 text-xs font-medium text-white/80">[Imagen del proyecto]</span></span>
+              </div>
+              <div class="p-5">
+                <p class="text-xs font-medium tracking-wider text-cyan-300 uppercase">Estudio contable</p>
+                <h3 class="mt-1 font-semibold text-white">[Nombre del proyecto]</h3>
+              </div>
+            </article>
+            <article class="card w-[82%] shrink-0 snap-center overflow-hidden p-0 sm:w-auto sm:p-0">
+              <div class="relative aspect-[16/10] bg-[linear-gradient(140deg,#16295c,#0b4552)]">
+                <span class="absolute top-3 left-4 flex gap-1.5"><span class="size-2 rounded-full bg-white/20"></span><span class="size-2 rounded-full bg-white/20"></span><span class="size-2 rounded-full bg-white/20"></span></span>
+                <span class="absolute inset-0 flex items-center justify-center"><span class="rounded-full border border-white/15 bg-black/25 px-3 py-1 text-xs font-medium text-white/80">[Imagen del proyecto]</span></span>
+              </div>
+              <div class="p-5">
+                <p class="text-xs font-medium tracking-wider text-cyan-300 uppercase">Gimnasio</p>
+                <h3 class="mt-1 font-semibold text-white">[Nombre del proyecto]</h3>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- 5. PROCESO EN 4 PASOS                                         -->
+      <!-- ============================================================ -->
+      <section class="section" aria-labelledby="proceso-title">
+        <div class="container-x">
+          <div class="reveal mx-auto max-w-2xl text-center">
+            <span class="eyebrow">Cómo trabajamos</span>
+            <h2 id="proceso-title" class="h2">De la idea a tu web publicada en <span class="text-gradient">2 a 3 semanas</span></h2>
+            <p class="lead">Un proceso claro, con fechas definidas desde el primer día. Tú te enfocas en tu negocio; nosotros, en todo lo demás.</p>
+          </div>
+
+          <ol class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
+            <li class="card reveal">
+              <div class="flex items-center justify-between">
+                <span class="icon-tile"><svg class="ico size-6" aria-hidden="true"><use href="#i-compass" /></svg></span>
+                <span class="text-sm font-medium text-slate-400">Paso 1</span>
+              </div>
+              <h3 class="mt-5 text-xl font-semibold text-white">Diagnóstico</h3>
+              <p class="mt-2 inline-flex items-center gap-1.5 rounded-full bg-cyan-400/10 px-2.5 py-1 text-xs font-medium text-cyan-300"><svg class="ico size-3.5" aria-hidden="true"><use href="#i-clock" /></svg>1 a 2 días</p>
+              <p class="mt-3 leading-relaxed text-slate-400">Conversamos sobre tu negocio, tu competencia y tus objetivos para definir la estrategia de tu web.</p>
+            </li>
+            <li class="card reveal" style="--d: 100ms">
+              <div class="flex items-center justify-between">
+                <span class="icon-tile"><svg class="ico size-6" aria-hidden="true"><use href="#i-palette" /></svg></span>
+                <span class="text-sm font-medium text-slate-400">Paso 2</span>
+              </div>
+              <h3 class="mt-5 text-xl font-semibold text-white">Diseño</h3>
+              <p class="mt-2 inline-flex items-center gap-1.5 rounded-full bg-cyan-400/10 px-2.5 py-1 text-xs font-medium text-cyan-300"><svg class="ico size-3.5" aria-hidden="true"><use href="#i-clock" /></svg>3 a 5 días</p>
+              <p class="mt-3 leading-relaxed text-slate-400">Creamos el diseño a medida de tu web. Lo revisas, lo ajustamos y avanzamos solo cuando te encanta.</p>
+            </li>
+            <li class="card reveal" style="--d: 200ms">
+              <div class="flex items-center justify-between">
+                <span class="icon-tile"><svg class="ico size-6" aria-hidden="true"><use href="#i-code-xml" /></svg></span>
+                <span class="text-sm font-medium text-slate-400">Paso 3</span>
+              </div>
+              <h3 class="mt-5 text-xl font-semibold text-white">Desarrollo</h3>
+              <p class="mt-2 inline-flex items-center gap-1.5 rounded-full bg-cyan-400/10 px-2.5 py-1 text-xs font-medium text-cyan-300"><svg class="ico size-3.5" aria-hidden="true"><use href="#i-clock" /></svg>5 a 10 días</p>
+              <p class="mt-3 leading-relaxed text-slate-400">Programamos tu web en Next.js, optimizada para celulares, velocidad y posicionamiento en Google.</p>
+            </li>
+            <li class="card reveal" style="--d: 300ms">
+              <div class="flex items-center justify-between">
+                <span class="icon-tile"><svg class="ico size-6" aria-hidden="true"><use href="#i-rocket" /></svg></span>
+                <span class="text-sm font-medium text-slate-400">Paso 4</span>
+              </div>
+              <h3 class="mt-5 text-xl font-semibold text-white">Lanzamiento</h3>
+              <p class="mt-2 inline-flex items-center gap-1.5 rounded-full bg-cyan-400/10 px-2.5 py-1 text-xs font-medium text-cyan-300"><svg class="ico size-3.5" aria-hidden="true"><use href="#i-clock" /></svg>1 a 2 días</p>
+              <p class="mt-3 leading-relaxed text-slate-400">Publicamos tu web, conectamos tu dominio, Google y WhatsApp, y te enseñamos a administrarla.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- 6. PAQUETES  ([PRECIO] = placeholder a reemplazar)            -->
+      <!-- ============================================================ -->
+      <section class="section bg-white/[0.015]" aria-labelledby="paquetes-title">
+        <div class="container-x">
+          <div class="reveal mx-auto max-w-2xl text-center">
+            <span class="eyebrow">Paquetes</span>
+            <h2 id="paquetes-title" class="h2">Elige el plan ideal para tu negocio</h2>
+            <p class="lead">Precios claros y sin sorpresas. Todos incluyen diseño a medida y la garantía 100/100 Google Speed.</p>
+          </div>
+
+          <div class="mt-14 grid gap-8 lg:grid-cols-3 lg:gap-5">
+            <article class="card reveal flex flex-col">
+              <h3 class="text-xl font-semibold text-white">Web Básica</h3>
+              <p class="mt-1.5 text-sm text-slate-400">Para empezar a vender con una presencia profesional.</p>
+              <p class="mt-6 flex items-baseline gap-2"><span class="text-sm text-slate-400">desde</span><span class="text-4xl font-semibold tracking-tight text-white">[PRECIO]</span></p>
+              <ul class="mt-7 mb-8 flex-1 space-y-3 text-[0.95rem] text-slate-300">
+                <li class="flex gap-3"><svg class="ico mt-0.5 size-5 text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Web de una página con hasta 6 secciones</li>
+                <li class="flex gap-3"><svg class="ico mt-0.5 size-5 text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Diseño a medida, 100% adaptado a celulares</li>
+                <li class="flex gap-3"><svg class="ico mt-0.5 size-5 text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Botón de WhatsApp y formulario de contacto</li>
+                <li class="flex gap-3"><svg class="ico mt-0.5 size-5 text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>SEO básico y alta en Google Maps</li>
+                <li class="flex gap-3"><svg class="ico mt-0.5 size-5 text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Certificado SSL (candado de seguridad)</li>
+                <li class="flex gap-3"><svg class="ico mt-0.5 size-5 text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>100/100 en Google PageSpeed</li>
+              </ul>
+              <a href="#cotizar" data-plan="Web Básica" data-need="Una web nueva para mi negocio" class="btn-ghost min-h-13 w-full text-base">Quiero este paquete</a>
+            </article>
+
+            <article class="gradient-border reveal relative flex flex-col rounded-2xl p-6 shadow-[0_30px_80px_-30px_rgba(34,211,238,0.35)] sm:p-7 lg:-my-4 lg:py-11" style="--d: 100ms">
+              <span class="absolute -top-3.5 left-1/2 inline-flex -translate-x-1/2 items-center gap-1.5 rounded-full bg-linear-to-r from-[#5b8cff] to-cyan-400 px-3.5 py-1 text-xs font-semibold whitespace-nowrap text-[#04101f] shadow-lg">
+                <svg class="ico size-3.5" aria-hidden="true"><use href="#i-sparkles" /></svg>Más elegida
+              </span>
+              <h3 class="text-xl font-semibold text-white">Web Profesional</h3>
+              <p class="mt-1.5 text-sm text-slate-400">Para negocios que quieren crecer y captar clientes en Google.</p>
+              <p class="mt-6 flex items-baseline gap-2"><span class="text-sm text-slate-400">desde</span><span class="text-4xl font-semibold tracking-tight text-white">[PRECIO]</span></p>
+              <ul class="mt-7 mb-8 flex-1 space-y-3 text-[0.95rem] text-slate-300">
+                <li class="flex gap-3"><svg class="ico mt-0.5 size-5 text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg><span><strong class="font-semibold text-white">Todo lo de Web Básica</strong>, y además:</span></li>
+                <li class="flex gap-3"><svg class="ico mt-0.5 size-5 text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Hasta 8 páginas (servicios, nosotros, contacto…)</li>
+                <li class="flex gap-3"><svg class="ico mt-0.5 size-5 text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Panel autoadministrable para editar tu web</li>
+                <li class="flex gap-3"><svg class="ico mt-0.5 size-5 text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>SEO avanzado para posicionar en tu ciudad</li>
+                <li class="flex gap-3"><svg class="ico mt-0.5 size-5 text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Blog para atraer visitas desde Google</li>
+                <li class="flex gap-3"><svg class="ico mt-0.5 size-5 text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Google Analytics y Píxel de Meta instalados</li>
+                <li class="flex gap-3"><svg class="ico mt-0.5 size-5 text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Soporte prioritario después del lanzamiento</li>
+              </ul>
+              <a href="#cotizar" data-plan="Web Profesional" data-need="Una web nueva para mi negocio" class="btn-primary w-full">
+                Quiero este paquete
+                <svg class="ico size-5" aria-hidden="true"><use href="#i-arrow-right" /></svg>
+              </a>
+            </article>
+
+            <article class="card reveal flex flex-col" style="--d: 200ms">
+              <h3 class="text-xl font-semibold text-white">Tienda Online</h3>
+              <p class="mt-1.5 text-sm text-slate-400">Para vender por internet las 24 horas con pagos en línea.</p>
+              <p class="mt-6 flex items-baseline gap-2"><span class="text-sm text-slate-400">desde</span><span class="text-4xl font-semibold tracking-tight text-white">[PRECIO]</span></p>
+              <ul class="mt-7 mb-8 flex-1 space-y-3 text-[0.95rem] text-slate-300">
+                <li class="flex gap-3"><svg class="ico mt-0.5 size-5 text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg><span><strong class="font-semibold text-white">Todo lo de Web Profesional</strong>, y además:</span></li>
+                <li class="flex gap-3"><svg class="ico mt-0.5 size-5 text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Catálogo de productos autoadministrable</li>
+                <li class="flex gap-3"><svg class="ico mt-0.5 size-5 text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Carrito y pagos con tarjeta y billeteras digitales</li>
+                <li class="flex gap-3"><svg class="ico mt-0.5 size-5 text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Gestión de pedidos, stock y clientes</li>
+                <li class="flex gap-3"><svg class="ico mt-0.5 size-5 text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Pedidos y consultas por WhatsApp</li>
+                <li class="flex gap-3"><svg class="ico mt-0.5 size-5 text-cyan-300" aria-hidden="true"><use href="#i-check" /></svg>Capacitación para manejar tu tienda</li>
+              </ul>
+              <a href="#cotizar" data-plan="Tienda Online" data-need="Una tienda online" class="btn-ghost min-h-13 w-full text-base">Quiero este paquete</a>
+            </article>
+          </div>
+
+          <p class="reveal mt-10 text-center text-slate-400">
+            ¿Necesitas algo diferente? <a href="#cotizar" class="font-medium text-cyan-300 underline underline-offset-4 hover:text-cyan-200">Te armamos una propuesta a medida</a>.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- 7. GARANTÍA                                                   -->
+      <!-- ============================================================ -->
+      <section class="section" aria-labelledby="garantia-title">
+        <div class="container-x">
+          <div class="gradient-border reveal relative isolate overflow-hidden rounded-3xl px-6 py-12 sm:px-12 sm:py-16">
+            <div class="bg-glow-center absolute -top-1/2 -left-1/4 -z-10 size-[150%]" aria-hidden="true"></div>
+            <div class="grid items-center gap-10 lg:grid-cols-[auto_1fr] lg:gap-16">
+              <div class="relative mx-auto flex size-48 items-center justify-center sm:size-56" aria-hidden="true">
+                <svg viewBox="0 0 120 120" class="absolute inset-0 size-full -rotate-90">
+                  <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(52,211,153,0.14)" stroke-width="9" />
+                  <circle class="gauge-reveal" cx="60" cy="60" r="52" fill="none" stroke="#34d399" stroke-width="9" stroke-linecap="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="0" />
+                </svg>
+                <span class="text-center">
+                  <span class="block text-6xl font-semibold tracking-tight text-emerald-300 sm:text-7xl">100</span>
+                  <span class="mt-1 block text-xs font-medium tracking-[0.2em] text-slate-400 uppercase">Rendimiento</span>
+                </span>
+              </div>
+              <div class="text-center lg:text-left">
+                <span class="eyebrow"><svg class="ico size-3.5" aria-hidden="true"><use href="#i-shield-check" /></svg>Garantía Jstack</span>
+                <h2 id="garantia-title" class="h2">100/100 en Google PageSpeed. <span class="text-gradient">Garantizado.</span></h2>
+                <p class="lead lg:max-w-xl">
+                  Si al entregarte tu web no obtiene 100/100 en Google PageSpeed, seguimos optimizándola sin costo adicional hasta lograrlo. Una web veloz posiciona mejor en Google, retiene más visitas y hace rendir más tu inversión en anuncios.
+                </p>
+                <p class="mt-5 inline-flex items-start gap-2 text-left text-sm text-slate-300">
+                  <svg class="ico mt-0.5 size-4 text-cyan-300" aria-hidden="true"><use href="#i-sparkles" /></svg>
+                  Esta misma página está hecha con la tecnología que usaremos en tu web.
+                </p>
+                <div class="mt-8">
+                  <a href="#cotizar" class="btn-primary w-full sm:w-auto">
+                    Quiero una web así de rápida
+                    <svg class="ico size-5" aria-hidden="true"><use href="#i-arrow-right" /></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- 8. FAQ                                                        -->
+      <!-- ============================================================ -->
+      <section class="section pt-4 sm:pt-8" aria-labelledby="faq-title">
+        <div class="container-x">
+          <div class="reveal mx-auto max-w-2xl text-center">
+            <span class="eyebrow">Preguntas frecuentes</span>
+            <h2 id="faq-title" class="h2">Resolvemos tus dudas</h2>
+          </div>
+
+          <div class="glass reveal mx-auto mt-12 max-w-3xl divide-y divide-white/[0.07] rounded-2xl px-5 sm:px-8">
+            <details class="faq group" name="faq">
+              <summary class="flex min-h-16 cursor-pointer list-none items-center justify-between gap-4 py-4 text-base font-medium text-white sm:text-lg">
+                ¿Cuánto tiempo toma tener mi web lista?
+                <span class="flex size-8 shrink-0 items-center justify-center rounded-full border border-white/10 text-slate-300 transition-transform duration-300 group-open:rotate-180"><svg class="ico size-4" aria-hidden="true"><use href="#i-chevron-down" /></svg></span>
+              </summary>
+              <p class="pb-5 leading-relaxed text-slate-400">Una Web Básica suele estar lista en unas 2 semanas, una Web Profesional en 2 a 3 semanas y una Tienda Online en 3 a 5 semanas, según la cantidad de contenido y productos. En tu propuesta te damos una fecha de entrega concreta.</p>
+            </details>
+            <details class="faq group" name="faq">
+              <summary class="flex min-h-16 cursor-pointer list-none items-center justify-between gap-4 py-4 text-base font-medium text-white sm:text-lg">
+                ¿Cómo son los pagos?
+                <span class="flex size-8 shrink-0 items-center justify-center rounded-full border border-white/10 text-slate-300 transition-transform duration-300 group-open:rotate-180"><svg class="ico size-4" aria-hidden="true"><use href="#i-chevron-down" /></svg></span>
+              </summary>
+              <p class="pb-5 leading-relaxed text-slate-400">Trabajamos con un adelanto para iniciar el proyecto y el saldo al entregarte la web aprobada. Puedes pagar por transferencia bancaria, tarjeta u otros medios disponibles en tu país. Todo queda detallado en la propuesta, sin costos ocultos.</p>
+            </details>
+            <details class="faq group" name="faq">
+              <summary class="flex min-h-16 cursor-pointer list-none items-center justify-between gap-4 py-4 text-base font-medium text-white sm:text-lg">
+                ¿El dominio y el hosting están incluidos?
+                <span class="flex size-8 shrink-0 items-center justify-center rounded-full border border-white/10 text-slate-300 transition-transform duration-300 group-open:rotate-180"><svg class="ico size-4" aria-hidden="true"><use href="#i-chevron-down" /></svg></span>
+              </summary>
+              <p class="pb-5 leading-relaxed text-slate-400">Nos encargamos de todo: te ayudamos a registrar tu dominio (.com o el de tu país) y publicamos tu web en un hosting rápido y seguro. Si ya tienes dominio, lo conectamos. En tu propuesta verás qué está incluido y por cuánto tiempo.</p>
+            </details>
+            <details class="faq group" name="faq">
+              <summary class="flex min-h-16 cursor-pointer list-none items-center justify-between gap-4 py-4 text-base font-medium text-white sm:text-lg">
+                ¿Puedo pedir cambios durante el proyecto?
+                <span class="flex size-8 shrink-0 items-center justify-center rounded-full border border-white/10 text-slate-300 transition-transform duration-300 group-open:rotate-180"><svg class="ico size-4" aria-hidden="true"><use href="#i-chevron-down" /></svg></span>
+              </summary>
+              <p class="pb-5 leading-relaxed text-slate-400">Sí. En la etapa de diseño revisas cada pantalla y la ajustamos contigo antes de programar. Así, cuando llega el desarrollo, la web ya es exactamente lo que quieres y no hay sorpresas al final.</p>
+            </details>
+            <details class="faq group" name="faq">
+              <summary class="flex min-h-16 cursor-pointer list-none items-center justify-between gap-4 py-4 text-base font-medium text-white sm:text-lg">
+                ¿Ofrecen mantenimiento después del lanzamiento?
+                <span class="flex size-8 shrink-0 items-center justify-center rounded-full border border-white/10 text-slate-300 transition-transform duration-300 group-open:rotate-180"><svg class="ico size-4" aria-hidden="true"><use href="#i-chevron-down" /></svg></span>
+              </summary>
+              <p class="pb-5 leading-relaxed text-slate-400">Sí. Todos los paquetes incluyen soporte después del lanzamiento y, si lo prefieres, un plan mensual opcional con actualizaciones, copias de seguridad, monitoreo y cambios de contenido para que no tengas que preocuparte por nada.</p>
+            </details>
+            <details class="faq group" name="faq">
+              <summary class="flex min-h-16 cursor-pointer list-none items-center justify-between gap-4 py-4 text-base font-medium text-white sm:text-lg">
+                ¿Podré editar la web yo mismo?
+                <span class="flex size-8 shrink-0 items-center justify-center rounded-full border border-white/10 text-slate-300 transition-transform duration-300 group-open:rotate-180"><svg class="ico size-4" aria-hidden="true"><use href="#i-chevron-down" /></svg></span>
+              </summary>
+              <p class="pb-5 leading-relaxed text-slate-400">Sí. Con el panel autoadministrable cambias textos, fotos, productos y precios desde tu computadora o celular, sin saber programar. Al entregarte la web te capacitamos para que la manejes con total confianza.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- 9. FORMULARIO MULTIPASO                                       -->
+      <!-- ============================================================ -->
+      <section id="cotizar" class="section isolate scroll-mt-2 pt-12 sm:pt-16" aria-labelledby="cotizar-title">
+        <div class="bg-glow-center pointer-events-none absolute inset-x-0 top-0 -z-10 h-full" aria-hidden="true"></div>
+        <div class="container-x grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:grid-rows-[auto_1fr] lg:gap-x-16 lg:gap-y-10">
+          <div class="lg:col-start-1 lg:row-start-1">
+            <span class="eyebrow">Cotización gratis</span>
+            <h2 id="cotizar-title" class="h2">Recibe tu propuesta en menos de 2 horas</h2>
+            <p class="lead">Completa 3 pasos rápidos (toma menos de 1 minuto) y te enviamos una propuesta a medida por WhatsApp.</p>
+          </div>
+
+          <div class="gradient-border rounded-3xl p-5 shadow-[0_40px_100px_-40px_rgba(34,211,238,0.35)] sm:p-8 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:self-start">
+            <form id="lead-form" class="scroll-mt-6" novalidate onsubmit="return false">
+              <div class="mb-7">
+                <div class="flex items-center justify-between gap-4 text-sm">
+                  <p class="font-medium text-white" data-progress-title>Tus datos de contacto</p>
+                  <p class="shrink-0 text-slate-400" data-progress-label>Paso 1 de 3</p>
+                </div>
+                <div class="mt-3 h-2 overflow-hidden rounded-full bg-white/[0.07]" role="progressbar" aria-label="Progreso del formulario" aria-valuemin="1" aria-valuemax="3" aria-valuenow="1">
+                  <div class="h-full w-1/3 rounded-full bg-linear-to-r from-[#5b8cff] to-cyan-400 transition-[width] duration-500" data-progress-bar></div>
+                </div>
+              </div>
+
+              <!-- Paso 1 -->
+              <fieldset data-step="1" class="space-y-5">
+                <legend class="sr-only" tabindex="-1">Paso 1 de 3: tus datos de contacto</legend>
+                <div>
+                  <label for="nombre" class="label">Tu nombre</label>
+                  <input id="nombre" name="nombre" type="text" class="field" autocomplete="name" autocapitalize="words" enterkeyhint="next" placeholder="Ej. María Pérez" aria-describedby="err-nombre" data-validate />
+                  <p id="err-nombre" class="field-error" data-error-for="nombre" aria-live="polite"></p>
+                </div>
+                <div>
+                  <label for="whatsapp" class="label">WhatsApp</label>
+                  <div class="flex gap-2">
+                    <div class="country relative shrink-0">
+                      <span class="field flex w-[6.75rem] items-center justify-between gap-1 pr-3" aria-hidden="true">
+                        <span data-country-face>🇵🇪 +51</span>
+                        <svg class="ico size-4 text-slate-400"><use href="#i-chevron-down" /></svg>
+                      </span>
+                      <select id="pais" name="pais" class="absolute inset-0 size-full cursor-pointer opacity-0" aria-label="Código de país"></select>
+                    </div>
+                    <input id="whatsapp" name="whatsapp" type="tel" inputmode="tel" class="field min-w-0" autocomplete="tel-national" enterkeyhint="next" placeholder="987 654 321" aria-describedby="whatsapp-hint err-whatsapp" data-validate />
+                  </div>
+                  <p id="whatsapp-hint" class="mt-2 text-xs text-slate-400">Por aquí te enviaremos tu propuesta.</p>
+                  <p id="err-whatsapp" class="field-error" data-error-for="whatsapp" aria-live="polite"></p>
+                </div>
+                <div>
+                  <label for="email" class="label">Correo electrónico</label>
+                  <input id="email" name="email" type="email" inputmode="email" class="field" autocomplete="email" autocapitalize="off" spellcheck="false" enterkeyhint="next" placeholder="tucorreo@ejemplo.com" aria-describedby="err-email" data-validate />
+                  <p id="err-email" class="field-error" data-error-for="email" aria-live="polite"></p>
+                </div>
+              </fieldset>
+
+              <!-- Paso 2 -->
+              <fieldset data-step="2" class="space-y-5" hidden>
+                <legend class="sr-only" tabindex="-1">Paso 2 de 3: sobre tu negocio</legend>
+                <div>
+                  <label for="negocio" class="label">Nombre de tu negocio</label>
+                  <input id="negocio" name="negocio" type="text" class="field" autocomplete="organization" autocapitalize="words" enterkeyhint="next" placeholder="Ej. Clínica Dental Sonrisas" aria-describedby="err-negocio" data-validate />
+                  <p id="err-negocio" class="field-error" data-error-for="negocio" aria-live="polite"></p>
+                </div>
+                <div>
+                  <label for="rubro" class="label">Rubro</label>
+                  <select id="rubro" name="rubro" class="field" required aria-describedby="err-rubro" data-validate>
+                    <option value="" disabled selected>Elige el rubro de tu negocio</option>
+                    <option>Restaurante, café o delivery</option>
+                    <option>Salud (clínica, consultorio, dental)</option>
+                    <option>Belleza, spa o estética</option>
+                    <option>Inmobiliaria o construcción</option>
+                    <option>Educación o academia</option>
+                    <option>Servicios profesionales (legal, contable, consultoría)</option>
+                    <option>Tienda o comercio</option>
+                    <option>Turismo u hotelería</option>
+                    <option>Automotriz</option>
+                    <option>Industria, logística o B2B</option>
+                    <option>Tecnología o startup</option>
+                    <option>Otro</option>
+                  </select>
+                  <p id="err-rubro" class="field-error" data-error-for="rubro" aria-live="polite"></p>
+                </div>
+                <div>
+                  <label for="necesidad" class="label">¿Qué necesitas?</label>
+                  <select id="necesidad" name="necesidad" class="field" required aria-describedby="err-necesidad" data-validate>
+                    <option value="" disabled selected>Elige una opción</option>
+                    <option>Una web nueva para mi negocio</option>
+                    <option>Rediseñar mi web actual</option>
+                    <option>Una tienda online</option>
+                    <option>Una landing page para mis anuncios</option>
+                    <option>Aún no lo sé, necesito asesoría</option>
+                  </select>
+                  <p id="err-necesidad" class="field-error" data-error-for="necesidad" aria-live="polite"></p>
+                </div>
+              </fieldset>
+
+              <!-- Paso 3 (rangos en US$: ajústalos a tus paquetes) -->
+              <fieldset data-step="3" class="space-y-7" hidden>
+                <legend class="sr-only" tabindex="-1">Paso 3 de 3: tu proyecto</legend>
+                <fieldset>
+                  <legend class="label">Presupuesto aproximado</legend>
+                  <div class="grid grid-cols-2 gap-2.5">
+                    <label class="opt"><input type="radio" name="presupuesto" value="Menos de US$500" class="sr-only" data-validate /><span>Menos de US$500</span></label>
+                    <label class="opt"><input type="radio" name="presupuesto" value="US$500 – 1,000" class="sr-only" /><span>US$500 – 1,000</span></label>
+                    <label class="opt"><input type="radio" name="presupuesto" value="US$1,000 – 2,500" class="sr-only" /><span>US$1,000 – 2,500</span></label>
+                    <label class="opt"><input type="radio" name="presupuesto" value="Más de US$2,500" class="sr-only" /><span>Más de US$2,500</span></label>
+                    <label class="opt col-span-2"><input type="radio" name="presupuesto" value="Aún no lo tengo claro" class="sr-only" /><span>Aún no lo tengo claro</span></label>
+                  </div>
+                  <p class="field-error" data-error-for="presupuesto" aria-live="polite"></p>
+                </fieldset>
+                <fieldset>
+                  <legend class="label">¿Cuándo quieres empezar?</legend>
+                  <div class="grid grid-cols-2 gap-2.5">
+                    <label class="opt"><input type="radio" name="inicio" value="Lo antes posible" class="sr-only" data-validate /><span>Lo antes posible</span></label>
+                    <label class="opt"><input type="radio" name="inicio" value="En las próximas 2 semanas" class="sr-only" /><span>En las próximas 2 semanas</span></label>
+                    <label class="opt"><input type="radio" name="inicio" value="En 1 a 3 meses" class="sr-only" /><span>En 1 a 3 meses</span></label>
+                    <label class="opt"><input type="radio" name="inicio" value="Solo estoy cotizando" class="sr-only" /><span>Solo estoy cotizando</span></label>
+                  </div>
+                  <p class="field-error" data-error-for="inicio" aria-live="polite"></p>
+                </fieldset>
+              </fieldset>
+
+              <input id="paquete" name="paquete" type="hidden" value="" />
+              <!-- Campo trampa para bots: las personas no lo ven ni lo llenan -->
+              <div class="absolute -left-[9999px] h-px w-px overflow-hidden" aria-hidden="true">
+                <label for="website">No llenes este campo</label>
+                <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+              </div>
+
+              <div data-submit-error class="mt-6 rounded-xl border border-rose-400/30 bg-rose-400/[0.08] p-4 text-sm text-rose-200" role="alert" hidden>
+                <p class="flex items-center gap-2 font-semibold"><svg class="ico size-4" aria-hidden="true"><use href="#i-circle-alert" /></svg>No pudimos enviar tu solicitud.</p>
+                <p class="mt-1 text-rose-200/90">Revisa tu conexión e inténtalo de nuevo, o envíanos tus datos por WhatsApp con un toque.</p>
+                <a href="https://wa.me/16469804939" data-wa="Hola Jstack.Digital 👋 Quiero una cotización." data-wa-placement="form_error" target="_blank" rel="noopener" class="mt-3 inline-flex min-h-11 items-center gap-2 font-semibold text-[#4ade80] underline underline-offset-4">
+                  <svg class="ico-fill size-4" aria-hidden="true"><use href="#i-whatsapp" /></svg>Enviar por WhatsApp
+                </a>
+              </div>
+
+              <div class="mt-8 flex gap-3">
+                <button type="button" class="btn-ghost min-h-14 shrink-0 px-5 text-base" data-back hidden>
+                  <svg class="ico size-5" aria-hidden="true"><use href="#i-chevron-left" /></svg>
+                  <span class="max-sm:sr-only">Atrás</span>
+                </button>
+                <button type="submit" class="btn-primary flex-1" data-next>
+                  <span data-next-label>Siguiente</span>
+                  <svg class="ico size-5" aria-hidden="true" data-next-icon><use href="#i-arrow-right" /></svg>
+                  <svg class="ico size-5 animate-spin" aria-hidden="true" data-next-spinner hidden><use href="#i-loader-circle" /></svg>
+                </button>
+              </div>
+
+              <p class="mt-5 flex items-start gap-2 text-xs leading-relaxed text-slate-400">
+                <svg class="ico mt-0.5 size-3.5 shrink-0" aria-hidden="true"><use href="#i-lock" /></svg>
+                <span>Tus datos están seguros: solo los usamos para enviarte tu propuesta. Al enviar aceptas nuestra <a href="/#/privacy" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-white">política de privacidad</a>.</span>
+              </p>
+            </form>
+          </div>
+
+          <ul class="space-y-4 lg:col-start-1 lg:row-start-2">
+            <li class="flex gap-3.5">
+              <span class="mt-0.5 flex size-7 shrink-0 items-center justify-center rounded-full bg-cyan-400/12 text-cyan-300"><svg class="ico size-4" aria-hidden="true"><use href="#i-check" /></svg></span>
+              <span><strong class="font-semibold text-white">Propuesta clara y sin letra pequeña.</strong> <span class="text-slate-400">Precio cerrado y todo lo que incluye, por escrito.</span></span>
+            </li>
+            <li class="flex gap-3.5">
+              <span class="mt-0.5 flex size-7 shrink-0 items-center justify-center rounded-full bg-cyan-400/12 text-cyan-300"><svg class="ico size-4" aria-hidden="true"><use href="#i-check" /></svg></span>
+              <span><strong class="font-semibold text-white">Fecha de entrega definida.</strong> <span class="text-slate-400">Sabrás desde el inicio cuándo estará lista tu web.</span></span>
+            </li>
+            <li class="flex gap-3.5">
+              <span class="mt-0.5 flex size-7 shrink-0 items-center justify-center rounded-full bg-cyan-400/12 text-cyan-300"><svg class="ico size-4" aria-hidden="true"><use href="#i-check" /></svg></span>
+              <span><strong class="font-semibold text-white">Asesoría gratuita.</strong> <span class="text-slate-400">Sin compromiso: te recomendamos lo que tu negocio realmente necesita.</span></span>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============================================================ -->
+    <!-- 10. FOOTER                                                    -->
+    <!-- ============================================================ -->
+    <footer class="border-t border-white/[0.06]">
+      <div class="container-x flex flex-col items-center gap-6 py-10 text-center sm:flex-row sm:justify-between sm:text-left">
+        <div>
+          <span class="flex items-center justify-center gap-2.5 text-white sm:justify-start">
+            <span class="flex size-8 items-center justify-center rounded-lg bg-linear-to-br from-[#5b8cff] to-cyan-400 font-bold text-[#04101f]" aria-hidden="true">J</span>
+            <span class="font-semibold tracking-tight">Jstack<span class="text-cyan-300">.Digital</span></span>
+          </span>
+          <p class="mt-2 text-sm text-slate-400">Webs a medida que cargan al instante y venden más.</p>
+        </div>
+        <div class="flex flex-col items-center gap-3 sm:items-end">
+          <a href="mailto:jstackinfo@gmail.com" class="inline-flex min-h-11 items-center gap-2 text-sm text-slate-300 hover:text-white">
+            <svg class="ico size-4" aria-hidden="true"><use href="#i-mail" /></svg>jstackinfo@gmail.com
+          </a>
+          <div class="flex gap-2">
+            <a href="https://www.facebook.com/JstackDigitalSolutions" target="_blank" rel="noopener" aria-label="Facebook de Jstack.Digital" class="flex size-11 items-center justify-center rounded-full border border-white/10 text-slate-300 transition-colors hover:border-cyan-300/40 hover:text-white">
+              <svg class="ico-fill size-4.5" aria-hidden="true"><use href="#i-facebook" /></svg>
+            </a>
+            <!-- [PLACEHOLDER] Reemplaza por la URL de tu perfil de Instagram -->
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram de Jstack.Digital" class="flex size-11 items-center justify-center rounded-full border border-white/10 text-slate-300 transition-colors hover:border-cyan-300/40 hover:text-white">
+              <svg class="ico-fill size-4.5" aria-hidden="true"><use href="#i-instagram" /></svg>
+            </a>
+            <a href="https://wa.me/16469804939" data-wa="Hola Jstack.Digital 👋 Quiero información para crear la web de mi negocio." data-wa-placement="footer" target="_blank" rel="noopener" aria-label="WhatsApp de Jstack.Digital" class="flex size-11 items-center justify-center rounded-full border border-white/10 text-slate-300 transition-colors hover:border-cyan-300/40 hover:text-white">
+              <svg class="ico-fill size-4.5" aria-hidden="true"><use href="#i-whatsapp" /></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <p class="container-x pb-28 text-center text-xs text-slate-400 md:pb-10">© <span data-year>2026</span> Jstack.Digital · Todos los derechos reservados</p>
+    </footer>
+
+    <!-- Botón flotante de WhatsApp (solo móvil) -->
+    <a
+      id="wa-float"
+      href="https://wa.me/16469804939"
+      data-wa="Hola Jstack.Digital 👋 Quiero información para crear la web de mi negocio."
+      data-wa-placement="floating"
+      target="_blank"
+      rel="noopener"
+      aria-label="Escríbenos por WhatsApp"
+      class="pulse-ring fixed right-4 bottom-[max(1rem,env(safe-area-inset-bottom))] z-50 flex size-14 items-center justify-center rounded-full bg-[#25d366] text-white shadow-[0_10px_30px_-6px_rgba(37,211,102,0.6)] transition-[transform,opacity] duration-300 md:hidden"
+    >
+      <svg class="ico-fill size-7" aria-hidden="true"><use href="#i-whatsapp" /></svg>
+    </a>
+  </body>
+</html>

@@ -1,0 +1,364 @@
+/*
+ * Estilos de la landing de captación (/cotiza/) y la página de gracias (/gracias/).
+ * Tailwind solo escanea estos archivos, así el CSS final queda mínimo y se
+ * incrusta en el HTML durante el build (ver vite.config.ts).
+ */
+@import "tailwindcss" source(none);
+@source "../../cotiza/index.html";
+@source "../../gracias/index.html";
+@source "./*.ts";
+
+/* Geist variable autoalojada (solo subconjunto latino, ~29 KB). */
+@font-face {
+  font-family: "Geist";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/fonts/geist-latin-wght.woff2") format("woff2");
+}
+
+/* Fuente de respaldo con métricas ajustadas a Geist: evita saltos de layout (CLS) al cargar la fuente. */
+@font-face {
+  font-family: "Geist Fallback";
+  src: local("Arial"), local("ArialMT"), local("Roboto");
+  size-adjust: 106.16%;
+  ascent-override: 94.67%;
+  descent-override: 27.79%;
+  line-gap-override: 0%;
+}
+
+@theme {
+  --font-sans: "Geist", "Geist Fallback", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --color-ink: #0a0f1c;
+  --color-ink-raised: #0f1629;
+  --color-electric: #3d7bff;
+}
+
+/* Superficie "glass": translúcida, sin backdrop-filter para no penalizar el scroll en móviles. */
+@utility glass {
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.015));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    background-color: var(--color-ink);
+    color: #cbd5e1;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: rgba(34, 211, 238, 0.3);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid #22d3ee;
+    outline-offset: 3px;
+  }
+
+  option {
+    background-color: var(--color-ink-raised);
+    color: #fff;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8;
+  }
+
+  .section {
+    @apply relative py-16 sm:py-24 lg:py-28;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/[0.06] px-3 py-1 text-xs font-medium tracking-[0.14em] text-cyan-300 uppercase;
+  }
+
+  .h2 {
+    @apply mt-4 text-[2rem] leading-[1.1] font-semibold tracking-tight text-balance text-white sm:text-4xl lg:text-5xl;
+  }
+
+  .lead {
+    @apply mt-4 text-base leading-relaxed text-pretty text-slate-400 sm:text-lg;
+  }
+
+  .text-gradient {
+    background-image: linear-gradient(100deg, #6ea2ff 0%, #22d3ee 60%, #67e8f9 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .gradient-border {
+    border: 1px solid transparent;
+    background:
+      linear-gradient(var(--color-ink-raised), var(--color-ink-raised)) padding-box,
+      linear-gradient(140deg, rgba(110, 162, 255, 0.9), rgba(34, 211, 238, 0.35) 45%, rgba(255, 255, 255, 0.06) 70%, rgba(34, 211, 238, 0.6)) border-box;
+  }
+
+  .btn-primary {
+    @apply relative inline-flex min-h-14 items-center justify-center gap-2 rounded-full px-7 text-base font-semibold text-[#04101f] transition-[transform,box-shadow] duration-300 select-none;
+    background-image: linear-gradient(135deg, #5b8cff 0%, #22d3ee 100%);
+    box-shadow:
+      0 12px 32px -12px rgba(34, 211, 238, 0.6),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 18px 42px -12px rgba(34, 211, 238, 0.75),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  }
+
+  .btn-primary:active {
+    transform: translateY(0);
+  }
+
+  .btn-primary[disabled] {
+    @apply cursor-wait opacity-80;
+    transform: none;
+  }
+
+  .btn-ghost {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-5 text-sm font-medium text-white transition-colors hover:border-cyan-300/40 hover:bg-white/[0.07];
+  }
+
+  .btn-wa {
+    @apply inline-flex min-h-14 items-center justify-center gap-2.5 rounded-full bg-[#25d366] px-7 text-base font-semibold text-[#03240f] transition-[transform,box-shadow] duration-300 hover:-translate-y-0.5;
+    box-shadow: 0 12px 32px -12px rgba(37, 211, 102, 0.65);
+  }
+
+  .card {
+    @apply glass rounded-2xl p-6 sm:p-7;
+  }
+
+  .icon-tile {
+    @apply inline-flex size-12 shrink-0 items-center justify-center rounded-xl border border-white/10 text-cyan-300;
+    background-image: linear-gradient(140deg, rgba(61, 123, 255, 0.22), rgba(34, 211, 238, 0.08));
+  }
+
+  .ico {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+  }
+
+  .ico-fill {
+    fill: currentColor;
+    flex-shrink: 0;
+  }
+
+  /* Formulario */
+  .label {
+    @apply mb-2 block text-sm font-medium text-slate-200;
+  }
+
+  .field {
+    @apply block min-h-[3.25rem] w-full appearance-none rounded-xl border border-white/10 bg-white/[0.04] px-4 text-base text-white transition-[border-color,background-color,box-shadow] duration-200 outline-none placeholder:text-slate-500;
+  }
+
+  .field:focus {
+    @apply border-cyan-300/60 bg-white/[0.07];
+    box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.12);
+  }
+
+  .field[aria-invalid="true"] {
+    @apply border-rose-400/70;
+  }
+
+  select.field {
+    @apply cursor-pointer pr-11;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1.1rem;
+  }
+
+  /* Selector de país: el <select> nativo es invisible y va encima de la "cara" con bandera y código. */
+  .country:has(select:focus-visible) .field {
+    @apply border-cyan-300/60 bg-white/[0.07];
+    box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.12);
+  }
+
+  select.field:invalid {
+    @apply text-slate-500;
+  }
+
+  .field-error {
+    @apply mt-2 flex items-start gap-1.5 text-sm text-rose-300;
+  }
+
+  .field-error:empty {
+    @apply hidden;
+  }
+
+  /* Botones grandes de opción (radio) */
+  .opt {
+    @apply relative block cursor-pointer;
+  }
+
+  .opt > span {
+    @apply flex min-h-16 items-center justify-center rounded-xl border border-white/10 bg-white/[0.035] px-3 py-3 text-center text-[0.95rem] leading-snug font-medium text-slate-200 transition-[border-color,background-color,color,box-shadow] duration-200;
+  }
+
+  .opt:hover > span {
+    @apply border-white/25 bg-white/[0.06];
+  }
+
+  .opt input:focus-visible + span {
+    outline: 2px solid #22d3ee;
+    outline-offset: 2px;
+  }
+
+  .opt input:checked + span {
+    @apply border-cyan-300/80 text-white;
+    background-image: linear-gradient(140deg, rgba(61, 123, 255, 0.28), rgba(34, 211, 238, 0.14));
+    box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.12), 0 10px 30px -14px rgba(34, 211, 238, 0.6);
+  }
+
+  .faq summary::-webkit-details-marker {
+    display: none;
+  }
+}
+
+/* Fondos decorativos (gradientes, sin imágenes ni filtros costosos) */
+.bg-hero {
+  background:
+    radial-gradient(55% 45% at 78% 18%, rgba(61, 123, 255, 0.22), transparent 70%),
+    radial-gradient(40% 35% at 8% 30%, rgba(34, 211, 238, 0.1), transparent 70%);
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 44px 44px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 35%, transparent 75%);
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 35%, transparent 75%);
+}
+
+.bg-glow-center {
+  background: radial-gradient(50% 50% at 50% 50%, rgba(61, 123, 255, 0.18), transparent 70%);
+}
+
+/* El mockup del hero escala en proporción: todo lo de adentro se mide en em. */
+.mockup {
+  font-size: clamp(6px, calc((100vw - 40px) / 56), 10px);
+}
+
+.divider-glow {
+  background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.35), transparent);
+}
+
+/* Animaciones: solo si el usuario no pidió reducir el movimiento */
+@media (prefers-reduced-motion: no-preference) {
+  .js .reveal {
+    opacity: 0;
+    transform: translate3d(0, 28px, 0);
+    transition:
+      opacity 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) var(--d, 0ms),
+      transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) var(--d, 0ms);
+  }
+
+  .js .reveal.in {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Las animaciones decorativas arrancan con la primera interacción (.anim): la carga queda estática. */
+  .anim .float {
+    animation: float 7s ease-in-out infinite;
+  }
+
+  .anim .float-slow {
+    animation: float 9s ease-in-out infinite;
+  }
+
+  .anim .float-delay {
+    animation: float 8s ease-in-out -3s infinite;
+  }
+
+  .anim .pulse-ring::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: inherit;
+    animation: pulse-ring 2.4s cubic-bezier(0.2, 0.7, 0.2, 1) infinite;
+    z-index: -1;
+  }
+
+  .js .reveal .gauge-reveal {
+    stroke-dashoffset: 100;
+    transition: stroke-dashoffset 1.8s cubic-bezier(0.2, 0.7, 0.2, 1) 0.4s;
+  }
+
+  .js .reveal.in .gauge-reveal {
+    stroke-dashoffset: 0;
+  }
+
+  .step-in {
+    animation: step-in 0.45s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+
+  .check-pop {
+    animation: check-pop 0.7s cubic-bezier(0.2, 0.9, 0.3, 1.3) both;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -10px, 0);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+@keyframes step-in {
+  from {
+    opacity: 0;
+    transform: translate3d(14px, 0, 0);
+  }
+}
+
+@keyframes check-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+}

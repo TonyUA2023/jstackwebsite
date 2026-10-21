@@ -10,7 +10,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "start": "npx serve -s dist -l 3000"
+    "start": "npx serve dist -l 3000"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.3",

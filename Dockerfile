@@ -12,6 +12,14 @@ RUN npm ci
 # Copy source files
 COPY . .
 
+# Public settings of the lead landing (/cotiza/), read by Vite at build time.
+# In Coolify, add them as environment variables with "Build Variable" enabled.
+ARG VITE_META_PIXEL_ID
+ARG VITE_LEAD_WEBHOOK_URL
+ARG VITE_SUPABASE_URL
+ARG VITE_SUPABASE_ANON_KEY
+ARG VITE_CALENDLY_URL
+
 # Build static production bundle
 RUN npm run build
 
