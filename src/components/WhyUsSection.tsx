@@ -34,14 +34,14 @@ export const WhyUsSection: React.FC = () => {
   const valuePropsEs = [
     { icon: Zap, title: "100/100 Velocidad Google", desc: "Tiempos de carga inferiores a 0.3 segundos para una tasa de rebote mínima." },
     { icon: Target, title: "100% Código Propio", desc: "Cero plantillas lentas de WordPress. Arquitecturas ligeras construidas a mano." },
-    { icon: Award, title: "Liderazgo de Ingeniería", desc: "Supervisado directamente por Tony Ulloa, Ingeniero de Sistemas." },
+    { icon: Award, title: "Liderazgo de Ingeniería", desc: "Supervisado directamente por Tony Ulloa, Full Stack Developer y especialista en implementaciones de IA y SEO." },
     { icon: Clock, title: "Entrega Ágil & Puntual", desc: "Cronogramas de desarrollo claros y comunicación fluida en cada etapa." }
   ];
 
   const valuePropsEn = [
     { icon: Zap, title: "100/100 Google Speed Guarantee", desc: "Sub-0.3s response times maximizing visitor retention and SEO rankings." },
     { icon: Target, title: "100% Bespoke Code", desc: "Zero slow templates or bloated plugins. Pure modern web architecture." },
-    { icon: Award, title: "Engineering Rigor", desc: "Directly led by Tony Ulloa, Senior Systems Engineer & AI Architect." },
+    { icon: Award, title: "Engineering Rigor", desc: "Directly led by Tony Ulloa, Full Stack Developer and AI implementation & SEO specialist." },
     { icon: Clock, title: "Agile Turnaround", desc: "Transparent milestones, predictable schedules, and continuous feedback." }
   ];
 

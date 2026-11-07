@@ -187,9 +187,9 @@ const es = {
     lead: 'Un equipo fundador que combina ingeniería, estrategia y obsesión por los resultados de cada cliente.',
     people: {
       tony: {
-        role: 'Co-fundador · Ingeniero de Sistemas & Arquitecto de IA',
+        role: 'Co-fundador · Full Stack Developer · Especialista en Implementaciones de IA y SEO',
         bio: 'Más de 10 años liderando proyectos de software. Diseña la arquitectura de cada plataforma: web, sistemas a medida e inteligencia artificial aplicada.',
-        skills: ['Arquitectura de software', 'IA aplicada', 'Cloud'],
+        skills: ['Desarrollo Full Stack', 'Implementaciones de IA', 'SEO'],
       },
       danny: {
         role: 'Co-fundador · Estrategia & Dirección de Proyectos',
@@ -398,9 +398,9 @@ const en: BrochureCopy = {
     lead: 'A founding team that blends engineering, strategy and an obsession with every client’s results.',
     people: {
       tony: {
-        role: 'Co-founder · Systems Engineer & AI Architect',
+        role: 'Co-founder · Full Stack Developer · AI Implementation & SEO Specialist',
         bio: 'Over 10 years leading software projects. He architects every platform: web, custom systems and applied artificial intelligence.',
-        skills: ['Software architecture', 'Applied AI', 'Cloud'],
+        skills: ['Full-stack development', 'AI implementation', 'SEO'],
       },
       danny: {
         role: 'Co-founder · Strategy & Project Leadership',

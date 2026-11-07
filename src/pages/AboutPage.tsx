@@ -148,16 +148,16 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome }) => {
                 <div className="relative rounded-2xl overflow-hidden shadow-md bg-slate-900 aspect-[4/5]">
                   <img 
                     src={fotoTony} 
-                    alt="Tony Ulloa - Lead Systems Engineer & AI Architect" 
+                    alt={language === 'es' ? 'Tony Ulloa, Full Stack Developer y especialista en implementaciones de IA y SEO' : 'Tony Ulloa, Full Stack Developer and AI implementation & SEO specialist'}
                     className="w-full h-full object-cover object-top"
                   />
                   <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-[#0A192F] via-[#0A192F]/85 to-transparent p-6 text-white text-left">
                     <span className="text-xs font-bold text-[#D8202A] uppercase tracking-wider block mb-1">
-                      {language === 'es' ? 'Fundador & Director de Ingeniería' : 'Founder & Lead Systems Engineer'}
+                      Full Stack Developer
                     </span>
                     <h3 className="text-2xl font-bold font-sans">Tony Ulloa</h3>
                     <p className="text-xs text-slate-300 font-medium">
-                      {language === 'es' ? 'Ingeniero de Sistemas' : 'Systems Engineer'}
+                      {language === 'es' ? 'Especialista en Implementaciones de IA y SEO' : 'AI Implementation & SEO Specialist'}
                     </p>
                   </div>
                 </div>
@@ -201,11 +201,11 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome }) => {
                 {language === 'es' ? (
                   <>
                     <p>
-                      Fundada y dirigida por <strong>Tony Ulloa</strong> (Ingeniero de Sistemas), <strong>JSTACK Digital Solutions</strong> nació con una premisa inquebrantable: erradicar las soluciones web genéricas y lentas, sustituyéndolas por arquitecturas de software de nivel industrial diseñadas para generar resultados comerciales tangibles.
+                      Fundada y dirigida por <strong>Tony Ulloa</strong> (Full Stack Developer), <strong>JSTACK Digital Solutions</strong> nació con una premisa inquebrantable: erradicar las soluciones web genéricas y lentas, sustituyéndolas por arquitecturas de software de nivel industrial diseñadas para generar resultados comerciales tangibles.
                     </p>
                     
                     <p>
-                      Como Director de Proyectos e Ingeniero de Sistemas especializado en Arquitectura Cloud e Inteligencia Artificial, Tony lidera personalmente el diseño estructural y la supervisión de cada desarrollo. Esto garantiza que cada línea de código en <strong>React, Next.js y TypeScript</strong> cumpla con estrictos estándares de ciberseguridad, tiempos de respuesta inferiores a 0.3 segundos y compatibilidad total con pasarelas de pago y sistemas empresariales.
+                      Como Director de Proyectos, Full Stack Developer y especialista en implementaciones de IA y SEO, Tony lidera personalmente el diseño estructural y la supervisión de cada desarrollo. Esto garantiza que cada línea de código en <strong>React, Next.js y TypeScript</strong> cumpla con estrictos estándares de ciberseguridad, tiempos de respuesta inferiores a 0.3 segundos y compatibilidad total con pasarelas de pago y sistemas empresariales.
                     </p>
 
                     <p>
@@ -215,11 +215,11 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome }) => {
                 ) : (
                   <>
                     <p>
-                      Founded and directed by <strong>Tony Ulloa</strong> (Systems Engineer), <strong>JSTACK Digital Solutions</strong> was established on a firm foundation: eliminating bloated, sluggish website templates and replacing them with industrial-grade software architectures engineered for measurable commercial ROI.
+                      Founded and directed by <strong>Tony Ulloa</strong> (Full Stack Developer), <strong>JSTACK Digital Solutions</strong> was established on a firm foundation: eliminating bloated, sluggish website templates and replacing them with industrial-grade software architectures engineered for measurable commercial ROI.
                     </p>
                     
                     <p>
-                      As Project Director and Systems Engineer specializing in Cloud Architecture and AI Workflows, Tony personally leads the architectural blueprint and rigorous review of every codebase. This ensures that every line of <strong>React, Next.js, and TypeScript</strong> code adheres to strict cybersecurity standards, sub-0.3 second response times, and seamless API integrations.
+                      As Project Director, Full Stack Developer and AI implementation & SEO specialist, Tony personally leads the architectural blueprint and rigorous review of every codebase. This ensures that every line of <strong>React, Next.js, and TypeScript</strong> code adheres to strict cybersecurity standards, sub-0.3 second response times, and seamless API integrations.
                     </p>
 
                     <p>
@@ -232,12 +232,12 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome }) => {
               {/* Pilares Clave de Compromiso */}
               <div className="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 {(language === 'es' ? [
-                  'Supervisión directa por Ingeniero de Sistemas',
+                  'Supervisión directa de Tony Ulloa, Full Stack Developer',
                   'Garantía de rendimiento 100/100 en Google Core Web Vitals',
                   'Código 100% propio entregado con propiedad total',
                   'Soporte técnico continuo y acuerdos de nivel de servicio (SLA)'
                 ] : [
-                  'Direct supervision by Systems Engineer',
+                  'Direct supervision by Tony Ulloa, Full Stack Developer',
                   'Guaranteed 100/100 Google Core Web Vitals score',
                   '100% bespoke source code with complete ownership',
                   'Continuous SLA monitoring and priority technical support'

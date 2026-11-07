@@ -53,7 +53,7 @@ export const FounderSection: React.FC = () => {
               <div className="relative w-full h-[440px] sm:h-[500px] lg:h-[540px] bg-slate-100 border border-slate-200 rounded-2xl overflow-hidden shadow-inner">
                 <img 
                   src={tonyFotoImg} 
-                  alt="Tony Ulloa - Systems Engineer & AI / Web Architecture Specialist" 
+                  alt={language === 'es' ? 'Tony Ulloa, Full Stack Developer y especialista en implementaciones de IA y SEO' : 'Tony Ulloa, Full Stack Developer and AI implementation & SEO specialist'}
                   className="w-full h-full object-cover object-top contrast-105 group-hover:scale-105 transition-transform duration-500"
                 />
 
@@ -63,7 +63,7 @@ export const FounderSection: React.FC = () => {
                     Tony Ulloa
                   </span>
                   <p className="text-sm sm:text-[15px] font-bold text-[#0A192F] mt-1 leading-snug">
-                    {language === 'es' ? 'Ingeniero de Sistemas · Especialista en IA y Web' : 'Systems Engineer · AI & Web Architecture'}
+                    {language === 'es' ? 'Full Stack Developer · Especialista en Implementaciones de IA y SEO' : 'Full Stack Developer · AI Implementation & SEO Specialist'}
                   </p>
                 </div>
               </div>
